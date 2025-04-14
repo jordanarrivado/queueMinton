@@ -1,0 +1,118 @@
+/* Dashboard Container */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2.5rem;
+  width: 42vw;
+  background: transparent;
+  background-image: radial-gradient(
+      at 7% 4%,
+      hsla(205, 100%, 40%, 0.3) 0,
+      transparent 55%
+    ),
+    radial-gradient(at 92% 95%, hsla(320, 100%, 50%, 0.6) 0, transparent 35%),
+    radial-gradient(at 50% 50%, hsla(145, 70%, 50%, 0.3) 0, transparent 50%);
+
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  border-radius: var(--rd);
+  backdrop-filter: var(--blur);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Pie Chart Section */
+.pieChartCon {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping for responsiveness */
+  justify-content: center;
+  align-items: center;
+  gap: 2rem; /* More spacing between charts */
+  padding: 2rem;
+}
+
+/* Pie Chart Styling */
+.pieChart {
+  width: 300px; /* ✅ Increased for better readability */
+  height: 300px;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Pie Chart Header */
+.hd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.hd h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Graph Section */
+.bottomGraph {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+/* Button */
+.btnSwitch {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  background: linear-gradient(135deg, #0088ff, #00ffff);
+  color: white;
+  margin-top: 1.5rem;
+}
+
+.btnSwitch:hover {
+  background: linear-gradient(135deg, #00ffff, #0088ff);
+  transform: scale(1.08);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+  .dashboard {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dashboard {
+    width: 67vw;
+  }
+}
+@media screen and (max-width: 767px) {
+  .dashboard {
+    width: 83vw;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .dashboard {
+    transform: translateY(0%);
+    margin: 0;
+    width: 70vw;
+  }
+}

@@ -1,0 +1,464 @@
+.payment {
+  font-family: var(--textDisplay);
+  color: var(--textColor);
+  background: transparent;
+  background-image: radial-gradient(
+      at 7% 4%,
+      hsla(235, 80%, 30%, 0.7) 0,
+      transparent 39%
+    ),
+    radial-gradient(at 92% 95%, hsla(350, 90%, 45%, 0.6) 0, transparent 40%),
+    radial-gradient(at 50% 50%, hsla(170, 90%, 45%, 0.3) 0, transparent 55%);
+
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  border-radius: var(--rd);
+  backdrop-filter: var(--blur) !important;
+  position: relative;
+  text-align: center;
+  margin: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 74vh;
+  width: 43vw;
+  padding: 2rem 2.5rem 0 2.5rem;
+  -webkit-animation: slide-in-fwd-center 2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+  animation: slide-in-fwd-center 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@-webkit-keyframes slide-in-fwd-center {
+  0% {
+    -webkit-transform: translateZ(-1400px);
+    transform: translateZ(-1400px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-fwd-center {
+  0% {
+    -webkit-transform: translateZ(-1400px);
+    transform: translateZ(-1400px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: 1;
+  }
+}
+
+.payment::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.payment::-webkit-scrollbar-track {
+  background: none;
+}
+
+.payment::-webkit-scrollbar-thumb {
+  background: var(--scrollBg);
+  border-radius: 3px;
+}
+
+.payment .pay-all-btn {
+  padding: 15px 25px;
+  color: var(--textColor);
+  background: var(--mainBg);
+  border: none;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-family: var(--subText);
+  box-shadow: var(--shadow2);
+  cursor: pointer !important;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.payment .pay-all-btn:hover {
+  background: var(--hoverBg);
+  box-shadow: var(--toggleCheckShadow);
+}
+
+.payment .payment-loader {
+  place-self: center;
+  margin-top: 13rem;
+}
+.payment .price-inputs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40vw;
+  max-width: 600px;
+  margin: 1.5rem auto;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.payment .price-inputs .input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.payment .price-inputs label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--textColor);
+}
+
+.payment .price-inputs .input-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.payment .price-inputs input,
+.payment .price-inputs select {
+  border: 2px solid var(--btnColor2);
+  background: transparent;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 8vw;
+  min-width: 80px;
+}
+
+.payment .price-inputs select {
+  cursor: pointer;
+  width: 10vw;
+  color: var(--textColor);
+}
+
+.payment .price-inputs select option {
+  color: #000;
+  background: whitesmoke;
+}
+
+.payment .price-inputs .save-prices-btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--btnTextColor);
+  background: var(--btnColor2);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.payment .price-inputs .save-prices-btn:hover {
+  transform: scale(1.05);
+}
+
+.pay-all-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.pay-all-section .selectPay {
+  grid-column: 1;
+  width: auto;
+  padding: 0.8rem 1.5rem;
+  color: #fff;
+  background: var(--btnColor);
+  text-shadow: none;
+  box-shadow: none;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  margin: 0.5rem auto auto auto;
+}
+.pay-all-section .deSelectPay {
+  grid-column: 2;
+  width: 8vw;
+  padding: 0.4rem 0.3rem;
+  color: #fff;
+  background: var(--btnColor);
+  text-shadow: none;
+  box-shadow: none;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  margin: 0.5rem auto auto auto;
+}
+.pay-all-section .payAll {
+  grid-column: 3;
+  width: auto;
+  padding: 0.8rem 1.5rem;
+  color: #fff;
+  background: var(--btnColor);
+  text-shadow: none;
+  box-shadow: none;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  margin: 0.5rem auto auto auto;
+}
+
+.payment hr {
+  opacity: 0.5;
+  height: 0.3px;
+  margin-top: -0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.payment h2 {
+  font-size: var(--hSize);
+  font-family: var(--textDisplay);
+  margin-bottom: 1rem;
+  color: var(--textColor);
+  text-shadow: var(--textShadow);
+}
+
+.payment .cal {
+  display: flex;
+  align-items: center;
+}
+
+.payment .cal label {
+  font-weight: 500;
+  font-size: var(--hSize);
+  font-family: var(--textDisplay);
+}
+
+.cal div {
+  margin-bottom: 1rem;
+  display: flex;
+}
+.payment .payment-list {
+  margin-top: 0.5rem;
+  height: 40vh;
+  overflow-y: scroll;
+  border: 2px solid red;
+}
+
+.payment .payment-list::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.payment .payment-list::-webkit-scrollbar-track {
+  background: none;
+}
+
+.payment .payment-list::-webkit-scrollbar-thumb {
+  background: var(--scrollBg);
+  border-radius: 3px;
+}
+
+.payment input {
+  width: 19%;
+  padding: 0.4rem;
+  padding-left: 0.7rem;
+  color: var(--textColor);
+  font-weight: bolder;
+  font-size: var(--textDisplay);
+  color: var(--textColor);
+  background: var(--btnColor);
+  border-radius: 0.3rem;
+  outline: none;
+  border: none;
+}
+
+input::placeholder {
+  font-size: 10px;
+  color: var(--textColor);
+  opacity: 0.5;
+  letter-spacing: 0.2px;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.payment-table {
+  width: 100%;
+  height: 50vh;
+  border-collapse: collapse;
+  overflow-x: hidden;
+}
+
+.payment-table thead {
+  position: sticky;
+  top: 0;
+  background: var(--tbthLiveBg);
+  backdrop-filter: blur(16px);
+  z-index: 1;
+}
+
+.payment-table thead th {
+  padding: 0.7rem;
+  padding: 1rem 2rem;
+}
+
+.payment-table th,
+.payment-table td {
+  border-bottom: 1px solid var(--tbLineColor);
+  font-size: var(--textDisplay);
+  font-family: var(--textStyle);
+  text-shadow: var(--textShadow);
+}
+
+.payment-table td input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background-color: #ffffff;
+  border: 2px solid #181818;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.payment-table td input[type="checkbox"]:checked::before {
+  content: "✔";
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.payment-table th {
+  font-weight: bold;
+  font-size: var(--textDisplay);
+  font-family: var(--textDisplay);
+  text-shadow: var(--textShadow);
+}
+
+.payment-table tbody {
+  height: 10rem;
+}
+
+.payment-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.274);
+}
+.payment-table tbody tr td button {
+  outline: none;
+  border: none;
+  margin: 0.3rem;
+  padding: 0.6rem 1rem;
+  font-size: var(--textDisplay);
+  color: var(--btnTextColor) !important;
+  background: var(--btnColor2);
+  border-radius: 6px;
+  text-shadow: none;
+  font-weight: 680;
+}
+.payment-table tbody tr td button:hover {
+  transition: 0.1s ease-out;
+}
+
+@media screen and (max-width: 1024px) {
+  .payment {
+    width: 90%;
+    height: 75.5vh;
+  }
+  .payment .price-inputs {
+    width: 55vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .payment {
+    width: 67vw;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .payment {
+    width: 83vw;
+    height: 76.5vh;
+    transform: translateY(0);
+    margin-top: -1rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .payment {
+    width: 79vw;
+    height: 85vh;
+    padding: 1.2rem 1rem;
+  }
+
+  .payment h2 {
+    font-size: 1.2rem;
+  }
+
+  .payment .price-inputs {
+    flex-direction: column;
+    width: 80%;
+    padding: 1rem 0.8rem;
+    gap: 1rem;
+  }
+
+  .payment .price-inputs .input-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .payment .price-inputs input,
+  .payment .price-inputs select {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .payment .price-inputs .save-prices-btn {
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 0.95rem;
+  }
+
+  .pay-all-section {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .pay-all-section .selectPay,
+  .pay-all-section .deSelectPay,
+  .pay-all-section .payAll {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .payment input {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .payment-table thead th,
+  .payment-table td {
+    padding: 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  .payment-table tbody tr td button {
+    width: 100%;
+    font-size: 0.8rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .payment .payment-loader {
+    margin-top: 5rem;
+  }
+}

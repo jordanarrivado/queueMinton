@@ -1,0 +1,134 @@
+.game-mode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 78vh;
+  color: var(--textColor);
+  background: var(--bgCompo2);
+  text-align: center;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+/* Heading */
+.heading {
+  font-size: 1.8rem;
+  font-weight: bold;
+  padding: 1.5rem 3rem;
+  box-shadow: var(--shadow);
+  backdrop-filter: var(--blur);
+  background: var(--bgCompo);
+  border-radius: 10px;
+  text-align: center;
+  width: fit-content;
+  max-width: 90%;
+}
+
+/* Mode Boxes */
+.modes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.mode-box {
+  width: 15rem;
+  max-width: 90%;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  backdrop-filter: var(--blur);
+  background: var(--bgCompo);
+  transition: transform 0.3s ease-in-out;
+}
+
+.mode-box:hover {
+  transform: scale(1.05);
+}
+
+/* Titles inside mode boxes */
+.mode-box h3.inside {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: var(--bgCompo2);
+  box-shadow: var(--shadow);
+  opacity: 0.9;
+}
+
+/* Lord Icon */
+.mode-box lord-icon {
+  width: 80px;
+  height: 80px;
+}
+
+/* Hover Animation */
+@keyframes glowing {
+  0% {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-10px);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.mode-box h3.inside:hover {
+  animation: glowing 3s infinite;
+  transition: 0.5s ease-out;
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .game-mode {
+    height: auto;
+    padding: 2rem 1rem;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+  }
+
+  .modes-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mode-box {
+    width: 100%;
+    max-width: 22rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .mode-box {
+    padding: 1.5rem;
+  }
+
+  .mode-box h3.inside {
+    font-size: 1.2rem;
+  }
+
+  .mode-box lord-icon {
+    width: 60px;
+    height: 60px;
+  }
+}

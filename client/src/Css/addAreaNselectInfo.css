@@ -1,0 +1,22 @@
+.areaNselect-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transform: translateY(-1%);
+}
+
+.area-wrapper {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.select-wrapper {
+  margin-top: -1rem;
+  padding-top: 0;
+}
+
+@media screen and (max-width: 425px) {
+  .select-wrapper {
+    transform: translateY(-18%);
+  }
+}

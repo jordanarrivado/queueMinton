@@ -1,0 +1,10 @@
+/* Full-screen particles background */
+.particles-container {
+  position: fixed; /* Stay in the background */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full screen width */
+  height: 100%; /* Full screen height */
+  overflow: hidden;
+  z-index: -1; /* Ensures it's behind other content */
+}

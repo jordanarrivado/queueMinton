@@ -1,0 +1,11 @@
+# Ignore env files
+.env
+
+# Ignore firebase credentials
+firebase/*.json
+
+# Node modules (in case you have them locally)
+node_modules/
+
+# Logs
+*.log

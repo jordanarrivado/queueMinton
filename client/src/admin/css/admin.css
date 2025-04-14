@@ -1,0 +1,28 @@
+/* Admin layout styles */
+.admin-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+/*
+.admin-sidebar {
+  /* Add specific styles for the sidebar if needed /
+}
+*/
+.admin-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+.admin-header {
+  /* Add specific styles for the header if needed 
+}
+*/
+.admin-main {
+  flex: 1;
+  padding: 20px;
+  background-color: #f4f6f9;
+}

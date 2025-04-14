@@ -1,0 +1,6 @@
+.title {
+  padding-left: 4rem;
+  grid-column: 2;
+  text-align: center;
+  cursor: pointer;
+}

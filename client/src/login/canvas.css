@@ -1,0 +1,22 @@
+.canvas-container {
+  position: fixed; /* Ensures it covers the entire screen */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+  z-index: -1; /* Sends it behind other content */
+  animation: litaw 5s ease-in-out;
+}
+
+@keyframes litaw {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 1;
+  }
+}

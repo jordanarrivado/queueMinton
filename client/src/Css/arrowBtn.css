@@ -1,0 +1,34 @@
+.edge-arrow {
+  position: fixed;
+  top: 50%;
+  right: 0; /* Stick to the right edge */
+  transform: translateY(-50%);
+  background-color: var(--primaryColor, #007bff); /* Customize as needed */
+  color: white;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 9999;
+  transition: background 0.3s ease;
+}
+
+.edge-arrow:hover {
+  background-color: var(--hoverColor, #0056b3);
+}
+
+.edge-arrow .arrow {
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 425px) {
+  .edge-arrow {
+    top: 10%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+}

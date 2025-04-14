@@ -1,0 +1,327 @@
+/* Main Container */
+.playerHistory {
+  margin: 0 !important;
+  backdrop-filter: var(--blur);
+  background: transparent;
+  background-image: radial-gradient(
+      at 78% 65%,
+      hsla(210, 100%, 55%, 0.2) 0,
+      transparent 75%
+    ),
+    radial-gradient(at 20% 25%, hsla(180, 90%, 55%, 0.2) 0, transparent 70%);
+
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  color: var(--textColor);
+  border-radius: var(--rd);
+  text-align: left;
+  padding: 1rem;
+  width: 28vw;
+  height: 75vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.playerHistory img {
+  width: 20px;
+  height: 20px;
+  transition: 0.3s ease-out;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.playerHistory img:hover {
+  transform: scale(1.2);
+}
+
+/* Player Header */
+.playerHistory .playerHead {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 1rem;
+}
+
+/* Search Container */
+.playerHistory .playerHead .searchCon {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  transition: 0.3s ease-out;
+}
+
+/* Search Icons */
+.playerHistory .searchCon .searchIcon,
+.playerHistory .searchCon .searchIcon2 {
+  z-index: 2;
+  opacity: 0.5;
+  transition: 0.3s ease-out;
+  cursor: pointer;
+}
+
+.playerHistory .searchCon .searchIcon2 {
+  transform: rotate(90deg) scale(0.7);
+}
+
+/* Search Input */
+.playerHistory .searchCon input {
+  position: absolute;
+  color: var(--textColor);
+  background: transparent;
+  box-shadow: var(--shadowNav);
+  padding: 10px 2.5rem;
+  outline: none;
+  border-radius: 8px;
+  border: none;
+  width: 0vw;
+  transition: width 0.3s ease-out;
+  animation: expand 0.3s ease-out forwards;
+}
+
+@keyframes expand {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    width: 6.5vw;
+    opacity: 1;
+  }
+}
+
+.playerHistory .searchCon input::placeholder {
+  color: var(--textColor);
+  font-weight: 650;
+}
+
+/* Table Container */
+.phTableCon {
+  max-height: 64vh; /* Prevents overflow */
+  overflow-y: auto;
+  position: relative; /* Ensures sticky thead works */
+}
+
+.phTableCon::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.phTableCon::-webkit-scrollbar-track {
+  background: none;
+}
+
+.phTableCon::-webkit-scrollbar-thumb {
+  background: var(--scrollColor);
+  border-radius: 3px;
+}
+
+/* Table */
+.playerHistory .phTable {
+  width: 100%;
+  border-collapse: collapse;
+  animation: pop 1.5s ease-out forwards;
+  opacity: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  table-layout: fixed;
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Sticky Table Header */
+.playerHistory .phTable thead {
+  position: sticky;
+  top: 0;
+  background: var(--tbthLiveBg);
+  backdrop-filter: blur(16px);
+  z-index: 10; /* Keeps it above other table content */
+}
+
+/* Table Header Styling */
+.playerHistory .phTable thead th {
+  padding: 1rem;
+  font-size: var(--tbHeadFontSize);
+  color: var(--textColor);
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.1);
+  border-bottom: 2px solid var(--tbLineColor);
+  text-align: center;
+}
+
+/* Table Cells */
+.playerHistory .phTable th,
+.playerHistory .phTable td {
+  padding: 1rem;
+  font-size: var(--textDisplay);
+  font-family: var(--textStyle);
+  color: var(--textColor);
+  text-shadow: var(--textShadow);
+  border-bottom: 0.4px solid var(--tbLineColor);
+  text-align: center;
+}
+
+/* Row Hover Effect */
+.playerHistory .phTable tbody tr {
+  transition: background 0.3s ease-out;
+}
+
+.playerHistory .phTable tbody tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+}
+
+/* Popup Overlay */
+.popupOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(4px);
+  padding: 2rem;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+}
+
+/* Popup Content */
+.popupContent {
+  background: var(--tbthLiveBg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  max-width: 450px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-20px);
+  animation: fadeInPopup 0.3s ease-out forwards;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Close Button */
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: var(--textColor);
+  transition: transform 0.2s ease-out, color 0.3s ease;
+}
+
+.closeButton:hover {
+  color: var(--highlightColor);
+  transform: scale(1.2);
+}
+
+/* Popup Animation */
+@keyframes fadeInPopup {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .playerHistory {
+    width: 94.5%;
+    height: 75vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .playerHistory .phTable th,
+  .playerHistory .phTable td {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .playerHistory {
+    height: 80vh;
+  }
+}
+
+@media (max-width: 600px) {
+  .popupContent {
+    width: 95%;
+    max-width: 380px;
+    padding: 1rem;
+  }
+
+  .closeButton {
+    font-size: 1.5rem;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  /* Main Container */
+  .playerHistory {
+    width: 82vw;
+    height: 77vh;
+    padding: 1rem 0.5rem;
+  }
+
+  .playerHistory .playerHead {
+    grid-template-columns: 1fr;
+  }
+
+  /* Search Input */
+  .playerHistory .searchCon input {
+    width: 80%;
+    padding: 8px 2rem;
+  }
+
+  /* Table Container */
+  .phTableCon {
+    max-height: 50vh; /* Reduce table container height */
+  }
+
+  /* Table Header */
+  .playerHistory .phTable thead th {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+
+  /* Table Cells */
+  .playerHistory .phTable th,
+  .playerHistory .phTable td {
+    font-size: 0.85rem;
+    padding: 0.8rem;
+  }
+
+  /* Popup Content */
+  .popupContent {
+    width: 90%;
+    max-width: 350px;
+    padding: 1rem;
+  }
+
+  .closeButton {
+    font-size: 1.4rem;
+    top: 8px;
+    right: 8px;
+  }
+}

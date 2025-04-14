@@ -1,0 +1,439 @@
+.add-player-container {
+  text-align: center;
+  padding: 1rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  background: transparent;
+  background-image: radial-gradient(
+      at 7% 4%,
+      hsla(216, 100%, 31%, 0.767) 0,
+      transparent 39%
+    ),
+    radial-gradient(at 92% 95%, hsla(332, 98%, 47%, 0.2) 0, transparent 35%),
+    radial-gradient(at 50% 50%, hsla(88, 100%, 40%, 0.25) 0, transparent 50%);
+
+  border-radius: var(--rd);
+  box-shadow: var(--shadow2);
+  color: var(--textColor);
+  z-index: 4;
+  grid-column: 1;
+  grid-row: 1/4;
+  overflow: hidden;
+  height: auto;
+  max-height: 30rem;
+  -webkit-animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@-webkit-keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.add-player-container .playerLoader {
+  margin: 6rem auto 0;
+}
+
+.addPlayerHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  padding: 0.5rem;
+  flex-wrap: nowrap;
+}
+
+.addPlayerHead h2 {
+  font-size: 1.2rem;
+}
+
+.addTen {
+  padding: 5px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: var(--btnColor2);
+  text-shadow: none;
+  color: var(--btnTextColor);
+  font-size: 0.9rem;
+  font-family: var(--textDisplay);
+  opacity: 0.9;
+  margin-top: 0 !important;
+}
+
+.addTen:hover {
+  background: var(--btnColor2);
+  transition: 0.3s ease-out;
+  opacity: 1;
+  box-shadow: none;
+}
+
+.notif {
+  margin: 0 !important;
+  display: flex;
+  align-items: center;
+}
+
+.notif p {
+  color: #f5f5f5;
+  font-size: 1rem;
+  font-weight: 900;
+  position: absolute;
+  margin-left: 0.7rem;
+  margin-top: -0.7rem;
+  height: 1.3rem;
+  width: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(236, 34, 34);
+  border-radius: 50%;
+  padding: 0;
+}
+
+.notif:hover {
+  transform: scale(1.1);
+  transition: 0.3s ease-out;
+}
+
+.notifIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.delAllPlayers {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  margin-top: 0 !important;
+}
+.delAllPlayers:hover {
+  transform: scale(1.1);
+  transition: 0.3s ease-out;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
+.add-player-input {
+  color: var(--textColor);
+  border: 2px solid var(--btnColor2);
+  background: transparent;
+  padding: 7.5px;
+  padding-left: 15px;
+  outline: none;
+  margin-right: 5px;
+  margin-left: -35px;
+  border-radius: 5px;
+  width: 10vw;
+}
+
+.add-player-input::placeholder {
+  color: var(--textColor);
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+.add-player-container .playerLevel {
+  max-width: 12vw;
+  margin-left: 0.2rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  color: var(--btnTextColor);
+  box-shadow: var(--shadow2);
+  border: none;
+  border-radius: 5px;
+  font-size: 0.7rem;
+  outline: none;
+  background: var(--btnColor2);
+  text-shadow: none;
+  opacity: 0.9;
+  cursor: pointer;
+}
+.add-player-container .playerLevel:hover {
+  transition: 0.3s ease-out;
+  opacity: 1;
+  box-shadow: none;
+}
+.add-player-container .playerGender {
+  margin-left: 0.2rem;
+  max-width: 12vw;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  color: var(--btnTextColor);
+  border: none;
+  border-radius: 5px;
+  font-size: 0.7rem;
+  outline: none;
+  background: var(--btnColor2);
+  box-shadow: var(--shadow2);
+  text-shadow: none;
+  opacity: 0.9;
+  cursor: pointer;
+}
+.add-player-container .playerGender:hover {
+  transition: 0.3s ease-out;
+  opacity: 1;
+  box-shadow: none;
+}
+.add-player-container .playerLevel option {
+  background: var(--btnColor);
+  color: var(--textColor);
+  text-shadow: none;
+  font-family: var(--subText);
+}
+
+.add-player-container .playerGender option {
+  background: var(--btnColor);
+  color: var(--textColor);
+  text-shadow: none;
+  font-family: var(--subText);
+}
+
+.add-player-container lord-icon {
+  position: absolute;
+  margin-top: 0.1rem;
+  margin-left: 0.3rem;
+  cursor: pointer;
+  filter: drop-shadow(var(--shadow));
+}
+.add-player-container .del {
+  background: none;
+  height: 1rem;
+  cursor: pointer;
+  opacity: 0.9;
+  filter: drop-shadow(var(--shadow));
+}
+.add-player-container .noDel {
+  display: none;
+}
+
+.add-player-container .edit {
+  background: none;
+  margin-right: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  opacity: 0.9;
+  filter: drop-shadow(var(--shadow));
+}
+.add-player-container .del:hover,
+.add-player-container .edit:hover {
+  transition: 0.2s ease-out;
+  transform: scale(1.2);
+}
+.add-player-container button {
+  border-radius: 8px;
+}
+
+.table-container {
+  margin-top: -10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: auto;
+  max-height: 15rem;
+  width: 100%;
+}
+
+.table-container::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: none;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background: #181818;
+  border-radius: 3px;
+}
+
+.player-table {
+  margin: auto;
+  width: auto;
+  min-width: 30vw;
+  border-collapse: collapse;
+}
+.player-table thead {
+  padding: 0.5rem;
+  position: sticky;
+  top: 0;
+  background-color: var(--btnColor2);
+  color: var(--btnTextColor);
+  font-family: var(--textStyle);
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(16px);
+  z-index: 1;
+}
+
+.player-table th,
+.player-table td {
+  font-size: var(--textDisplay);
+  font-family: var(--textStyle);
+  text-shadow: none;
+  padding: 5px;
+  padding-top: 9px;
+  text-align: left;
+}
+
+.player-table th {
+  border-bottom: 0.3px solid rgba(245, 245, 245, 0.158);
+  opacity: 0.7;
+  font-size: var(--textDisplay);
+  font-family: var(--subText);
+  text-shadow: none;
+}
+
+.player-table td.action {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.player-table td.action img {
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+  .player-table {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .add-player-container {
+    margin-top: 1rem;
+  }
+  .add-player-input {
+    width: 35%;
+    margin-left: 0;
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+}
+
+@media screen and (max-width: 645px) {
+  .add-player-container {
+    padding: 1rem;
+    max-height: none;
+    width: 93%;
+  }
+
+  .addPlayerHead {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+  }
+
+  .addPlayerHead h2 {
+    font-size: 1.1rem;
+  }
+
+  .addTen {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    width: 50%;
+  }
+
+  .notif {
+    position: relative;
+    justify-content: center;
+  }
+
+  .notif p {
+    font-size: 0.9rem;
+    height: 1.2rem;
+    width: 1.2rem;
+    margin-left: 0;
+    margin-top: -0.5rem;
+  }
+
+  .notifIcon,
+  .delAllPlayers {
+    width: 20px;
+    height: 20px;
+  }
+
+  .input-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .add-player-input {
+    width: 30%;
+    margin-left: 0;
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+
+  .playerLevel,
+  .playerGender {
+    max-width: 100%;
+    width: 100%;
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+
+  .table-container {
+    max-height: 12rem;
+  }
+
+  .player-table {
+    width: 100%;
+    font-size: 0.85rem;
+  }
+
+  .player-table th,
+  .player-table td {
+    padding: 6px;
+    font-size: 0.85rem;
+  }
+
+  .player-table td.action {
+    gap: 5px;
+  }
+
+  .player-table td.action img {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .add-player-container {
+    padding: 0.8rem;
+  }
+
+  .addPlayerHead {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .add-player-input {
+    width: 80%;
+    margin: 0;
+  }
+}

@@ -1,0 +1,117 @@
+/* General Page Container */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Full viewport height */
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.95) 20%,
+      rgba(0, 0, 0, 0.7) 50%,
+      rgba(0, 0, 0, 0.3) 80%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    url("../images/loginBg.jpg") center/cover no-repeat;
+  background-blend-mode: lighthen;
+}
+
+.headTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 10rem;
+  gap: 12px;
+  text-align: center;
+  flex-wrap: wrap;
+  transform: translateY(-3.5rem);
+  padding-top: 1.5rem;
+}
+
+.headTitle img,
+.headTitle svg {
+  height: auto;
+  margin: 0;
+  display: block;
+}
+.headTitle img {
+  max-width: 120px;
+}
+.headTitle svg {
+  transform: translateY(-0.7rem);
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60vh;
+  padding: 20px;
+  margin-top: -3rem;
+  background: transparent;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .page-container {
+    min-height: 100vh;
+    padding-bottom: 2rem;
+  }
+
+  .headTitle {
+    min-height: 8rem;
+    flex-direction: column;
+  }
+
+  .headTitle img {
+    max-width: 100px;
+  }
+
+  .center-container {
+    max-width: 90%;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .headTitle img {
+    max-width: 80px;
+  }
+
+  .center-container {
+    margin-top: -2rem;
+    max-width: 95%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .page-container {
+    min-height: 100vh;
+    text-align: center;
+  }
+
+  .headTitle {
+    height: 9vh;
+    padding: 1rem;
+  }
+
+  .headTitle img {
+    max-width: 70px;
+    margin: 0;
+    padding: 25px 0 0 8px;
+  }
+  .headTitle svg {
+    margin: 0;
+    transform: translateX(-1rem);
+  }
+
+  .center-container {
+    width: 90%;
+    max-width: 320px;
+    padding: 15px;
+  }
+}

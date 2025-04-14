@@ -1,0 +1,1272 @@
+@font-face {
+  font-family: alef;
+  src: url(./fonts/Alef-Regular.ttf);
+}
+
+@font-face {
+  font-family: vh;
+  src: url(./fonts/HindVadodara-Regular.ttf);
+}
+
+@font-face {
+  font-family: exo;
+  src: url(./fonts/Exo-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: nunito;
+  src: url(./fonts/NunitoSans-VariableFont_YTLC.ttf);
+}
+
+@font-face {
+  font-family: nunitoB;
+  src: url(./fonts/NunitoSans_7pt_Condensed-Bold.ttf);
+}
+@font-face {
+  font-family: title;
+  src: url(./fonts/Righteous-Regular.ttf);
+}
+
+.dark-mode {
+  --btnTextColor: black;
+  --scrollBg: #181818;
+  --navBar: #35333d;
+  --bg: radial-gradient(
+    circle at 47% 50%,
+    rgba(45, 45, 45, 0.1),
+    rgba(45, 45, 45, 0.15)
+  );
+  --bgTop: linear-gradient(180deg, #430b437e 10%, rgba(5, 45, 48, 0.068) 80%);
+  --hov: #2c2a2d;
+  --btnColor: #0c3450;
+  --btnColor2: #c1e2de;
+  --rd: 1.1rem;
+  --bgCompo: #35333db0;
+  --bgCompo2: #2c2a2d;
+  --backGround: #2c2a2d;
+  --bgBtm: radial-gradient(circle at 50% 50%, #86138628, #88158813, #06060b2a);
+  --bgRd: radial-gradient(circle at 100% 100%, #8613862a, #88158818, #06060b2a);
+  --shadow: inset 0 1px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 16px rgba(0, 0, 0, 0.3);
+  --shadow2: inset 0 1px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 16px rgba(0, 0, 0, 0.3);
+  --gap: 1.5rem;
+  --blur: blur(20px);
+  --hSize: 1rem;
+  --titleShadow: 0 0 8px rgba(0, 238, 255, 0.8);
+  --textDisplay: 1rem;
+  --textDisplay2: 0.9rem;
+  --tbHeadFontSize: 13px;
+  --textStyle: vh;
+  --textColor: #f2fbfd;
+  --subText: nunito;
+  --textTitle: exo;
+  --title: title;
+  --toggleBg: #35333d;
+  --tbLineColor: #ffffff42;
+  --toggleShadowLabel: inset 0 1px 4px rgba(0, 0, 0, 0.2),
+    0 4px 6px rgba(0, 0, 0, 0.1);
+  --toggleLabelBeforeBg: whitesmoke;
+  --toggleLabelBeforeShadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --toggleCheckShadow: inset 0 1px 8px rgba(0, 238, 255, 0.712),
+    inset 0 1px 8px rgba(0, 238, 255, 0.712), 0 0 15px rgba(0, 238, 255, 0.6),
+    0 0 30px rgba(0, 238, 255, 0.5);
+
+  --scrollBarShadow: inset 0 1px 8px rgba(0, 238, 255, 0.712),
+    inset 0 1px 8px rgba(0, 238, 255, 0.712), 0 0 8px rgba(0, 238, 255, 0.6),
+    0 0 10px rgba(0, 238, 255, 0.5);
+  --scrollBarBg: var(--bgCompo);
+
+  --shadowGameMode: inset 0 1px 8px rgba(0, 238, 255, 0.712),
+    inset 0 1px 8px rgba(0, 238, 255, 0.712), 0 0 15px rgba(0, 238, 255, 0.6),
+    0 0 30px rgba(0, 238, 255, 0.5);
+  --shadowNav: inset 0 1px 8px rgba(0, 238, 255, 0.712),
+    inset 0 1px 8px rgba(0, 238, 255, 0.712), 0 0 15px rgba(0, 238, 255, 0.6),
+    0 0 30px rgba(0, 238, 255, 0.5);
+  --toggleCheckBeforeBg: #00ffffe5;
+  --toggleCheckBeforeShadow: 0 0 8px rgba(0, 238, 255, 0.8),
+    0 0 20px rgba(0, 238, 255, 0.6), 0 0 40px rgba(0, 238, 255, 0.4);
+  --pacmanLoader: #00ffffe5;
+  --tableHead: transparent;
+  --card-height: 65vh;
+  --card-width: calc(var(--card-height) / 1.5);
+  --hasCourtBg: linear-gradient(0deg, #000, #272727);
+  --hasCourtShadow: linear-gradient(45deg, #5ddcff, #3c67e3, #4e00c2);
+  --tbthLiveBg: #141414cb;
+  --shadowTh: inset 0 -16px 16px rgba(0, 0, 0, 0.3),
+    /* Top shadow */ inset 16px 0 16px rgba(0, 0, 0, 0.3),
+    /* Right shadow */ inset -16px 0 16px rgba(0, 0, 0, 0.3); /* Left shadow */
+
+  --scrollColor: #2c2a2d;
+}
+
+.light-mode {
+  --btnTextColor: rgb(255, 255, 255);
+  --scrollBg: #1b1f4be0;
+  --navBar: #1b1f4be0;
+  --bg: radial-gradient(
+    circle at 47% 50%,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.9)
+  );
+  --bgTop: linear-gradient(180deg, #e0e0e0 10%, rgba(255, 255, 255, 0.9) 80%);
+  --hov: #e0e0e0;
+  --btnColor: #0c3450;
+  --btnColor2: #0c3450;
+  --rd: 1.1rem;
+  --bgCompo: #b0c4de;
+  --bgCompo2: #b0c4de46;
+  --backGround: #f0f8ff;
+  --bgBtm: radial-gradient(circle at 50% 50%, #d0d0d0, #c0c0c0, #a0a0a0);
+  --bgRd: radial-gradient(circle at 100% 100%, #d0d0d0, #c0c0c0, #a0a0a0);
+  --shadow: rgba(0, 0, 0, 0.1) 0px 2px 1px, rgba(0, 0, 0, 0.1) 0px 4px 2px,
+    rgba(0, 0, 0, 0.1) 0px 8px 4px, rgba(0, 0, 0, 0.1) 0px 16px 8px,
+    rgba(0, 0, 0, 0.1) 0px 32px 16px;
+  --shadow2: inset 0 1px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 16px rgba(0, 0, 0, 0.3);
+  --gap: 1.5rem;
+  --blur: blur(20px);
+  --hSize: 1rem;
+  --textDisplay: 1rem;
+  --textDisplay2: 1rem;
+  --tbHeadFontSize: 12px;
+  --textStyle: alef;
+  --textColor: #0b0c0c;
+  --subText: nunitoB;
+  --textTitle: exo;
+  --title: title;
+  --toggleBg: #1b1f4b;
+  --tbLineColor: #02020252;
+  --toggleShadowLabel: inset 0 1px 4px rgba(0, 0, 0, 0.2),
+    0 4px 6px rgba(0, 0, 0, 0.1);
+  --toggleLabelBeforeBg: #1b1f4b;
+  --toggleLabelBeforeShadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --toggleCheckShadow: inset 0 1px 8px rgba(0, 238, 255, 0.712),
+    inset 0 1px 8px rgba(0, 238, 255, 0.712), 0 0 15px rgba(0, 238, 255, 0.6),
+    0 0 30px rgba(0, 238, 255, 0.5);
+  --scrollBarShadow: 0 0 8px rgba(34, 51, 68, 0.8);
+  --scrollBarBg: #1b1f4b;
+  --shadowGameMode: 0 0 8px rgba(34, 51, 68, 0.8);
+  --shadowNav: inset 0 1px 8px rgba(0, 238, 255, 0.712),
+    inset 0 1px 8px rgba(0, 238, 255, 0.712), 0 0 15px rgba(0, 238, 255, 0.6),
+    0 0 30px rgba(0, 238, 255, 0.5);
+  --toggleCheckBeforeBg: #00ffffe5;
+  --toggleCheckBeforeShadow: 0 0 8px rgba(0, 238, 255, 0.8),
+    0 0 20px rgba(0, 238, 255, 0.6), 0 0 40px rgba(0, 238, 255, 0.4);
+  --pacmanLoader: #2c2a2d;
+  --color: #00ffff25;
+  --tableHead: #0d0f2c;
+  --card-height: 65vh;
+  --card-width: calc(var(--card-height) / 1.5);
+  --hasCourtBg: #e0e0e0;
+  --hasCourtShadow: linear-gradient(45deg, #5ddcff, #3c67e3, #4e00c2);
+  --tbthLiveBg: #e9e6e69a;
+  --shadowTh: inset 0 -16px 16px rgba(0, 0, 0, 0.3),
+    /* Top shadow */ inset 16px 0 16px rgba(0, 0, 0, 0.3),
+    /* Right shadow */ inset -16px 0 16px rgba(0, 0, 0, 0.3); /* Left shadow */
+  --scrollColor: #ffffff;
+}
+
+.fb-theme {
+  --navBar: #3b5998;
+}
+
+hasCourtShadow
+
+/*////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+/*
+.dark-mode {
+  --navBar: #1a1d2e; 
+  --bg: radial-gradient(circle at 50% 50%, #12131b, #0a0b10); 
+  --bgTop: linear-gradient(180deg, #1f1f2e 10%, rgba(10, 11, 18, 0.9) 80%);
+  --hov: #212336;
+  --btnColor: #2b2d48; 
+  --rd: 1.2rem;
+  --bgCompo: #1f2135cc; 
+  --mainBg: #101222; 
+  --bgBtm: radial-gradient(circle at 50% 50%, #37265b, #1a1935, #0d0b26);
+  --bgRd: radial-gradient(circle at 100% 100%, #49376a, #292244, #151327);
+  --shadow: 0 0 10px rgba(25, 20, 60, 0.7), 0 0 30px rgba(50, 45, 80, 0.6);
+  --shadow2: inset 0 1px 16px rgba(20, 18, 50, 0.4);
+  --gap: 1.6rem;
+  --blur: blur(25px);
+  --hSize: 1.1rem;
+  --titleShadow: 0 0 12px rgba(128, 0, 255, 0.7);
+  --textDisplay: 0.75rem;
+  --tbHeadFontSize: 14px;
+  --textStyle: "Orbitron", sans-serif;
+  --textColor: #42f2f7; 
+  --textShadow: 2px 2px 4px rgba(0, 255, 255, 0.6);
+  --subText: "Roboto Mono", monospace;
+  --textTitle: "Exo 2", sans-serif;
+  --title: "Roboto", sans-serif;
+  --toggleBg: #292a3e;
+  --tbLineColor: rgba(66, 242, 247, 0.4);
+  --toggleShadowLabel: inset 0 2px 6px rgba(0, 255, 255, 0.2);
+  --toggleLabelBeforeBg: #282a3f;
+  --toggleLabelBeforeShadow: 0 4px 8px rgba(0, 255, 255, 0.2);
+  --toggleCheckShadow: 0 0 12px rgba(42, 242, 255, 0.8), 0 0 20px rgba(0, 255, 245, 0.6);
+  --scrollBarShadow: 0 0 10px rgba(60, 60, 90, 0.7);
+  --scrollBarBg: var(--bgCompo);
+  --shadowGameMode: 0 0 15px rgba(128, 0, 255, 0.7);
+  --shadowNav: 0 0 12px rgba(25, 60, 128, 0.7);
+  --toggleCheckBeforeBg: #4200ff;
+  --toggleCheckBeforeShadow: 0 0 15px rgba(128, 0, 255, 0.8), 0 0 30px rgba(128, 0, 255, 0.6);
+  --pacmanLoader: #42f2f7;
+  --tableHead: transparent;
+  --card-height: 70vh;
+  --card-width: calc(var(--card-height) / 1.6);
+  --hasCourtBg: linear-gradient(0deg, #28293f, #1a1b28);
+  --hasCourtShadow: linear-gradient(45deg, #1d94fa, #9e42f7, #ff007a);
+}
+
+.light-mode {
+  --navBar: #e0e6ff; 
+  --bg: radial-gradient(circle at 50% 50%, #f8faff, #e6e9fc);
+  --bgTop: linear-gradient(180deg, #e0e3f9 10%, rgba(240, 244, 255, 0.8) 80%);
+  --hov: #d0d7f2; 
+  --btnColor: #b9c2e4; 
+  --rd: 1.2rem;
+  --bgCompo: #cdd6f7cc; 
+  --mainBg: #e3e8ff; 
+  --bgBtm: radial-gradient(circle at 50% 50%, #b5bdf9, #a3aae4, #8d96cf);
+  --bgRd: radial-gradient(circle at 100% 100%, #bdbff7, #a8acd5, #9294be);
+  --shadow: 0 0 8px rgba(128, 120, 190, 0.5), 0 0 16px rgba(128, 128, 220, 0.4);
+  --shadow2: inset 0 1px 16px rgba(128, 130, 180, 0.3);
+  --gap: 1.6rem;
+  --blur: blur(20px);
+  --hSize: 1.1rem;
+  --titleShadow: 0 0 12px rgba(102, 153, 255, 0.7);
+  --textDisplay: 0.75rem;
+  --tbHeadFontSize: 14px;
+  --textStyle: "Orbitron", sans-serif;
+  --textColor: #004cff; 
+  --textShadow: 1px 1px 3px rgba(0, 60, 255, 0.5);
+  --subText: "Roboto Mono", monospace;
+  --textTitle: "Exo 2", sans-serif;
+  --title: "Roboto", sans-serif;
+  --toggleBg: #c2c8f4;
+  --tbLineColor: rgba(0, 102, 255, 0.3);
+  --toggleShadowLabel: inset 0 2px 6px rgba(0, 0, 255, 0.2);
+  --toggleLabelBeforeBg: #b5bbf2;
+  --toggleLabelBeforeShadow: 0 4px 8px rgba(0, 0, 255, 0.2);
+  --toggleCheckShadow: 0 0 12px rgba(0, 102, 255, 0.8), 0 0 20px rgba(0, 102, 255, 0.6);
+  --scrollBarShadow: 0 0 10px rgba(200, 200, 255, 0.6);
+  --scrollBarBg: var(--bgCompo);
+  --shadowGameMode: 0 0 15px rgba(60, 120, 255, 0.7);
+  --shadowNav: 0 0 12px rgba(80, 120, 255, 0.5);
+  --toggleCheckBeforeBg: #0056ff;
+  --toggleCheckBeforeShadow: 0 0 15px rgba(0, 102, 255, 0.8), 0 0 30px rgba(0, 102, 255, 0.6);
+  --pacmanLoader: #004cff;
+  --tableHead: transparent;
+  --card-height: 70vh;
+  --card-width: calc(var(--card-height) / 1.6);
+  --hasCourtBg: linear-gradient(0deg, #f0f4ff, #d9def4);
+  --hasCourtShadow: linear-gradient(45deg, #1d94fa, #9e42f7, #ff007a);
+}
+
+*/
+
+/* BROWN ////////////////////////////////////////////*/
+
+/*
+.dark-mode {
+  --navBar: #4a3b31;
+  --bg: radial-gradient(circle at 47% 50%, #3c2f27, #2b221c);
+  --bgTop: linear-gradient(180deg, #5a453a 10%, rgba(43, 34, 28, 0.9) 80%);
+  --hov: #3f2f28;
+  --btnColor: #6a5748;
+  --rd: 1.1rem;
+  --bgCompo: #3b3029;
+  --mainBg: #2a1f19;
+  --bgBtm: radial-gradient(circle at 50% 50%, #6d4f3b, #543b2a, #39271b);
+  --bgRd: radial-gradient(circle at 100% 100%, #8d5f47, #704633, #51311e);
+  --shadow: inset 0 1px 16px rgba(0, 0, 0, 0.4), 0 4px 8px rgba(0, 0, 0, 0.3);
+  --shadow2: inset 0 2px 10px rgba(0, 0, 0, 0.5), 0 4px 8px rgba(0, 0, 0, 0.4);
+  --gap: 1.5rem;
+  --blur: blur(15px);
+  --hSize: 1rem;
+  --titleShadow: 0 0 10px rgba(237, 178, 100, 0.8);
+  --textDisplay: 0.8rem;
+  --tbHeadFontSize: 14px;
+  --textStyle: Poppins;
+  --textColor: #e7d3b5;
+  --textShadow: 2px 2px #231b15;
+  --subText: Lato;
+  --textTitle: Montserrat;
+  --title: Pacifico;
+  --toggleBg: #4d3c30;
+  --tbLineColor: #ffffff50;
+  --toggleShadowLabel: inset 0 1px 4px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.3);
+  --toggleLabelBeforeBg: #755c4a;
+  --toggleLabelBeforeShadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --toggleCheckShadow: inset 0 2px 10px rgba(200, 150, 100, 0.8), 0 0 15px rgba(180, 130, 90, 0.7);
+  --scrollBarShadow: inset 0 1px 8px rgba(200, 150, 100, 0.7), 0 0 15px rgba(200, 150, 100, 0.5);
+  --scrollBarBg: #6a5748;
+  --shadowGameMode: 0 0 15px rgba(180, 130, 90, 0.8);
+  --shadowNav: inset 0 1px 12px rgba(180, 130, 90, 0.8), 0 0 20px rgba(200, 150, 100, 0.5);
+  --toggleCheckBeforeBg: #d5a373;
+  --toggleCheckBeforeShadow: 0 0 8px rgba(180, 130, 90, 0.8), 0 0 30px rgba(200, 150, 100, 0.6);
+  --pacmanLoader: #d08a5a;
+  --tableHead: rgba(255, 255, 255, 0.15);
+  --card-height: 65vh;
+  --card-width: calc(var(--card-height) / 1.5);
+  --hasCourtBg: linear-gradient(0deg, #3f2e23, #573d2c);
+  --hasCourtShadow: linear-gradient(45deg, #d5a373, #8b5e40, #5c3e28);
+}
+
+.light-mode {
+  --navBar: #f5f0eb;
+  --bg: radial-gradient(circle at 47% 50%, #fffdfb, #f0e6de);
+  --bgTop: linear-gradient(180deg, #f8eee6 10%, rgba(255, 255, 255, 0.9) 80%);
+  --hov: #efe3d8;
+  --btnColor: #e3d3c3;
+  --rd: 1.1rem;
+  --bgCompo: rgba(255, 255, 255, 0.8);
+  --mainBg: #f9f2eb;
+  --bgBtm: radial-gradient(circle at 50% 50%, #ead8c7, #d8c1a7, #c4a690);
+  --bgRd: radial-gradient(circle at 100% 100%, #dbc2a7, #caa78f, #b99977);
+  --shadow: 0 4px 8px rgba(0, 0, 0, 0.15), 0 8px 16px rgba(0, 0, 0, 0.1);
+  --shadow2: inset 0 2px 10px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.05);
+  --gap: 1.5rem;
+  --blur: blur(10px);
+  --hSize: 1rem;
+  --titleShadow: 0 0 10px rgba(180, 120, 60, 0.8);
+  --textDisplay: 0.8rem;
+  --tbHeadFontSize: 14px;
+  --textStyle: Raleway;
+  --textColor: #3a2f27;
+  --textShadow: 1px 1px #f0e6de;
+  --subText: Nunito;
+  --textTitle: Roboto;
+  --title: Playfair Display;
+  --toggleBg: #d3bba3;
+  --tbLineColor: #3a2f2760;
+  --toggleShadowLabel: inset 0 1px 4px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.1);
+  --toggleLabelBeforeBg: #bfa890;
+  --toggleLabelBeforeShadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --toggleCheckShadow: 0 2px 10px rgba(180, 120, 60, 0.8), 0 0 15px rgba(180, 120, 60, 0.7);
+  --scrollBarShadow: 0 1px 8px rgba(180, 120, 60, 0.7), 0 0 15px rgba(180, 120, 60, 0.5);
+  --scrollBarBg: #e3d3c3;
+  --shadowGameMode: 0 0 15px rgba(180, 120, 60, 0.8);
+  --shadowNav: inset 0 1px 12px rgba(180, 120, 60, 0.8), 0 0 20px rgba(180, 120, 60, 0.5);
+  --toggleCheckBeforeBg: #d5a373;
+  --toggleCheckBeforeShadow: 0 0 8px rgba(180, 120, 60, 0.8), 0 0 30px rgba(200, 150, 100, 0.6);
+  --pacmanLoader: #d08a5a;
+  --tableHead: rgba(255, 255, 255, 0.8);
+  --card-height: 65vh;
+  --card-width: calc(var(--card-height) / 1.5);
+  --hasCourtBg: #f5f0eb;
+  --hasCourtShadow: linear-gradient(45deg, #d5a373, #8b5e40, #5c3e28);
+}
+*/
+
+
+
+#tsparticles {
+  position: absolute;
+  background: var(--backGround);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -5;
+}
+
+.custom-swal-alert {
+  background: var(--bgCompo);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.custom-swal-alert {
+  background: var(--btnColor);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.swal-title p {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: var(--textShadow);
+  margin-bottom: 10px;
+}
+
+.swal-icon .fa-trophy {
+  color: white;
+  font-size: 5rem;
+  margin: 0 auto;
+  display: block;
+}
+
+/*
+.noCircles {
+  display: none;
+}
+
+.circles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: 100%;
+  overflow: hidden !important;
+  opacity: 0.6;
+}
+
+.circles li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  box-shadow: 0 0 8px rgba(0, 238, 255, 0.8), 0 0 20px rgba(0, 238, 255, 0.6),
+    0 0 40px rgba(0, 238, 255, 0.8);
+  background: #55ddecd3;
+  animation: animate1 25s linear infinite;
+  bottom: -150px;
+}
+
+.circles li:nth-child(1) {
+  left: 25%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0s;
+}
+
+.circles li:nth-child(2) {
+  left: 10%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+
+.circles li:nth-child(3) {
+  left: 70%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 4s;
+}
+
+.circles li:nth-child(4) {
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+
+.circles li:nth-child(5) {
+  left: 65%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 0s;
+}
+
+.circles li:nth-child(6) {
+  left: 75%;
+  width: 110px;
+  height: 110px;
+  animation-delay: 3s;
+}
+
+.circles li:nth-child(7) {
+  left: 35%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 7s;
+}
+
+.circles li:nth-child(8) {
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  animation-delay: 15s;
+  animation-duration: 45s;
+}
+
+.circles li:nth-child(9) {
+  left: 20%;
+  width: 15px;
+  height: 15px;
+  animation-delay: 2s;
+  animation-duration: 35s;
+}
+
+.circles li:nth-child(10) {
+  left: 85%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 0s;
+  animation-duration: 11s;
+}
+
+@keyframes animate1 {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    border-radius: 0;
+  }
+
+  100% {
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+    border-radius: 50%;
+  }
+}
+*/
+
+.mobile::-webkit-scrollbar {
+  width: 8px;
+}
+
+.mobile::-webkit-scrollbar-track {
+  background: none;
+}
+
+.mobile::-webkit-scrollbar-thumb {
+  background: #232323;
+  border-radius: 4px;
+}
+
+.App {
+  padding: 1rem 1.5rem !important;
+  font-family: var(--textStyle);
+  color: var(--textColor);
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.5fr 10fr;
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  overflow-y: hidden;
+  background: var(--backGround);
+  color: #1b1f4b3a;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.App .loading-spinner {
+  margin: 19rem auto 0 39rem;
+}
+.App .loading-spinner span {
+  position: absolute;
+  margin-left: -1.7rem;
+}
+
+.App::-webkit-scrollbar {
+  width: 8px;
+}
+
+.App::-webkit-scrollbar-track {
+  background: none;
+}
+
+.App::-webkit-scrollbar-thumb {
+  background: #232323;
+  border-radius: 4px;
+}
+
+.top {
+  margin-top: 2rem;
+  display: grid;
+  column-gap: var(--gap);
+  grid-template-columns: 1.2fr 5fr 1fr 1fr 1fr;
+  grid-column: 1;
+  height: 3.3rem;
+  text-align: center;
+  align-self: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  /*border: 2px solid red;*/
+}
+
+.logo {
+  grid-column: 1;
+  cursor: pointer;
+  text-align: center;
+  transform: translateY(-1.2rem);
+}
+
+.logo img {
+  width: 5rem;
+  height: 5rem;
+  margin: auto;
+}
+
+.midRightWrap {
+  height: 80vh;
+  width: 82.5vw;
+  grid-column: 2;
+  display: grid;
+  column-gap: var(--gap);
+  grid-template-column: 1fr 1fr;
+}
+
+.midRightWrap::-webkit-scrollbar {
+  width: 8px;
+}
+
+.midRightWrap::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.midRightWrap::-webkit-scrollbar-thumb {
+  background: #3a3a3a;
+  border-radius: 4px;
+  transition: background 0.3s ease-in-out;
+}
+
+.midRightWrap::-webkit-scrollbar-thumb:hover {
+  background: #5a5a5a;
+}
+
+.rightSide {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  row-gap: var(--gap);
+  padding: 0;
+  margin: 0;
+}
+
+.nav {
+  display: flex;
+  height: 80vh;
+  width: 12vw;
+  max-height: 53rem;
+  background: var(--navBar);
+  border-radius: var(--rd);
+  box-shadow: var(--shadow2);
+  align-items: center;
+  animation: none;
+  /*border: 2px solid red;*/
+}
+
+.hidden {
+  display: none;
+}
+
+.nav ul.nav-list {
+  padding: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.nav-list li {
+  letter-spacing: 1px;
+  height: auto;
+  padding: 1.6rem 1vw;
+  cursor: pointer;
+  border-radius: var(--rd);
+}
+
+.nav-list .active {
+  background: transparent;
+  box-shadow: var(--shadowNav);
+}
+
+.nav-list li:hover {
+  transform: scale(1.3);
+  box-shadow: var(--shadow2);
+  transition: 0.3s ease-in;
+}
+
+.nav-list li lord-icon {
+  height: 2rem;
+  width: 4rem;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  padding: 0.2rem;
+}
+
+li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+li span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+li button {
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+}
+
+li button:hover {
+  background: var(--hov);
+}
+
+.startBtn:hover {
+  background-color: var(--hov);
+}
+
+.startBtn h1 {
+  margin: 0;
+}
+.mid .midTop {
+  height: auto;
+  max-height: 30rem;
+  width: 100%;
+  display: grid;
+  cursor: pointer;
+  column-gap: var(--gap);
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.mid .midBot {
+  grid-row: 2;
+}
+
+.midTopRight {
+  height: auto;
+  max-height: 25rem;
+  grid-column: 2;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: var(--gap);
+}
+
+.reset {
+  margin-top: -15rem;
+  margin-left: -2rem;
+  position: absolute;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg2);
+  border-radius: var(--rd);
+  padding: 2rem 2rem;
+  z-index: 5;
+}
+
+.reset button {
+  margin-bottom: 10px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: whitesmoke;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.reset button:hover {
+  background-color: #0056b3;
+}
+
+.reset form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reset form input {
+  margin: 0.5rem;
+  color: whitesmoke;
+  background: var(--bg2);
+  background: none;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.reset form input::placeholder {
+  color: whitesmoke;
+  opacity: 0.6;
+}
+
+.reset form button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: whitesmoke;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.reset form button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.btm {
+  height: 80vh;
+  width: 100%;
+  grid-column: 1;
+  grid-row: 2;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1.5fr 4fr;
+  gap: var(--gap);
+  background: var(--bg1);
+  padding: 0;
+  margin: 0;
+}
+
+.btm::-webkit-scrollbar {
+  width: 8px;
+}
+
+.btm::-webkit-scrollbar-track {
+  background: none;
+}
+
+.btm::-webkit-scrollbar-thumb {
+  background: #232323;
+  border-radius: 4px;
+}
+
+.requestPlayers {
+  position: fixed;
+  text-shadow: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  background: white;
+  color: #333;
+  padding: 25px;
+  width: 350px;
+  text-align: center;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -45%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Title */
+.requestPlayers h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+/* Close Button */
+.requestPlayers .close-btn {
+  text-shadow: none;
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+  color: #ff4f4f;
+  border: none;
+  box-shadow: none;
+}
+
+.requestPlayers .close-btn:hover {
+  color: #777;
+}
+
+.select-all-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 10px;
+  text-shadow: none;
+  box-shadow: none;
+}
+
+.select-all-btn:hover {
+  background: #0056b3;
+}
+.accpt-btn {
+  background: rgb(0, 221, 48);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 10px;
+  text-shadow: none;
+  box-shadow: none;
+}
+/* Player List */
+.requestPlayers ul {
+  list-style: none;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  border-radius: 6px;
+  border: 1px solid #eee;
+  padding: 5px;
+}
+
+.requestPlayers li {
+  display: flex;
+  align-items: center;
+  background: #f9f9f9;
+  padding: 8px 12px;
+  margin: 4px 0;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.requestPlayers li:hover {
+  background: #f1f1f1;
+}
+
+.requestPlayers label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* Custom Checkbox */
+.requestPlayers input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border: 2px solid #007bff;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.requestPlayers input[type="checkbox"]:checked {
+  background: #007bff;
+  border-color: #007bff;
+}
+
+.requestPlayers input[type="checkbox"]:checked::before {
+  content: "✔";
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Arial, sans-serif;
+}
+
+/* Delete Button */
+.delete-btn {
+  width: 100%;
+  margin-top: 12px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-shadow: none;
+  box-shadow: none;
+}
+
+.delete-btn:hover {
+  background: #c82333;
+}
+
+.leftSide {
+  height: 79vh;
+  grid-column: 1;
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.mid {
+  width: 100%;
+  height: 79vh;
+  grid-column: 1;
+  display: grid;
+  row-gap: var(--gap);
+  overflow-x: hidden;
+  grid-template-rows: 1fr 1fr;
+  -webkit-animation: scale-in-ver-center 0.5s
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: scale-in-ver-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  /*border: 2px solid red;*/
+  padding: 0;
+}
+
+.mid::-webkit-scrollbar {
+  width: 6px;
+}
+.mid::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+.mid::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@-webkit-keyframes scale-in-ver-center {
+  0% {
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-in-ver-center {
+  0% {
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 1024px) {
+  .App {
+    height: 100vh;
+    width: 100vw;
+    padding: 1.5rem;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3.5fr 1fr;
+    overflow: hidden;
+  }
+  .top {
+    width: 95vw;
+    display: grid;
+    column-gap: var(--gap);
+    grid-template-columns: 1.2fr 5fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .logo {
+    grid-column: 1;
+    padding-left: 3rem;
+  }
+  .title {
+    grid-column: 2;
+    padding-top: 10px;
+  }
+  .toggle-container {
+    grid-column: 3;
+  }
+  .endBtn {
+    grid-column: 4;
+  }
+  .imgKo {
+    grid-column: 5;
+    transform: translateY(-5px) translateX(-25px);
+  }
+
+  .btm {
+    width: 95%;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 1.5fr 4fr;
+    overflow: hidden;
+  }
+
+  .leftSide {
+    grid-column: 1;
+    grid-row: 1/2;
+  }
+
+  .midRightWrap {
+    grid-column: 2;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+    height: 100vh;
+    width: 82.5vw;
+  }
+
+  .mid {
+    grid-row: 1;
+    grid-column: 1;
+    height: 100vh;
+    width: 78vw;
+  }
+
+  .rightSide {
+    overflow-y: auto;
+    grid-row: 2;
+    grid-column: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 70vh;
+    width: 78vw;
+  }
+
+  .matchMaking {
+    grid-row: 1;
+  }
+  .queue {
+    grid-row: 2;
+  }
+
+  .nav {
+    width: 15vw;
+  }
+
+  .nav-list li {
+    letter-spacing: 1px;
+    height: auto;
+    cursor: pointer;
+    border-radius: var(--rd);
+  }
+
+  .nav-list .active {
+    background: transparent;
+    box-shadow: var(--shadowNav);
+  }
+
+  .nav-list li:hover {
+    transform: scale(1.3);
+    box-shadow: var(--shadow2);
+    transition: 0.3s ease-in;
+  }
+
+  .nav-list li lord-icon {
+    height: 2rem;
+    width: 4rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .logo {
+    margin-top: 0.3rem;
+    margin-left: -1.5rem;
+  }
+  .btm {
+    margin-top: 2rem;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 1.5fr 4fr;
+    overflow: hidden;
+  }
+  .rightSide {
+    transform: translateY(-25%);
+    z-index: 2;
+    height: 79vh;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .logo {
+    padding-left: 1rem;
+    transform: translateY(-15px);
+  }
+
+  .end {
+    width: 10vw;
+  }
+}
+
+@media screen and (max-width: 645px) {
+  .mid .midTop {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 80vh;
+    row-gap: var(--gap);
+  }
+
+  .add-player-container {
+    order: -1;
+    width: 90%;
+    height: 80vh;
+  }
+
+  .midTopRight {
+    order: 2;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .shuffle,
+  .custom {
+    flex: 1;
+    text-align: center;
+    min-width: 0;
+  }
+}
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .App .loading-spinner {
+    margin-left: auto;
+  }
+  .App .loading-spinner span {
+    position: absolute;
+    margin-left: -1.7rem;
+  }
+
+  .btm {
+    display: none;
+    grid-template-columns: 1fr !important;
+    width: 90vw;
+  }
+  .midTop {
+    overflow: scroll;
+    height: 84vh;
+  }
+  .midTopRight {
+    margin-top: 1rem;
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .midTop {
+    width: 87vw;
+  }
+}

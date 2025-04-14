@@ -1,0 +1,218 @@
+.crud-container {
+  height: 70vh;
+  width: 50vw;
+  background-image: radial-gradient(
+      at 8% 5%,
+      hsla(205, 80%, 40%, 0.7) 0,
+      transparent 40%
+    ),
+    radial-gradient(at 85% 90%, hsla(355, 92%, 49%, 0.5) 0, transparent 30%),
+    radial-gradient(at 50% 50%, hsla(180, 100%, 70%, 0.2) 0, transparent 50%);
+
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  backdrop-filter: var(--blur);
+  box-shadow: var(--shadow);
+  border-radius: var(--rd);
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 0.5fr 5fr;
+  overflow-x: hidden;
+}
+
+.crud-container h3 {
+  color: var(--textColor);
+  margin-right: 0.8rem;
+}
+
+.crud-container .form-container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem; /* Adds spacing between elements */
+  grid-row: 1;
+  padding: 1rem 0;
+}
+
+.crud-container .form-container2 input,
+.crud-container .form-container2 select {
+  border: 2px solid var(--btnColor2);
+  background: transparent;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 10vw;
+  min-width: 120px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.crud-container .form-container2 input {
+  color: var(--textColor);
+}
+
+.crud-container .form-container2 input::placeholder {
+  font-size: 0.9rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.crud-container .form-container2 select {
+  cursor: pointer;
+  color: var(--textColor);
+  font-size: 1rem;
+}
+
+.crud-container .form-container2 select option {
+  color: #000;
+  background: whitesmoke;
+}
+
+.crud-container .form-container2 .btn-add {
+  color: #fff;
+  background: var(--btnColor);
+  padding: 1rem 1rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  width: 10vw;
+  min-width: 120px;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.crud-container .form-container2 .btn-add:hover {
+  transform: scale(1.05);
+  background: var(--btnColorHover);
+}
+
+.area-list {
+  width: 100%;
+  max-width: 600px;
+  padding: 1rem;
+  margin-top: 2rem;
+  max-height: 25rem;
+  overflow-y: auto;
+  grid-row: 2;
+}
+
+.area-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.area-list::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+.area-list::-webkit-scrollbar-thumb {
+  background: var(--bg);
+  border-radius: 4px;
+}
+
+.area-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-radius: 0.4rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(25, 27, 29, 0.384);
+}
+
+.area-item h4 {
+  padding: 0.1rem 1rem 0.1rem;
+  font-size: var(--tbHeadFontSize);
+  font-family: var(--subText);
+  color: var(--textColor);
+}
+
+.area-item.active {
+  background-color: var(--activeBg);
+}
+
+.btn-group {
+  display: flex;
+  gap: 0.5rem;
+  z-index: 1;
+}
+
+.btn-edit {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: var(--textDisplay);
+  font-family: var(--subText);
+  outline: none;
+  background: var(--btnColor2);
+  box-shadow: none;
+  cursor: pointer;
+  color: #000;
+}
+
+.btn-delete {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: var(--textDisplay);
+  font-family: var(--subText);
+  outline: none;
+  color: #fff;
+  background: var(--btnColor);
+  box-shadow: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.btn-update {
+  padding: 10px 25px;
+  color: var(--textColor);
+  border: none;
+  border-radius: 8px;
+  font-size: var(--textDisplay);
+  font-family: var(--subText);
+  box-shadow: var(--shadow2);
+  outline: none;
+  background: var(--mainBg);
+  text-shadow: var(--textShadow);
+  cursor: pointer;
+  z-index: 1;
+}
+
+.btn-cancel {
+  padding: 10px 25px;
+  color: var(--textColor);
+  border: none;
+  border-radius: 8px;
+  font-size: var(--textDisplay);
+  font-family: var(--subText);
+  box-shadow: var(--shadow2);
+  outline: none;
+  background: var(--mainBg);
+  text-shadow: var(--textShadow);
+  cursor: pointer;
+}
+
+.btn-edit:hover,
+.btn-delete:hover,
+.btn-update:hover,
+.btn-cancel:hover {
+  transform: scale(1.1);
+  background: var(--btnColor);
+  transition: 0.3s ease-out;
+}
+
+.btn-edit:hover {
+  color: #fff;
+}
+
+@media screen and (max-width: 767px) {
+  .crud-container {
+    width: 91%;
+    margin-top: 2rem;
+  }
+}

@@ -1,0 +1,335 @@
+.courtCon {
+  height: auto;
+  max-height: 85%;
+  min-height: 99%;
+  width: auto;
+  overflow-y: scroll;
+  background: var(--bgCompo2);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  background: transparent;
+  background-image: radial-gradient(
+      at 10% 10%,
+      hsla(220, 100%, 55%, 0.2) 0,
+      transparent 40%
+    ),
+    radial-gradient(at 90% 30%, hsla(320, 100%, 60%, 0.4) 0, transparent 35%),
+    radial-gradient(at 50% 100%, hsla(69, 100%, 50%, 0.2) 0, transparent 60%);
+
+  border-radius: var(--rd);
+  padding: var(--gap);
+  color: var(--textColor);
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  -webkit-animation: slide-in-bottom 0.5s cubic-bezier(0.165, 0.84, 0.44, 1)
+    both;
+  animation: slide-in-bottom 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+}
+
+@-webkit-keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(1000px);
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(1000px);
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.courtCon .h2 {
+  font-size: var(--hSize);
+  font-family: var(--subText);
+  color: var(--textColor);
+  text-shadow: var(--textShadow);
+  font-weight: 650;
+}
+
+.courtCon .courtContainer .has-match {
+  position: absolute;
+  margin: 11.5rem 30%;
+  cursor: pointer;
+  width: 500px;
+  height: 20rem;
+  background: var(--hasCourtBg);
+  border-radius: 8px;
+  border: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.courtCon .courtContainer .has-match .inCourt {
+  font-size: var(--hSize);
+  font-family: var(--subText);
+  color: orange;
+  text-shadow: var(--textShadow);
+  font-weight: 650;
+}
+
+.courtCon .courtContainer .has-match .courtMatch {
+  color: orange;
+  font-weight: 650;
+  font-size: var(--hSize);
+  font-family: var(--subText);
+}
+
+.courtCon .courtContainer .has-match:before,
+.courtCon .courtContainer .has-match:after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  background: var(--hasCourtShadow);
+  background-size: 140%;
+  border-radius: var(--rd);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  z-index: -1;
+  animation-delay: 3ms;
+  animation: cc 8s linear infinite;
+}
+
+@keyframes cc {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.courtCon .courtContainer .has-match:after {
+  filter: blur(10px);
+}
+.courtCon .courtContainer .has-match h3 {
+  font-size: var(--hSize);
+  font-family: var(--subText);
+  color: orange;
+  text-shadow: var(--textShadow);
+}
+
+.courtCon .delAll {
+  width: auto;
+  max-width: 18.5vw;
+  padding: 0.6rem 0.8rem;
+  color: var(--btnTextColor);
+  border: none;
+  border-radius: 8px;
+  font-size: var(--textDisplay);
+  font-family: var(--subText);
+  box-shadow: var(--shadow2);
+  outline: none;
+  background-color: var(--btnColor2);
+  text-shadow: none;
+  font-weight: 690;
+  letter-spacing: 0.3px;
+  opacity: 0.8;
+}
+
+.courtCon .delAll:hover {
+  transition: 0.3s ease-out;
+  opacity: 1;
+  box-shadow: none;
+}
+.courtCon::-webkit-scrollbar {
+  width: 8px;
+}
+
+.courtCon::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+.courtCon::-webkit-scrollbar-thumb {
+  background: var(--bg);
+  border-radius: 4px;
+}
+
+.courtCon h2 {
+  font-size: var(--hSize);
+  font-family: var(--subText);
+  color: var(--textColor);
+  text-shadow: var(--textShadow);
+}
+.courtCon .courtContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+.courtCon .courtContainer .court h3 {
+  font-size: var(--hSize);
+  font-family: var(--subText);
+  color: var(--textColor);
+  text-shadow: var(--textShadow);
+}
+
+.courtCon .courtContainer .court {
+  padding: 1rem;
+  position: relative;
+  margin: 1rem;
+  height: 9.3rem;
+  width: 15rem;
+  box-shadow: var(--shadow2);
+  border-radius: var(--rd);
+  background: var(--hasCourtBg);
+}
+
+.courtCon .courtContainer .court:hover {
+  transition: 0.3s ease-out;
+  background: var(--hov);
+}
+.courtCon .courtContainer .court .del {
+  margin: 2rem auto auto;
+  height: 1.4rem;
+  cursor: pointer;
+  filter: drop-shadow(var(--shadow));
+  color: var(--textColor);
+}
+.courtCon .courtContainer .court .noneDel {
+  display: none;
+}
+.courtCon .courtContainer .court .del:hover {
+  transition: 0.3s ease-out;
+  transform: scale(1.2);
+  background: var(--hov);
+}
+.courtCon .courtContainer .court .edit {
+  outline: none;
+  border: none;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  background: var(--bg);
+  color: var(--textColor);
+  border-radius: 8px;
+  box-shadow: var(--shadow2);
+}
+.courtCon .courtContainer .court .edit:hover {
+  transition: 0.3s ease-out;
+  background: var(--hov);
+}
+.courtCon .courtContainer .court .t1,
+.courtCon .courtContainer .court .t2 {
+  outline: none;
+  border: none;
+  margin: 0.3rem;
+  padding: 0.6rem 1rem;
+  font-size: var(--textDisplay);
+  font-family: var(--subText);
+  background: var(--bg2);
+  color: var(--textColor);
+  border-radius: 6px;
+  box-shadow: var(--shadow2);
+  text-shadow: var(--textShadow);
+}
+.courtCon .courtContainer .court .t1:hover,
+.courtCon .courtContainer .court .t2:hover {
+  transition: 0.3s ease-out;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+}
+
+.courtCon lord-icon {
+  height: 2rem;
+  cursor: pointer;
+  filter: drop-shadow(var(--shadow));
+}
+
+.success-message {
+  font-family: var(--textDisplay);
+  position: absolute;
+  margin-top: -120px;
+  background: var(--bgRd);
+  color: var(--textColor);
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  z-index: 2;
+  animation: pop-up 1s ease-in-out;
+  text-shadow: var(--textShadow);
+}
+
+@keyframes pop-up {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    transform: translateY(-2px) scale(1.01);
+    opacity: 0.2;
+  }
+  20% {
+    transform: translateY(-4px) scale(1.02);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-6px) scale(1.03);
+    opacity: 0.6;
+  }
+  40% {
+    transform: translateY(-8px) scale(1.04);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05);
+    opacity: 0.8;
+  }
+  60% {
+    transform: translateY(-12px) scale(1.06);
+    opacity: 0.9;
+  }
+  70% {
+    transform: translateY(-14px) scale(1.07);
+    opacity: 0.95;
+  }
+  80% {
+    transform: translateY(-16px) scale(1.08);
+    opacity: 1;
+  }
+  90% {
+    transform: translateY(-18px) scale(1.07);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translateY(-20px) scale(1.06);
+    opacity: 0.9;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .courtCon {
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .courtCon {
+    margin-top: 1rem;
+  }
+  .courtCon .delAll {
+    width: 50vw !important;
+  }
+}

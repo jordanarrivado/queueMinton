@@ -1,0 +1,54 @@
+.end {
+  grid-column: 4;
+
+  background: transparent;
+  background-image: radial-gradient(
+      at 7% 4%,
+      hsla(216, 100%, 31%, 0.767) 0,
+      transparent 39%
+    ),
+    radial-gradient(at 92% 95%, hsla(332, 98%, 47%, 0.2) 0, transparent 35%),
+    radial-gradient(at 50% 50%, hsla(88, 100%, 40%, 0.25) 0, transparent 50%);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  border-radius: var(--rd);
+  cursor: pointer !important;
+  margin-left: 3rem;
+  padding-top: 0.7rem;
+  text-align: center;
+  justify-content: end;
+  align-items: center;
+  text-shadow: none;
+  box-shadow: var(--shadow2);
+  width: 7vw;
+  height: 50%;
+  z-index: 2;
+  opacity: 0.9;
+}
+.end h3 {
+  color: var(--textColor);
+  font-weight: 680;
+  letter-spacing: 0.3px;
+  text-shadow: none;
+  margin-top: 0.3rem;
+}
+
+.end:hover {
+  transition: 0.3s ease-out;
+  opacity: 1;
+  box-shadow: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .end {
+    height: 5vh;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .end {
+    padding: 0.5rem 1rem;
+  }
+  .end h3 {
+    margin-top: 0.5rem;
+  }
+}

@@ -1,0 +1,69 @@
+.shuffle {
+  z-index: 4;
+  text-align: center;
+  background-image: radial-gradient(
+    at 90% 10%,
+    hsla(69, 100%, 50%, 0.2) 0,
+    transparent 60%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  backdrop-filter: var(--blur);
+  border-radius: var(--rd);
+  box-shadow: var(--shadow2);
+  grid-row: 1;
+  padding-top: 1rem;
+  -webkit-animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+  animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@-webkit-keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.shuffle img {
+  height: 4vh;
+}
+.shuffle h2 {
+  font-size: var(--hSize);
+  font-family: var(--subText);
+  color: var(--textColor);
+  text-shadow: var(--textShadow);
+}
+
+.shuffle lord-icon {
+  max-height: 2.1rem;
+  text-align: center;
+}
+.shuffle:hover {
+  transition: 0.3s ease-out;
+  background: var(--hov);
+}
+
+@media screen and (max-width: 767px) {
+  .shuffle {
+    padding-top: 0;
+    padding-bottom: 1rem;
+  }
+}

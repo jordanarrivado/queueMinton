@@ -1,0 +1,121 @@
+/* 🔹 Top Mobile Header */
+.topMobile {
+  display: none; /* Hidden by default, only visible on mobile */
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1rem;
+  background: var(--bgCompo2);
+  color: var(--textColor);
+  box-shadow: var(--shadow);
+  position: relative;
+  z-index: 6;
+}
+
+/* 🔹 Show TopMobile only on small screens */
+@media screen and (max-width: 767px) {
+  .topMobile {
+    margin-top: 1rem;
+    display: flex;
+    width: 95%;
+  }
+}
+
+/* 🔹 Logo Styles */
+.logo123 {
+  height: 55px;
+  margin: 0;
+  justify-content: center;
+  text-align: center;
+
+  padding: 0;
+}
+
+/* 🔹 Title Mobile */
+.titleMobile {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--textColor);
+}
+
+/* 🔹 Menu Icon */
+.menu-icon {
+  cursor: pointer;
+  padding: 10px; /* Larger tap area */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.menu-icon:active {
+  transform: scale(0.9);
+}
+
+/* 🔹 Mobile Menu */
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 200px;
+  background: var(--bgCompo2);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+/* 🔹 Show Menu */
+.mobile-menu.show {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* 🔹 Menu Items */
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: background 0.2s ease;
+  text-align: center;
+}
+
+.mobile-menu li:last-child {
+  border-bottom: none;
+}
+
+.mobile-menu li.active {
+  background: rgba(255, 255, 255, 0.1);
+  padding-left: 1rem;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.mobile-menu li:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+/* 🔹 Prevent Overflow Issues */
+body {
+  overflow-x: hidden;
+}
+
+/* 🔹 Responsive Adjustments */
+@media screen and (max-width: 425px) {
+  .topMobile {
+    width: 90%;
+  }
+}

@@ -1,0 +1,138 @@
+/* SETTINGS CONTAINER */
+.settings-container {
+  background: var(--bgCompo2);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  backdrop-filter: var(--blur);
+  border-radius: var(--rd);
+  color: var(--textColor);
+  padding: 20px;
+  height: 80vh;
+  overflow-y: auto;
+  text-align: center;
+}
+.settings-container::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.settings-container::-webkit-scrollbar-track {
+  background: none;
+}
+
+.settings-container::-webkit-scrollbar-thumb {
+  background: #181818 !important;
+  border-radius: 3px;
+}
+
+/* SETTINGS TITLE */
+.settings-title {
+  color: var(--textColor);
+  font-family: var(--subText);
+  text-shadow: var(--textShadow);
+  margin-bottom: 1.5rem;
+}
+
+/* SETTINGS SECTION */
+.settings-section {
+  background: var(--bgCompo);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+/* SUBTITLE */
+.settings-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* TOGGLE BUTTON */
+.toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--textColor);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: var(--mainBg);
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease-in-out;
+}
+
+.toggle-btn:hover {
+  background: var(--highlightColor);
+  box-shadow: var(--shadowHover);
+}
+
+/* THEME CONTAINER */
+.theme-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+  padding: 10px;
+}
+
+.theme-container::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.theme-container::-webkit-scrollbar-track {
+  background: none;
+}
+
+.theme-container::-webkit-scrollbar-thumb {
+  background: #181818 !important;
+  border-radius: 3px;
+}
+
+/* THEME CARD */
+.theme-card {
+  position: relative;
+  background: var(--bgCompo2);
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: var(--shadow2);
+}
+
+.theme-card:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadowHover);
+}
+
+.theme-card.selected {
+  border: 3px solid var(--highlightColor);
+}
+
+/* THEME IMAGE */
+.theme-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: var(--shadow2);
+}
+
+/* THEME NAME */
+.theme-name {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* CHECK ICON */
+.check-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 1.2rem;
+  color: var(--highlightColor);
+}

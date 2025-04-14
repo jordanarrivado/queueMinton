@@ -1,0 +1,22 @@
+.racket-container {
+  top: -53%;
+  left: 10%;
+  width: 50vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+  /*border: 2px solid red;*/
+  cursor: grab;
+}
+
+@media screen and (max-width: 767px) {
+  .racket-container {
+    top: -48%;
+    left: 30%;
+    width: 50vw !important;
+    height: 70vh !important;
+    z-index: -1;
+    /*border: 2px solid red;*/
+    cursor: grab;
+  }
+}

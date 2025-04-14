@@ -1,0 +1,86 @@
+.edit-form {
+  position: absolute;
+  width: 19.0625rem;
+  padding: 20px;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(25, 27, 29, 0.5);
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px aolid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.edit-form h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: var(--textColor);
+  text-shadow: none;
+}
+
+.edit-form h4 {
+  font-size: 18px;
+  margin: 10px 0;
+  color: var(--textColor);
+  text-shadow: none;
+  text-align: left;
+}
+
+.edit-form select {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  background: #5757574f;
+  cursor: pointer;
+  transition: 0.3s;
+  color: var(--textColor);
+}
+
+.edit-form select:focus {
+  border-color: #007bff;
+  background: #5757574f;
+  outline: none;
+  box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+}
+
+.edit-form button {
+  margin: 10px 5px;
+  padding: 8px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+.edit-form button:first-of-type {
+  background: #28a745;
+  color: white;
+}
+
+.edit-form button:first-of-type:hover {
+  background: #218838;
+}
+
+.edit-form button:last-of-type {
+  background: #dc3545;
+  color: white;
+}
+
+.edit-form button:last-of-type:hover {
+  background: #c82333;
+}
+
+.edit-form select option {
+  background: var(--btnColor);
+  color: var(--textColor);
+}

@@ -1,0 +1,769 @@
+
+.liveView{
+  grid-column: 1/4;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  background: var(--btnColor);
+  display: grid;
+  grid-template-rows: .5fr 3.3fr;
+  gap: 0;
+}
+
+
+.liveView .fullscreen-btn {
+  position: absolute;
+  margin-left: 65rem;
+  margin-top: -4rem;
+  padding: 10px 20px;
+  background-color: var(--btnColor);
+  color: var(--textColor);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.liveView .fullscreen-btn:hover {
+  background-color: var(--hov);
+}
+
+.liveView .header{
+  height: auto;
+  background: none;
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  
+}
+
+.liveView .header .one{
+  grid-column: 1;
+  color: var(--textColor);
+}
+
+.liveView .header .lefts{
+  height: auto;
+  width: auto;
+  margin: 0;
+  grid-column: 2;
+  text-align: center;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.liveView .header .lefts h3.two{
+  grid-column: 1;
+  padding: 0;
+  margin: 0;
+}
+
+
+.liveView .header .lefts h3 .circleQ{
+  display: inline-block; 
+  width: .7rem; 
+  height: .7rem; 
+  border-radius: 50%;
+  background-color: #28a745; 
+}
+
+.liveView .header .lefts h3.three{
+  grid-column: 2;
+  margin: 0;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.liveView .header .lefts h3.three .circleS{
+  display: inline-block; 
+  width: .7rem; 
+  height: .7rem; 
+  border-radius: 50%;
+  background-color: #ff4500; 
+}
+
+
+
+.liveView .body{
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.liveView .body .matchQ{
+  grid-row: 1/3;
+  grid-column: 1;
+  box-shadow: var(--shadow);
+  height: 69vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.liveView .body .matchQ h2{
+  color: var(--textColor);
+}
+
+
+  
+.liveView .body .matchQ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.liveView .body .matchQ::-webkit-scrollbar-track {
+  background: none;
+}
+
+.liveView .body .matchQ::-webkit-scrollbar-thumb {
+  background: #232323;
+  border-radius: 4px;
+}
+
+.liveView .body .matchQSeperated {
+  grid-row: 1/3;
+  grid-column: 1;
+  display: grid;
+  justify-items: center; 
+  align-items: center;  
+  text-align: center;
+  height: 99%;
+  width: 100%;
+  box-shadow: var(--shadow);
+  grid-template-rows: 1fr 1fr; 
+}
+
+.liveView .body .matchQSeperated h2 {
+  color: var(--textColor);
+}
+
+.liveView .body .matchQSeperated .up, 
+.liveView .body .matchQSeperated .down {
+  height: 100%;
+  width:100%;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+}
+
+.liveView .body .matchQSeperated .up {
+  display: flex;
+  flex-wrap: nowrap; 
+  gap: 1rem; 
+  overflow-x: scroll; 
+  overflow-y: hidden; 
+  border-bottom:2px solid#232323;
+  
+}
+
+.liveView .body .matchQSeperated .up h1, 
+.liveView .body .matchQSeperated .down h1 {
+  color: var(--textColor);
+  font-family: var(--subText);
+  font-size: 2rem;
+  text-shadow: var(--textShadow);
+}
+
+
+.liveView .body .matchQSeperated .up::-webkit-scrollbar {
+  display: none;
+}
+
+.liveView .body .matchQSeperated .up::-webkit-scrollbar-track {
+  background: none;
+  display: none;
+}
+
+.liveView .body .matchQSeperated .up::-webkit-scrollbar-thumb {
+  background: #232323;
+  border-radius: 4px;
+  display: none;
+}
+
+
+.liveView .body .matchQSeperated .up .team-container{
+  flex: 0 0 auto; 
+  display: grid;
+  height: 13rem;
+  width: 16rem;
+  border-radius: 16px;
+  grid-template-rows: .5fr 3fr;
+  box-shadow: var(--shadow);
+  backdrop-filter: var(--blur);
+  background: var(--btnColor);
+  border-radius: var(--rd);
+  padding: .5rem 1.4rem 0rem 1.4rem;
+}
+
+.liveView .body .matchQSeperated .up .team-container .head{
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.liveView .body .matchQSeperated .up .team-container .head .matchName{
+  margin-top: 1.3rem;
+  grid-column: 1;
+  color: var(--textColor);
+  font-family: var(--subText);
+  text-shadow: var(--textShadow);
+  text-align: center;
+  justify-content: center;
+}
+
+.liveView .body .matchQSeperated .up .team-container .head h5 .playing{
+  display: inline-block; 
+  width: .5rem; 
+  height: .5rem; 
+  border-radius: 50%;
+  background-color: #ff4400e3; 
+}
+
+
+
+.liveView .body .matchQSeperated .up .team-container .head h5{
+  grid-column: 3;
+  color: var(--textColor);
+  font-family: var(--subText);
+  text-shadow: var(--textShadow);
+}
+
+
+.liveView .body .matchQSeperated .up .team-container .body2{
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.liveView .body .matchQSeperated .up .team-container .body2 .team1{
+  grid-column: 1;
+  height: 44%;
+}
+
+
+.liveView .body .matchQSeperated .up .team-container .body2 .team1 h4.h4,
+.liveView .body .matchQSeperated .up .team-container .body2 .team2 h4.h4{
+  text-align: center;
+  color: var(--textColor);
+  text-shadow: var(--textShadow);
+  font-weight: bolder;
+  font-size: var(--hSize);
+}
+
+
+.liveView .body .matchQSeperated .up .team-container .body2 .team1 p,
+.liveView .body .matchQSeperated .up .team-container .body2 .team2 p{
+  font-family: var(--textStyle);
+  color: var(--textColor);
+  text-shadow: var(--textShadow);
+  font-size: var(--textDisplay);
+  font-weight: lighter;
+  letter-spacing: .8px;
+}
+
+
+.liveView .body .matchQSeperated .up .team-container .body2 .mid{
+  grid-column: 2;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  text-align: center;
+  justify-content: center;
+  place-content: center;
+}
+
+
+.liveView .body .matchQSeperated .up .team-container .body2 .mid p{
+  height: 19%;
+  margin: 0;
+  padding-top: 4.5rem;
+  grid-row: 1/3;
+  font-family: var(--textStyle);
+  color: var(--textColor);
+  text-shadow: var(--textShadow);
+}
+
+
+.liveView .body .matchQSeperated .up .team-container .body2 .team2{
+  grid-column: 3;
+  height: 44%;
+}
+
+
+
+
+
+
+
+
+
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+.liveView .body .matchQSeperated .down {
+  display: flex;
+  flex-wrap: nowrap; 
+  gap: 1rem; 
+  overflow-x: scroll; 
+  overflow-y: hidden; 
+  position: relative;
+  border-top:2px solid#232323;
+}
+
+
+.liveView .body .matchQSeperated .down::-webkit-scrollbar {
+  display: none;
+}
+
+.liveView .body .matchQSeperated .down::-webkit-scrollbar-track {
+  background: none;
+  display: none;
+}
+
+.liveView .body .matchQSeperated .down::-webkit-scrollbar-thumb {
+  background: #232323;
+  border-radius: 4px;
+  display: none;
+}
+
+
+.liveView .body .matchQSeperated .down .team-container{
+  transform: translateX(10rem);
+  flex: 0 0 auto; 
+  display: grid;
+  height: 13rem;
+  width: 16rem;
+  border-radius: 16px;
+  grid-template-rows: .5fr 3fr;
+  box-shadow: var(--shadow);
+  backdrop-filter: var(--blur);
+  background: var(--btnColor);
+  border-radius: var(--rd);
+  padding: .5rem 1.4rem 0rem 1.4rem;
+ 
+}
+
+
+.liveView .body .matchQSeperated .down .team-container .head{
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.liveView .body .matchQSeperated .down .team-container .head .matchName{
+  margin-top: 1.3rem;
+  grid-column: 1;
+  color: var(--textColor);
+  font-family: var(--subText);
+  text-shadow: var(--textShadow);
+  text-align: center;
+  justify-content: center;
+}
+
+.liveView .body .matchQSeperated .down .team-container .head h5 .InQueue{
+  display: inline-block; 
+  width: .5rem; 
+  height: .5rem; 
+  border-radius: 50%;
+  background-color: #28a745; 
+}
+
+
+.liveView .body .matchQSeperated .down .team-container .head h5{
+  grid-column: 3;
+  color: var(--textColor);
+  font-family: var(--subText);
+  text-shadow: var(--textShadow);
+}
+
+
+.liveView .body .matchQSeperated .down .team-container .body2{
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.liveView .body .matchQSeperated .down .team-container .body2 .team1{
+  grid-column: 1;
+  height: 44%;
+}
+
+
+.liveView .body .matchQSeperated .down .team-container .body2 .team1 h4.h4,
+.liveView .body .matchQSeperated .down .team-container .body2 .team2 h4.h4{
+  text-align: center;
+  color: var(--textColor);
+  text-shadow: var(--textShadow);
+  font-weight: bolder;
+  font-size: var(--hSize);
+}
+
+
+.liveView .body .matchQSeperated .down .team-container .body2 .team1 p,
+.liveView .body .matchQSeperated .down .team-container .body2 .team2 p{
+  font-family: var(--textStyle);
+  color: var(--textColor);
+  text-shadow: var(--textShadow);
+  font-size: var(--textDisplay);
+  font-weight: lighter;
+  letter-spacing: .8px;
+}
+
+
+.liveView .body .matchQSeperated .down .team-container .body2 .mid{
+  grid-column: 2;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  text-align: center;
+  justify-content: center;
+  place-content: center;
+}
+
+
+.liveView .body .matchQSeperated .down .team-container .body2 .mid p{
+  height: 19%;
+  margin: 0;
+  padding-top: 4.5rem;
+  grid-row: 1/3;
+  font-family: var(--textStyle);
+  color: var(--textColor);
+  text-shadow: var(--textShadow);
+}
+
+
+.liveView .body .matchQSeperated .down .team-container .body2 .team2{
+  grid-column: 3;
+  height: 44%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.liveView .body .playerQ{
+  height: 100%;
+  grid-row: 1;
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 4fr;
+  overflow-y: hidden;
+  gap: 0;
+  z-index: 2;
+}
+
+
+
+.liveView .body .playerQ .qlist{
+  height: 42.5vh;
+  letter-spacing: .6px;
+  grid-row: 2;
+  grid-column: 1;
+  overflow-y: hidden;
+  box-shadow: var(--shadow2);
+}
+
+.liveView .body .playerQ .qlist::-webkit-scrollbar {
+  width: 8px;
+}
+
+.liveView .body .playerQ .qlist::-webkit-scrollbar-track {
+  background: none;
+}
+
+.liveView .body .playerQ .qlist::-webkit-scrollbar-thumb {
+  background: #232323;
+  border-radius: 4px;
+}
+
+
+
+
+
+.liveView .body .playerQ .qlist table {
+  width: 100%;
+  border-collapse: collapse;
+  animation: pop 1.5s ease-out forwards; 
+  opacity: 0; 
+  
+}
+
+
+@keyframes pop {
+  0% {
+    opacity: 0; 
+  }
+  100% {
+    opacity: 1; 
+   
+  }
+}
+
+.liveView .body .playerQ .qlist table thead{
+  position: fixed;
+  width: 25vw;
+  background: var(--tbthLiveBg);
+  backdrop-filter: blur(4px);
+  z-index: 2;
+}
+
+.liveView .body .playerQ .qlist table thead th{
+  padding:.8rem 3.3rem;
+  opacity: .7;
+  font-size: var(--tbHeadFontSize);
+  font-family: var(--subText);
+  color: var(--textColor);
+  text-shadow: var(--textShadow);
+}
+
+.liveView .body .playerQ .qlist table thead tr th:nth-child(1){
+  transform: translateX(-1.2rem);
+}
+
+
+.liveView .body .playerQ .qlist table th,.liveView .body .playerQ .qlist table td {
+  font-size: var(--textDisplay);
+  font-family: var(--textStyle);
+  color: var(--textColor);
+  text-shadow: var(--textShadow);
+}
+
+.liveView .body .playerQ .qlist table tbody{
+  transform: translateY(55px);
+
+ }
+
+
+.liveView .body .playerQ .qlist table td{
+  border: none;
+  text-shadow: var(--textShadow);
+}
+.liveView .body .playerQ .qlist table th {
+  
+  font-weight:900;
+  color: whitesmoke;
+  text-shadow: var(--textShadow);
+}
+.liveView .body .playerQ .qlist table tbody tr td{
+  cursor: pointer;
+  padding: 1rem .5rem;
+  color: var(--textColor);
+  text-shadow: var(--textShadow);
+  font-size: .8rem;
+}
+
+.liveView .body .playerQ .qlist table tbody tr td .circle1{
+  display: inline-block; 
+  width: .4rem; 
+  height: .4rem; 
+  border-radius: 50%;
+  background-color: #28a746; 
+}
+
+.liveView .body .playerQ .qlist table tbody tr:hover{
+  transition: .3s ease-out;
+  background: var(--hov);
+}
+
+
+
+
+
+.liveView .body .playerQ .standby{
+  height: 42.5vh;
+  grid-row: 2;
+  grid-column: 2;
+  letter-spacing: .6px;
+  overflow-y: hidden;
+  box-shadow: var(--shadow2);
+  /*animation: autoScroll 10s linear infinite;*/
+}
+/*
+@keyframes autoScroll {
+  0% {
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+*/
+
+.liveView .body .playerQ .standby::-webkit-scrollbar {
+  width: 8px;
+}
+
+.liveView .body .playerQ .standby::-webkit-scrollbar-track {
+  background: none;
+}
+
+.liveView .body .playerQ .standby::-webkit-scrollbar-thumb {
+  background: #232323;
+  border-radius: 4px;
+}
+
+
+.liveView .body .playerQ .standby table {
+  width: 100%;
+  border-collapse: collapse;
+  animation: pop 1.5s ease-out forwards; 
+  opacity: 0; 
+
+}
+
+
+@keyframes pop {
+  0% {
+    opacity: 0; 
+  }
+  100% {
+    opacity: 1; 
+   
+  }
+}
+
+.liveView .body .playerQ .standby table thead{
+  position: fixed;
+  width: 25vw;
+  background: var(--tbthLiveBg);
+  backdrop-filter: blur(4px);
+  z-index: 2;
+}
+
+
+
+.liveView .body .playerQ .standby table thead th{
+  padding:.8rem 1.7rem;
+  opacity: .7;
+  font-size: var(--tbHeadFontSize);
+  font-family: var(--subText);
+  color: var(--textColor);
+  text-shadow: var(--textShadow);
+  
+}
+
+
+
+.liveView .body .playerQ .standby table th,.liveView .body .playerQ .standby table td {
+  font-size: var(--textDisplay);
+  font-family: var(--textStyle);
+  color: var(--textColor);
+  text-shadow: var(--textShadow);
+}
+.liveView .body .playerQ .standby table td{
+  border: none;
+  text-shadow: var(--textShadow);
+}
+.liveView .body .playerQ .standby table th {
+  
+  font-weight:900;
+  color: whitesmoke;
+  text-shadow: var(--textShadow);
+}
+
+.liveView .body .playerQ .standby table tbody{
+ transform: translateY(55px) translateX(-1.5rem);
+}
+
+.liveView .body .playerQ .standby table tbody tr td:nth-child(2){
+  transform: translateX(-1.5rem);
+}
+
+.liveView .body .playerQ .standby table tbody tr td:nth-child(3){
+  transform: translateX(-.3rem);
+}
+
+.liveView .body .playerQ .standby table tbody tr td{
+  cursor: pointer;
+  padding: 1rem;
+  color: var(--textColor);
+  text-shadow: var(--textShadow);
+  font-size: .8rem;
+}
+
+
+.liveView .body .playerQ .standby table tbody tr td .circle2{
+  display: inline-block; 
+  width: .4rem; 
+  height: .4rem; 
+  border-radius: 50%;
+  background-color: #ff4400e3; 
+}
+.liveView .body .playerQ .standby table tbody tr:hover{
+  transition: .3s ease-out;
+  background: var(--hov);
+}
+
+
+
+.liveView .body .chart{
+  padding-top: 2rem;
+  height: 91%;
+  margin: 0;
+  grid-column: 2;
+  grid-row: 2;
+  box-shadow: var(--shadow);
+  text-align: center;
+  justify-content: center;
+  place-content: center;
+}
+
+
+.liveView .body .chart BarChart{
+  place-self: center;
+
+}
+
+.liveView .body .chart h3{
+  position: absolute;
+  margin: 0 auto 0 24rem;
+
+}
+
+.liveView .body .chart h3 .circle{
+  display: inline-block; 
+  width: .7rem; 
+  height: .7rem; 
+  border-radius: 50%;
+  background-color: #3498db; 
+}

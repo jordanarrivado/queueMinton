@@ -1,0 +1,291 @@
+.queue-container {
+  height: 77vh;
+  width: 28vw;
+  text-align: center;
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  backdrop-filter: var(--blur);
+  color: var(--textColor);
+  background: transparent;
+  background-image: radial-gradient(
+      at 80% 60%,
+      hsla(14, 100%, 60%, 0.3) 0,
+      transparent 75%
+    ),
+    radial-gradient(at 20% 30%, hsla(300, 100%, 70%, 0.2) 0, transparent 70%);
+
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  border-radius: var(--rd);
+  box-shadow: var(--shadow);
+  overflow-y: hidden;
+  display: grid;
+  grid-template-rows: 1fr 5fr;
+  -webkit-animation: slide-in-top 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-in-top 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@-webkit-keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.queue-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.queue-container::-webkit-scrollbar-track {
+  background: none;
+}
+
+.queue-container::-webkit-scrollbar-thumb {
+  background: var(--bgBtn);
+  border-radius: 4px;
+}
+
+.queue-container p {
+  font-size: 1em;
+  color: var(--textColor);
+  text-shadow: var(--textShadow);
+}
+
+.queue-container .top2 {
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.queue-container .top2 h2 {
+  font-size: var(--hSize);
+  font-family: var(--textStyle);
+  color: var(--textColor);
+  text-shadow: var(--textShadow);
+  grid-column: 1;
+  margin: 3rem auto 0;
+}
+
+.queue-container .top2 .include {
+  box-shadow: var(--shadow);
+  color: var(--textColor);
+  background: var(--bgBtn);
+  text-shadow: var(--textShadow);
+  border-radius: 8px;
+  height: 1.5rem;
+  width: 1.5rem;
+  grid-row: 1;
+  grid-column: 2;
+  padding: 1rem 1rem;
+  margin: 2.3rem auto 0;
+  opacity: 0.9;
+}
+.queue-container .top2 .include:hover {
+  transition: 0.1s ease-out;
+  transform: scale(1.1);
+  opacity: 1;
+  background: var(--hov);
+}
+
+.queue-container .top2 .selectAll {
+  cursor: pointer;
+  background: var(--bgBtn);
+  border-radius: 8px;
+  border: none;
+  box-shadow: none;
+  color: var(--btnTextColor);
+  margin-bottom: 1rem;
+  font-size: var(--textDisplay);
+  text-shadow: none;
+  font-weight: 700;
+  background: var(--btnColor2);
+  padding: 0.6rem 0.5rem;
+  opacity: 0.9;
+}
+.queue-container .top2 .selectAll:hover {
+  transition: 0.1s ease-out;
+  transform: scale(1.1);
+  opacity: 1;
+  background: var(--btnColor);
+  color: #fff;
+}
+
+.queue-container .table-containerQ {
+  height: 100%;
+  overflow-x: hidden;
+}
+.queue-container .table-containerQ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.queue-container .table-containerQ::-webkit-scrollbar-track {
+  background: none;
+}
+
+.queue-container .table-containerQ::-webkit-scrollbar-thumb {
+  background: var(--scrollBg);
+  border-radius: 4px;
+}
+.queue-container .player-table2 {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.queue-container .player-table2::-webkit-scrollbar {
+  width: 8px;
+}
+
+.queue-container .player-table2::-webkit-scrollbar-track {
+  background: none;
+}
+
+.queue-container .player-table2::-webkit-scrollbar-thumb {
+  background: var(--scrollBg);
+  border-radius: 4px;
+}
+
+.queue-container .player-table2 thead {
+  position: sticky;
+  top: 0;
+  background: var(--tbthLiveBg);
+  backdrop-filter: blur(16px);
+  z-index: 1;
+}
+
+.queue-container .player-table2 th,
+.queue-container .player-table2 td {
+  padding: 0.7rem;
+  border-bottom: 1px solid var(--tbLineColor);
+  text-shadow: var(--textShadow);
+  text-align: center;
+  font-size: var(--textDisplay);
+  font-family: var(--textStyle);
+}
+
+.queue-container .player-table2 tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  font-size: 16px;
+  user-select: none;
+}
+
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkmark {
+  text-shadow: none;
+  width: 18px;
+  height: 18px;
+  background-color: #ffffff;
+  border: 2px solid #181818;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: 35%;
+}
+
+.custom-checkbox input:checked + .checkmark::before {
+  content: "✔";
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 1024px) {
+  .queue-container {
+    width: 94%;
+    height: 76.5vh;
+  }
+  .checkmark {
+    left: 40%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .queue-container {
+    width: 71vw;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .queue-container {
+    width: 87vw;
+    margin-top: 1rem;
+    height: 80vh;
+  }
+}
+@media screen and (max-width: 425px) {
+  .queue-container {
+    width: 79vw;
+    height: 81vh;
+    padding: 0.5rem 1rem;
+    grid-template-rows: 0.5fr 5fr;
+  }
+
+  .queue-container .top2 {
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .queue-container .top2 h2 {
+    font-size: calc(var(--hSize) - 0.2rem);
+    margin: 0;
+    grid-column: 2;
+    text-align: center;
+  }
+
+  .queue-container .top2 .include {
+    grid-column: 1;
+    margin: 0;
+    padding: 0.6rem;
+    width: 1.8rem;
+    height: 1.8rem;
+    font-size: 0.9rem;
+  }
+
+  .queue-container .top2 .selectAll {
+    grid-column: 3;
+    margin: 0;
+    padding: 0.5rem 0.7rem;
+    font-size: 0.85rem;
+  }
+
+  .checkmark {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
