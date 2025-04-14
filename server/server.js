@@ -17,6 +17,7 @@ const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 const allowedOrigins = [
   ,
   "http://www.qminton.com",
+  "http://www.qminton.com/App",
   "http://localhost:3000",
   "http://localhost:3001",
   "http://localhost:8081",
@@ -443,7 +444,7 @@ app.post("/google-login", async (req, res) => {
   const client = new OAuth2Client(
     CLIENT_ID,
     CLIENT_SECRET,
-    "http://localhost:3000/App"
+    "http://www.qminton.com/App"
   );
 
   try {
