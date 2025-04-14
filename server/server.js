@@ -16,13 +16,13 @@ const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 const allowedOrigins = [
   ,
-  "http://www.qminton.com",
-  "http://www.qminton.com/App",
-  "http://localhost:3000",
-  "http://localhost:3001",
-  "http://localhost:8081",
-  "http://192.168.100.110:3000",
-  "http://192.168.100.110:8081",
+  "https://www.qminton.com",
+  "https://www.qminton.com/App",
+  "https://localhost:3000",
+  "https://localhost:3001",
+  "https://localhost:8081",
+  "https://192.168.100.110:3000",
+  "https://192.168.100.110:8081",
 ];
 app.use(cors({ origin: allowedOrigins, credentials: true }));
 app.use(express.json());
@@ -414,14 +414,14 @@ mongoose
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ error: "Internal server error" });
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader("Access-Control-Allow-Origin", "https://localhost:3000");
   res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
   next();
 });
 
 app.post("/", async function (req, res, next) {
   try {
-    const redirectUrl = "http://localhost:3000/App";
+    const redirectUrl = "https://localhost:3000/App";
     const oAuthClient = new OAuth2Client(
       process.env.CLIENT_ID,
       process.env.CLIENT_SECRET,
@@ -430,7 +430,7 @@ app.post("/", async function (req, res, next) {
   } catch (err) {
     console.error(err.stack);
     res.status(500).json({ error: "Internal server error" });
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.setHeader("Access-Control-Allow-Origin", "https://localhost:3000");
     res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
     next();
   }
@@ -444,7 +444,7 @@ app.post("/google-login", async (req, res) => {
   const client = new OAuth2Client(
     CLIENT_ID,
     CLIENT_SECRET,
-    "http://www.qminton.com/App"
+    "https://www.qminton.com/App"
   );
 
   try {

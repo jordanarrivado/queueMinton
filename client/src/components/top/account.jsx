@@ -25,7 +25,7 @@ const Account = ({ logout, user, setSessionStart, sessionStart, textCode, setTex
         const sessionDate = localStorage.getItem('Session');
         const localArea = localStorage.getItem('LocalArea');
   
-        const response = await axios.get(`http://localhost:3001/users/${user.email}/areas/${localArea}/sessions/${encodeURIComponent(sessionDate)}`);
+        const response = await axios.get(`https://localhost:3001/users/${user.email}/areas/${localArea}/sessions/${encodeURIComponent(sessionDate)}`);
   
         setTextCode(response.data.textCode);
         setQrCode(response.data.qrCode);
@@ -100,7 +100,7 @@ const Account = ({ logout, user, setSessionStart, sessionStart, textCode, setTex
         formData.append('profileImage', selectedFile);
       }
 
-      const response = await axios.put(`http://localhost:3001/profile/${user._id}`, formData, {
+      const response = await axios.put(`https://localhost:3001/profile/${user._id}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
