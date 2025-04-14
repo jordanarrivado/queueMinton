@@ -530,7 +530,7 @@ app.post("/create-payment", async (req, res) => {
       {
         headers: {
           Authorization: `Basic ${Buffer.from(
-            "sk_test_K4fUytHrhdLBrMcLYwvr23pp"
+            process.env.PAYMONGO_KEY
           ).toString("base64")}`,
           "Content-Type": "application/json",
         },
