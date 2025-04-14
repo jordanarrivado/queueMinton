@@ -15,6 +15,8 @@ const app = express();
 const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 const allowedOrigins = [
+  ,
+  "http://www.qminton.com",
   "http://localhost:3000",
   "http://localhost:3001",
   "http://localhost:8081",
