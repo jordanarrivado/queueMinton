@@ -10,14 +10,6 @@ const session = require("express-session");
 const { OAuth2Client } = require("google-auth-library");
 const http = require("http");
 const { Server } = require("socket.io");
-/*
-const admin = require("firebase-admin");
-const serviceAccount = require("./qminton-527d3-firebase-adminsdk-fbsvc-2246db8ab1.json");
-
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-});
-*/
 const UserModel = require("./models/user");
 const app = express();
 const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
