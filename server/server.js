@@ -11,9 +11,8 @@ const http = require("http");
 const { Server } = require("socket.io");
 const UserModel = require("./models/user");
 const app = express();
-const CLIENT_ID =
-  "406766184823-dln4eflvfpjn2c9h5mbekjuudoh681ra.apps.googleusercontent.com";
-const CLIENT_SECRET = "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";
+const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:3001",
@@ -523,7 +522,7 @@ app.post("/create-payment", async (req, res) => {
       {
         headers: {
           Authorization: `Basic ${Buffer.from(
-            "sk_test_K4fUytHrhdLBrMcLYwvr23pp"
+            process.env.PAYMONGO_KEY
           ).toString("base64")}`,
           "Content-Type": "application/json",
         },
