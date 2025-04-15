@@ -65,7 +65,7 @@ const EditMatch = ({ user, match, players, onSave, onCancel, inMatch, setPlayerL
     setPlayerLoading(true);
     setMatchLoading(true);
   
-    const url = `http://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/inMatch/${match._id}`;
+    const url = `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/inMatch/${match._id}`;
   
   
     try {

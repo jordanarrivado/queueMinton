@@ -408,7 +408,7 @@ function App() {
         return;
       }
       const courtRes = await axios.put(
-        `http://212.85.25.203:3001/users/${user.email}/areas/${localArea}/courts/${court._id}/addMatches`,
+        `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${localArea}/courts/${court._id}/addMatches`,
         { matchId }
       );
 
@@ -429,7 +429,7 @@ function App() {
           allPlayerIds.map(async (playerId) => {
             try {
               const addPlayerBallRes = await axios.put(
-                `http://212.85.25.203:3001/users/${user.email}/areas/${localArea}/sessions/${encodedSessionDate}/players/${playerId}/addBall`,
+                `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${localArea}/sessions/${encodedSessionDate}/players/${playerId}/addBall`,
                 { ball: selectedBall }
               );
               const updatedPlayer = addPlayerBallRes.data;
@@ -556,7 +556,7 @@ function App() {
       const encodedLocalArea = encodeURIComponent(localArea);
 
       /* const { data: allMatches } = await axios.get(
-        `http://212.85.25.203:3001/users/${user.email}/areas/${encodedLocalArea}/sessions/${encodedSessionDate}/matches`
+        `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${encodedLocalArea}/sessions/${encodedSessionDate}/matches`
       );*/
       const allMatches = matches;
 
@@ -626,12 +626,12 @@ function App() {
         };
 
         const matchResponse = await axios.put(
-          `http://212.85.25.203:3001/users/${user.email}/areas/${encodedLocalArea}/sessions/${encodedSessionDate}/matches`,
+          `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${encodedLocalArea}/sessions/${encodedSessionDate}/matches`,
           matchData
         );
 
         await axios.put(
-          `http://212.85.25.203:3001/users/${user.email}/areas/${encodedLocalArea}/sessions/${encodedSessionDate}/inMatch`,
+          `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${encodedLocalArea}/sessions/${encodedSessionDate}/inMatch`,
           matchData
         );
         newMatches.push(matchResponse.data);
@@ -644,10 +644,10 @@ function App() {
         matches,
         /*
         axios.get(
-          `http://212.85.25.203:3001/users/${user.email}/areas/${encodedLocalArea}/sessions/${encodedSessionDate}/players`
+          `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${encodedLocalArea}/sessions/${encodedSessionDate}/players`
         ),
         axios.get(
-          `http://212.85.25.203:3001/users/${user.email}/areas/${encodedLocalArea}/sessions/${encodedSessionDate}/matches`
+          `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${encodedLocalArea}/sessions/${encodedSessionDate}/matches`
         ),
         */
       ]);
@@ -830,12 +830,12 @@ function App() {
           };
 
           const matchResponse = await axios.put(
-            `http://212.85.25.203:3001/users/${user.email}/areas/${encodedLocalArea}/sessions/${encodedSessionDate}/matches`,
+            `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${encodedLocalArea}/sessions/${encodedSessionDate}/matches`,
             matchData
           );
 
           await axios.put(
-            `http://212.85.25.203:3001/users/${user.email}/areas/${encodedLocalArea}/sessions/${encodedSessionDate}/inMatch`,
+            `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${encodedLocalArea}/sessions/${encodedSessionDate}/inMatch`,
             matchData
           );
 
@@ -861,10 +861,10 @@ function App() {
 
       const [playersResponse, matchesResponse] = await Promise.all([
         axios.get(
-          `http://212.85.25.203:3001/users/${user.email}/areas/${encodedLocalArea}/sessions/${encodedSessionDate}/players`
+          `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${encodedLocalArea}/sessions/${encodedSessionDate}/players`
         ),
         axios.get(
-          `http://212.85.25.203:3001/users/${user.email}/areas/${encodedLocalArea}/sessions/${encodedSessionDate}/matches`
+          `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${encodedLocalArea}/sessions/${encodedSessionDate}/matches`
         ),
       ]);
 
@@ -936,12 +936,12 @@ function App() {
 
       //delete inMatch
       await axios.delete(
-        `http://212.85.25.203:3001/users/${user.email}/areas/${localArea}/sessions/${sessionDate}/inMatch/${matchId}`
+        `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${localArea}/sessions/${sessionDate}/inMatch/${matchId}`
       );
 
       //reset court
       await axios.delete(
-        `http://212.85.25.203:3001/users/${user.email}/areas/${localArea}/courts/${courtId}/addMatches`
+        `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${localArea}/courts/${courtId}/addMatches`
       );
 
       setCourts((prevCourts) =>
@@ -961,7 +961,7 @@ function App() {
             });
 
             await axios.put(
-              `http://212.85.25.203:3001/users/${user.email}/areas/${localArea}/sessions/${sessionDate}/players/${playerId}/updateStats`,
+              `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${localArea}/sessions/${sessionDate}/players/${playerId}/updateStats`,
               {
                 winIncrement: isWinner ? 1 : 0,
                 lossIncrement: isWinner ? 0 : 1,
@@ -969,7 +969,7 @@ function App() {
             );
 
             await axios.put(
-              `http://212.85.25.203:3001/users/${user.email}/areas/${localArea}/sessions/${sessionDate}/players/${playerId}/timeQueue`
+              `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${localArea}/sessions/${sessionDate}/players/${playerId}/timeQueue`
             );
           } catch (error) {
             console.error(
@@ -1165,7 +1165,7 @@ useEffect(()=>{
       for (const player of playerReqs) {
         try {
           const playerRequest = await axios.put(
-            `http://212.85.25.203:3001/users/${
+            `${process.env.REACT_APP_API_URL}/users/${
               user.email
             }/areas/${encodeURIComponent(
               localArea
@@ -1273,7 +1273,7 @@ useEffect(()=>{
 
     try {
       const { data: allMatches } = await axios.get(
-        `http://212.85.25.203:3001/users/${user.email}/areas/${encodedLocalArea}/sessions/${encodedSessionDate}/matches`
+        `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${encodedLocalArea}/sessions/${encodedSessionDate}/matches`
       );
       console.log(text, allMatches);
     } catch (e) {
@@ -1285,7 +1285,7 @@ useEffect(()=>{
   const fetchArea = async () => {
     try {
       const response = await axios.get(
-        `http://212.85.25.203:3001/users/${user.email}/areas`
+        `${process.env.REACT_APP_API_URL}/users/${user.email}/areas`
       );
       setAreas(response.data);
     } catch (error) {
@@ -1299,7 +1299,7 @@ useEffect(()=>{
 
   /*
   const areas = await axios.get(
-      `http://212.85.25.203:3001/users/${user.email}/areas`
+      `${process.env.REACT_APP_API_URL}/users/${user.email}/areas`
     );
     const areasWithRevenue = areas?.data.map((area) => {
       const totalRevenue = area.sessions.reduce(

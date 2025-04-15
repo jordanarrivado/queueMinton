@@ -28,7 +28,7 @@ const Dashboard = ({ isChecked, areas,historyArea,setHistoryArea,user }) => {
     setLoading(true);
     const fetchArea = async () => {
       try {
-        const response = await axios.get(`http://212.85.25.203:3001/users/${user.email}/areas`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/${user.email}/areas`);
         const areasWithRevenue = response.data.map((area) => {
           const totalRevenue = area.sessions.reduce((acc, session) => acc + (session.sessionRevenue || 0), 0);
           return { ...area, name: capitalizeFirstLetter(area.name), totalRevenue };

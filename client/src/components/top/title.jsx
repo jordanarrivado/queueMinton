@@ -13,7 +13,7 @@ const Title = ({user, mode, selectedArea,setSessions,sessions }) => {
   useEffect(() => {
     const fetchSessions = async () => {
       try {
-        const response = await axios.get(`http://212.85.25.203:3001/users/${user.email}/areas/${selectedArea.name}/sessions`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${selectedArea.name}/sessions`);
         setSessions(response.data);
       } catch (error) {
         console.error('Error fetching sessions:', error);

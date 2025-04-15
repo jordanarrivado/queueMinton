@@ -7,8 +7,6 @@ import { useAuth } from '../AuthContext';
 import { useNavigate } from 'react-router-dom';
 import bgVid from '../videos/bgVid3.mp4';
 
-const API_URL = 'https://212.85.25.203:3001'; 
-
 const LoginPage = () => {
   const [isSignUp, setIsSignUp] = useState(false);
     const { login, user } = useAuth();
@@ -31,7 +29,18 @@ const LoginPage = () => {
     
 
   // Toggle between Sign In and Sign Up
-  const handleRegisterClick = () => setIsSignUp(true);
+  //const API = "text";
+  const handleRegisterClick = () => {
+    console.log('API URL:', process.env.REACT_APP_API_URL);
+
+    setIsSignUp((e) => !e);
+  } 
+
+  /*
+  useEffect(() => {
+    console.log('API:', process.env);
+  }, []);
+*/
   const handleLoginClick = () => setIsSignUp(false);
 
    useEffect(() => {
@@ -55,7 +64,7 @@ const LoginPage = () => {
         }
     
         try {
-          const { data } = await axios.post(`${API_URL}/login`, {
+          const { data } = await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
             email: loginEmail,
             password: loginPassword,
           });
@@ -89,7 +98,7 @@ const LoginPage = () => {
         }
     
         try {
-          const { data } = await axios.post(`${API_URL}/google-login`, { tokenId });
+          const { data } = await axios.post(`${process.env.REACT_APP_API_URL}/google-login`, { tokenId });
     
           login(data.accessToken, data.user);
           Swal.fire({
@@ -153,7 +162,7 @@ const LoginPage = () => {
         }
       
         try {
-          await axios.post(`${API_URL}/register`, {
+          await axios.post(`${process.env.REACT_APP_API_URL}/register`, {
             fullName: regFullName,
             email: regEmail,
             password: regPassword,

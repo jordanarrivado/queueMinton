@@ -58,7 +58,7 @@ const CourtCon = ({ user, courts, setCourts, inMatch, selectedBall, isChecked, c
     try {
       setCourtLoading(true);
       const response = await axios.get(
-        `http://212.85.25.203:3001/users/${user.email}/areas/${localArea}/courts`
+        `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${localArea}/courts`
       );
   
       const existingCourts = response.data || [];
@@ -67,7 +67,7 @@ const CourtCon = ({ user, courts, setCourts, inMatch, selectedBall, isChecked, c
   
       // Add the new court directly under the area
       const addResponse = await axios.put(
-        `http://212.85.25.203:3001/users/${user.email}/areas/${localArea}/courts`,
+        `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${localArea}/courts`,
         newCourt
       );
   
@@ -97,7 +97,7 @@ const CourtCon = ({ user, courts, setCourts, inMatch, selectedBall, isChecked, c
     try {
       setCourtLoading(true);
       await axios.delete(
-        `http://212.85.25.203:3001/users/${user.email}/areas/${localArea}/courts`
+        `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${localArea}/courts`
       );
   
       setCourts([]);
@@ -150,7 +150,7 @@ const CourtCon = ({ user, courts, setCourts, inMatch, selectedBall, isChecked, c
       }
       setCourtLoading(true);
       await axios.delete(
-        `http://212.85.25.203:3001/users/${user.email}/areas/${localArea}/courts/${courtToDelete._id}`
+        `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${localArea}/courts/${courtToDelete._id}`
       );
   
       setCourts(prevCourts => prevCourts.filter((_, idx) => idx !== index));

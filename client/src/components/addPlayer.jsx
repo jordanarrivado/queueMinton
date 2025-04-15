@@ -37,7 +37,7 @@ const AddPlayer = ({ players, setPlayers,reqToJoin,setReqToJoin,handleBellClick,
         }
 
         const response = await axios.get(
-          `http://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/players`
+          `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/players`
         );
 
         setPlayers(response.data);
@@ -139,7 +139,7 @@ useEffect(() => {
       const localArea = localStorage.getItem('LocalArea');
   
       const response = await axios.put(
-        `http://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/addPlayer`,
+        `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/addPlayer`,
         { name: name.trim(), gender, level, currentTime: formattedTime}
       );
   
@@ -169,11 +169,11 @@ useEffect(() => {
     if (updatedName) {
       try {
         await axios.put(
-          `http://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localStorage.getItem('LocalArea'))}/sessions/${encodeURIComponent(localStorage.getItem('Session'))}/players/${id}`,
+          `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${encodeURIComponent(localStorage.getItem('LocalArea'))}/sessions/${encodeURIComponent(localStorage.getItem('Session'))}/players/${id}`,
           { name: updatedName.trim() }
         );
         await axios.put(
-          `http://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localStorage.getItem('LocalArea'))}/sessions/${encodeURIComponent(localStorage.getItem('Session'))}/players/history/${id}`,
+          `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${encodeURIComponent(localStorage.getItem('LocalArea'))}/sessions/${encodeURIComponent(localStorage.getItem('Session'))}/players/history/${id}`,
           { name: updatedName.trim() }
         );
         setPlayers(players.map(player => player._id === id ? { ...player, name: updatedName.trim() } : player));
@@ -186,9 +186,9 @@ useEffect(() => {
 
   const handleDeletePlayer = async (id) => {
     try {
-      await axios.delete(`http://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localStorage.getItem('LocalArea'))}/sessions/${encodeURIComponent(localStorage.getItem('Session'))}/players/${id}`);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${encodeURIComponent(localStorage.getItem('LocalArea'))}/sessions/${encodeURIComponent(localStorage.getItem('Session'))}/players/${id}`);
 
-      await axios.delete(`http://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localStorage.getItem('LocalArea'))}/sessions/${encodeURIComponent(localStorage.getItem('Session'))}/players/history/${id}`);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${encodeURIComponent(localStorage.getItem('LocalArea'))}/sessions/${encodeURIComponent(localStorage.getItem('Session'))}/players/history/${id}`);
 
       setPlayers(players.filter(player => player._id !== id));
       Swal.fire({ icon: 'success', title: 'Success!', text: 'Player deleted successfully.' });
@@ -223,7 +223,7 @@ useEffect(() => {
         const localArea = localStorage.getItem('LocalArea');
   
         await axios.delete(
-          `http://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/players/`
+          `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/players/`
         );
   
         setPlayers([]);
@@ -425,7 +425,7 @@ useEffect(() => {
       setPlayerLoading(true);
   
       const response = await axios.put(
-        `http://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/bulkAddPlayers`,
+        `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/bulkAddPlayers`,
         { players: generatedPlayers, currentTime: formattedTime }
       );
   

@@ -35,7 +35,7 @@ const History = ({ players, isChecked,
       setLoading(true);
       try {
         const areas = await axios.get(
-          `http://212.85.25.203:3001/users/${user.email}/areas`
+          `${process.env.REACT_APP_API_URL}/users/${user.email}/areas`
         );
         const areasWithRevenue = areas.data.map((area) => {
           const totalRevenue = area.sessions.reduce((acc, session) => acc + (session.sessionRevenue || 0), 0);
@@ -55,7 +55,7 @@ const History = ({ players, isChecked,
     setLoading(true); // Start loading
     try {
       const sessionResponse = await axios.get(
-        `http://212.85.25.203:3001/users/${user.email}/areas/${area.name}/sessions`
+        `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${area.name}/sessions`
       );
       setSessionData(sessionResponse.data);
       setSelectedAreaHistory(area);
@@ -77,7 +77,7 @@ const History = ({ players, isChecked,
     try {
       const encodedDate = encodeURIComponent(session.sessionDate);
       const response = await axios.get(
-        `http://212.85.25.203:3001/users/${user.email}/areas/${area.name}/sessions/${encodedDate}/playerHistory`
+        `${process.env.REACT_APP_API_URL}/users/${user.email}/areas/${area.name}/sessions/${encodedDate}/playerHistory`
       );
       setDisplayPlayers(response.data);
     } catch (error) {
