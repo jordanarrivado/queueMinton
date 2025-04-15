@@ -113,7 +113,7 @@ const LoginPage = () => {
         }
     
         try {
-          const { data } = await axios.post(`http://212.85.25.203:3001/google-login`, { tokenId });
+          const { data } = await axios.post(`${process.env.REACT_APP_API_URL}/google-login`, { tokenId });
     
           login(data.accessToken, data.user);
           Swal.fire({
