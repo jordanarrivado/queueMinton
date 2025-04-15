@@ -426,10 +426,9 @@ mongoose
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).json({ error: "Internal server error" });
   res.setHeader("Access-Control-Allow-Origin", "https://www.qminton.com/App");
   res.removeHeader("Cross-Origin-Embedder-Policy");
-  next();
+  res.status(500).json({ error: "Internal server error" });
 });
 
 app.post("/", async function (req, res, next) {
