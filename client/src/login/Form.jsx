@@ -30,9 +30,24 @@ const LoginPage = () => {
 
   // Toggle between Sign In and Sign Up
   //const API = "text";
+  /*
+  useEffect(() =>{
+    
+      const fetch = async () =>{
+            try{
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/`);
+            console.log(response.data);
+          }
+          catch(e){
+            console.error("Error", e);
+          }
+        }
+    fetch();
+  },[]);
+*/
   const handleRegisterClick = () => {
-    console.log('API URL:', process.env.REACT_APP_API_URL);
-
+    //console.log('API URL:', process.env.REACT_APP_API_URL);
+    console.log('Get Successfully:', process.env);
     setIsSignUp((e) => !e);
   } 
 

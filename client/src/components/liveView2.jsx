@@ -10,7 +10,7 @@ import {
 } from 'recharts';
 import { io } from "socket.io-client";
 
-const socket = io.connect("wss://212.85.25.203:3001", {
+const socket = io.connect(`${process.env.REACT_APP_API_URL}`, {
   transports: ["websocket"],
 });
 
