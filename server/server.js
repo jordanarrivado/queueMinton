@@ -15,11 +15,12 @@ const app = express();
 const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 const allowedOrigins = [
-  ,
-  "https://www.qminton.com",
-  "https://www.qminton.com/App",
-  "https://localhost:3000",
-  "https://212.85.25.203:3001",
+  "http://qminton.com",
+  "http://qminton.com/App",
+  "http://localhost:3000",
+  "http://localhost:3000/App",
+  "http://212.85.25.203:3001",
+  "http://212.85.25.203:3001/App",
   "https://localhost:8081",
   "https://192.168.100.110:3000",
   "https://192.168.100.110:8081",
@@ -28,9 +29,11 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: (origin, callback) => {
+      console.log("Incoming origin:", origin);
       if (allowedOrigins.includes(origin) || !origin) {
         callback(null, true);
       } else {
+        console.log("Blocked by CORS:", origin);
         callback(new Error("Not allowed by CORS"), false);
       }
     },
@@ -426,7 +429,6 @@ mongoose
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.setHeader("Access-Control-Allow-Origin", "https://www.qminton.com/App");
   res.removeHeader("Cross-Origin-Embedder-Policy");
   res.status(500).json({ error: "Internal server error" });
 });
@@ -460,7 +462,8 @@ app.post("/google-login", async (req, res) => {
   const client = new OAuth2Client(
     CLIENT_ID,
     CLIENT_SECRET,
-    "https://www.qminton.com/App"
+    "http://qminton.com/App",
+    "http://localhost:3000/App"
   );
 
   try {
