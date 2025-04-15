@@ -58,11 +58,12 @@ const LoginPage = () => {
 */
   const handleLoginClick = () => setIsSignUp(false);
 
+  
    useEffect(() => {
       if (user) {
         navigate('/App');
       }
-    }, [user, navigate]);
+    }, [user]);
 
 
      const handleLogin = async (e) => {
@@ -103,7 +104,7 @@ const LoginPage = () => {
       // 🔹 Handle Google Login
       const onGoogleLoginSuccess = async (response) => {
         console.log(response);
-        console.log(credential);
+        //console.log(credential);
         const { credential: tokenId } = response;
         if (!tokenId) {
           Swal.fire({
@@ -115,9 +116,10 @@ const LoginPage = () => {
         }
     
         try {
-          const { data } = await axios.post(`${process.env.REACT_APP_API_URL}/google-login`, { tokenId });
+          const { data } = await axios.post(`${process.env.REACT_APP_API_URL}`, { tokenId });
     
           login(data.accessToken, data.user);
+          console.log(data.accessToken, data.user);
           Swal.fire({
             icon: 'success',
             title: 'Google Login Successful',
