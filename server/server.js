@@ -18,6 +18,9 @@ const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:3001",
   "http://localhost:8081",
+  "http://212.85.25.203:3001",
+  "http://qminton.com",
+  "http://qminton.com/App",
   "http://192.168.100.110:3000",
   "http://192.168.100.110:8081",
 ];
