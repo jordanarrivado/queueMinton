@@ -33,7 +33,7 @@ const Payment = ({
   
     const fetchAreas = async () => {
       try {
-        const response = await axios.get(`https://212.85.25.203:3001/users/${user.email}/areas`);
+        const response = await axios.get(`http://212.85.25.203:3001/users/${user.email}/areas`);
         setAreas(response.data);
       } catch (error) {
         console.error('Error fetching areas:', error);
@@ -51,7 +51,7 @@ const Payment = ({
         if (!localArea) return;
 
         const response = await axios.get(
-          `https://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}`
+          `http://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}`
         );
 
         setCourtPrice(response.data.courtFee);
@@ -77,7 +77,7 @@ const Payment = ({
         if (!sessionDate || !localArea) return;
 
         const response = await axios.get(
-          `https://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/players`
+          `http://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/players`
         );
 
         setPlayers(response.data);
@@ -100,7 +100,7 @@ const Payment = ({
         if (!sessionDate || !localArea) return;
 
         const response = await axios.get(
-          `https://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/playerHistory`
+          `http://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/playerHistory`
         );
         setPlayerHistory(response.data);
 
@@ -136,7 +136,7 @@ const Payment = ({
       const localArea = encodeURIComponent(localStorage.getItem('LocalArea'));
       const sessionDate = encodeURIComponent(localStorage.getItem('Session'));
 
-      const API_BASE_URL = `https://212.85.25.203:3001/users/${user.email}/areas/${localArea}/sessions/${sessionDate}/players/${id}/totalPaid`;
+      const API_BASE_URL = `http://212.85.25.203:3001/users/${user.email}/areas/${localArea}/sessions/${sessionDate}/players/${id}/totalPaid`;
 
       await axios.put(API_BASE_URL, { totalPaid: total });
 
@@ -183,7 +183,7 @@ const Payment = ({
     try {
       const localArea = encodeURIComponent(localStorage.getItem('LocalArea'));
       const sessionDate = encodeURIComponent(localStorage.getItem('Session'));
-      const API_BASE_URL = `https://212.85.25.203:3001/users/${user.email}/areas/${localArea}/sessions/${sessionDate}/bulkPayment`;
+      const API_BASE_URL = `http://212.85.25.203:3001/users/${user.email}/areas/${localArea}/sessions/${sessionDate}/bulkPayment`;
   
       const response = await axios.put(API_BASE_URL, { payments });
   
@@ -228,17 +228,17 @@ const Payment = ({
         return;
       }
   
-      console.log("Sending PUT request to:", `https://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/editCourtFeeType`);
+      console.log("Sending PUT request to:", `http://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/editCourtFeeType`);
   
       const response = await axios.put(
-        `https://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/editCourtFeeType`,
+        `http://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/editCourtFeeType`,
         { courtFeeType: courtFeeTypeDis }
       );
   
       console.log("Response from editCourtFeeType:", response.data);
   
       const updatePriceResponse = await axios.put(
-        `https://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/updatePrices`,
+        `http://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/updatePrices`,
         {
           courtFee: parseFloat(courtPrice),
           ballFee: parseFloat(ballPrice),
@@ -266,7 +266,7 @@ const Payment = ({
         const localArea = localStorage.getItem("LocalArea");
         if(localArea){
           try{
-            const response = await axios.get(`https://212.85.25.203:3001/users/${user.email}/areas/${localArea}/courtFeeType`);
+            const response = await axios.get(`http://212.85.25.203:3001/users/${user.email}/areas/${localArea}/courtFeeType`);
             setCourtFeeTypeDis(response.data.courtFeeType);
           }catch(error){
             console.error("Error fetching Court Type: ", error);

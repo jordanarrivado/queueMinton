@@ -36,7 +36,7 @@ const MatchMaking = ({ user, inMatch, setInMatch, matches,
         }
 
         const response = await axios.get(
-          `https://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/inMatch`
+          `http://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/inMatch`
         );
 
         if (response.data) {
@@ -118,10 +118,10 @@ const MatchMaking = ({ user, inMatch, setInMatch, matches,
     localStorage.removeItem('usedPairs');
   
     axios
-      .delete(`https://212.85.25.203:3001/users/${user.email}/areas/${localArea}/sessions/${sessionDate}/inMatch`)
+      .delete(`http://212.85.25.203:3001/users/${user.email}/areas/${localArea}/sessions/${sessionDate}/inMatch`)
       .then(() => {
         setInMatch([]);
-        return axios.delete(`https://212.85.25.203:3001/users/${user.email}/areas/${localArea}/sessions/${sessionDate}/matches`);
+        return axios.delete(`http://212.85.25.203:3001/users/${user.email}/areas/${localArea}/sessions/${sessionDate}/matches`);
       })
       .then(() => {
         setMatches([]);

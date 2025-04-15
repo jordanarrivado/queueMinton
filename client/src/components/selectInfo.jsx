@@ -38,7 +38,7 @@ const SelectInfo = ({
   useEffect(() => {
     const fetchCourtType = async () => {
       try{
-        const response = await axios.get(`https://212.85.25.203:3001/users/${user.email}/areas/${selectedArea.name}/courtFeeType`);
+        const response = await axios.get(`http://212.85.25.203:3001/users/${user.email}/areas/${selectedArea.name}/courtFeeType`);
         setCourtType(response.data.courtFeeType);
       }catch(error){
         console.error("Error fetching Court Type: ", error);
@@ -54,7 +54,7 @@ const SelectInfo = ({
   useEffect(() => {
     const fetchSessions = async () => {
       try {
-        const response = await axios.get(`https://212.85.25.203:3001/users/${user.email}/areas/${selectedArea.name}/sessions`);
+        const response = await axios.get(`http://212.85.25.203:3001/users/${user.email}/areas/${selectedArea.name}/sessions`);
         setSessions(response.data);
       } catch (error) {
         console.error('Error fetching sessions:', error);
@@ -79,7 +79,7 @@ const SelectInfo = ({
         localStorage.setItem('LocalArea', selectedArea.name); 
         localStorage.setItem('GameMode', mode); 
         await axios.put(
-          `https://212.85.25.203:3001/users/${user.email}/areas/${selectedArea.name}/session`, 
+          `http://212.85.25.203:3001/users/${user.email}/areas/${selectedArea.name}/session`, 
           { mode, sessionCurrentDate: formattedDateTime }
         );
         console.log(typeof formattedDateTime);

@@ -33,12 +33,12 @@ const CustomMatch = ({ onShowCustom, user, onSubmit, setMatches, matches, player
 
       // Send match data to backend
       const matchResponse = await axios.put(
-        `https://212.85.25.203:3001/users/${user.email}/areas/${encodedLocalArea}/sessions/${encodedSessionDate}/matches`,
+        `http://212.85.25.203:3001/users/${user.email}/areas/${encodedLocalArea}/sessions/${encodedSessionDate}/matches`,
         matchData
       );
 
       const inMatchResponse = await axios.put(
-        `https://212.85.25.203:3001/users/${user.email}/areas/${encodedLocalArea}/sessions/${encodedSessionDate}/inMatch`,
+        `http://212.85.25.203:3001/users/${user.email}/areas/${encodedLocalArea}/sessions/${encodedSessionDate}/inMatch`,
         matchData
       );
 

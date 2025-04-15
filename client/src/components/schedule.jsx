@@ -36,7 +36,7 @@ const Schedule = ({isChecked,areas,setAreas,user, schedules, setSchedules, newSc
     
       const fetchAreas = async () => {
         try {
-          const response = await axios.get(`https://212.85.25.203:3001/users/${user.email}/areas`);
+          const response = await axios.get(`http://212.85.25.203:3001/users/${user.email}/areas`);
           setAreas(response.data);
         } catch (error) {
           console.error('Error fetching areas:', error);
@@ -54,7 +54,7 @@ const Schedule = ({isChecked,areas,setAreas,user, schedules, setSchedules, newSc
      
         const fetchData = async () =>{
           try{
-            const response =  await axios.get(`https://212.85.25.203:3001/users/${user.email}/schedules`);
+            const response =  await axios.get(`http://212.85.25.203:3001/users/${user.email}/schedules`);
             setSchedules(response.data);
           }catch(error){
             console.error('Error fetching schedules:', error);
@@ -109,7 +109,7 @@ const Schedule = ({isChecked,areas,setAreas,user, schedules, setSchedules, newSc
           // Format time (assuming `formatTime` works as intended)
           const formattedTime = formatTime(newSchedule.startTime);
       
-          const response = await axios.put(`https://212.85.25.203:3001/users/${user.email}/schedules`, {
+          const response = await axios.put(`http://212.85.25.203:3001/users/${user.email}/schedules`, {
             title: newSchedule.title,
             date: formattedDate, // Send the formatted date
             startTime: formattedTime,
@@ -142,7 +142,7 @@ const Schedule = ({isChecked,areas,setAreas,user, schedules, setSchedules, newSc
     
       const handleDelete = async (id) => {
         try {
-          await axios.delete(`https://212.85.25.203:3001/users/${user.email}/schedules/${id}`);
+          await axios.delete(`http://212.85.25.203:3001/users/${user.email}/schedules/${id}`);
           setSchedules((prev) => prev.filter((sched) => sched._id !== id)); 
           Swal.fire('Deleted!', 'Schedule has been deleted.', 'success');
         } catch (error) {
@@ -164,7 +164,7 @@ const Schedule = ({isChecked,areas,setAreas,user, schedules, setSchedules, newSc
           }
       
           const response = await axios.put(
-            `https://212.85.25.203:3001/users/${user.email}/schedules/${newSchedule._id}`,
+            `http://212.85.25.203:3001/users/${user.email}/schedules/${newSchedule._id}`,
             {
               title: newSchedule.title,
               description: newSchedule.description,

@@ -19,11 +19,12 @@ const allowedOrigins = [
   "https://www.qminton.com",
   "https://www.qminton.com/App",
   "https://localhost:3000",
-  "https://localhost:3001",
+  "https://212.85.25.203:3001",
   "https://localhost:8081",
   "https://192.168.100.110:3000",
   "https://192.168.100.110:8081",
 ];
+
 app.use(cors({ origin: allowedOrigins, credentials: true }));
 app.use(express.json());
 
