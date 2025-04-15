@@ -448,6 +448,10 @@ app.post("/", async function (req, res, next) {
   }
 });
 
+app.get("/", (req, res) => {
+  res.send("Server is working!");
+});
+
 const JWT_SECRET = process.env.JWT_SECRET || "default_jwt_secret";
 
 app.post("/google-login", async (req, res) => {
