@@ -10,9 +10,11 @@ import NotifIconBlack from './icons/notifIconDark.png'
 import SyncLoader from "react-spinners/SyncLoader";
 import { io } from "socket.io-client";
 
-const socket = io.connect("http://212.85.25.203:3001", {
-  transports: ["websocket"], 
+const socket = io.connect("wss://212.85.25.203:3001", {
+  transports: ["websocket"],
 });
+
+
 
 
 const AddPlayer = ({ players, setPlayers,reqToJoin,setReqToJoin,handleBellClick, user, isChecked, playerLoading, setPlayerLoading, inMatch }) => {

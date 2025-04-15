@@ -10,8 +10,8 @@ import {
 } from 'recharts';
 import { io } from "socket.io-client";
 
-const socket = io.connect("https://212.85.25.203:3001", {
-  transports: ["websocket"], 
+const socket = io.connect("wss://212.85.25.203:3001", {
+  transports: ["websocket"],
 });
 
 const LiveView2 = ({user,areas,mode,inMatch,setInMatch,matches,courts,setCourts,players, setPlayers,selectedComponent,setSelectedComponent,isChecked,playerHistory,setPlayerHistory,setMatches}) => {

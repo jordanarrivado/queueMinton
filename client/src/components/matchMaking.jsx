@@ -11,8 +11,8 @@ import EditMatchForm from "./editMatch";
 
 import { io } from "socket.io-client";
 
-const socket = io.connect("https://212.85.25.203:3001", {
-  transports: ["websocket"], 
+const socket = io.connect("wss://212.85.25.203:3001", {
+  transports: ["websocket"],
 });
 
 

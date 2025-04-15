@@ -6,8 +6,8 @@ import Swal from 'sweetalert2';
 import SyncLoader from "react-spinners/SyncLoader";
 import { io } from "socket.io-client";
 
-const socket = io.connect("https://212.85.25.203:3001", {
-  transports: ["websocket"], 
+const socket = io.connect("wss://212.85.25.203:3001", {
+  transports: ["websocket"],
 });
 
 const CourtCon = ({ user, courts, setCourts, inMatch, selectedBall, isChecked, courtLoading, handleWinner,setCourtLoading }) => {

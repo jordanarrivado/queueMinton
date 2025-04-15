@@ -69,7 +69,7 @@ import ArrowBtn from "./components/arrowBtn";
 
 import { io } from "socket.io-client";
 
-const socket = io.connect("http://212.85.25.203:3001", {
+const socket = io.connect("wss://212.85.25.203:3001", {
   transports: ["websocket"],
 });
 
