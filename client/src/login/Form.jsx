@@ -63,7 +63,7 @@ const LoginPage = () => {
       if (user) {
         navigate('/App');
       }
-    }, [user]);
+    }, [user, navigate]);
 
 
      const handleLogin = async (e) => {
