@@ -11,7 +11,7 @@ import EditMatchForm from "./editMatch";
 
 import { io } from "socket.io-client";
 
-const socket = io.connect("https://localhost:3001", {
+const socket = io.connect("https://212.85.25.203:3001", {
   transports: ["websocket"], 
 });
 
@@ -36,7 +36,7 @@ const MatchMaking = ({ user, inMatch, setInMatch, matches,
         }
 
         const response = await axios.get(
-          `https://localhost:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/inMatch`
+          `https://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/inMatch`
         );
 
         if (response.data) {
@@ -118,10 +118,10 @@ const MatchMaking = ({ user, inMatch, setInMatch, matches,
     localStorage.removeItem('usedPairs');
   
     axios
-      .delete(`https://localhost:3001/users/${user.email}/areas/${localArea}/sessions/${sessionDate}/inMatch`)
+      .delete(`https://212.85.25.203:3001/users/${user.email}/areas/${localArea}/sessions/${sessionDate}/inMatch`)
       .then(() => {
         setInMatch([]);
-        return axios.delete(`https://localhost:3001/users/${user.email}/areas/${localArea}/sessions/${sessionDate}/matches`);
+        return axios.delete(`https://212.85.25.203:3001/users/${user.email}/areas/${localArea}/sessions/${sessionDate}/matches`);
       })
       .then(() => {
         setMatches([]);

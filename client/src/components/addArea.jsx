@@ -25,7 +25,7 @@ const AddArea = ({
 
   const fetchAreas = async () => {
     try {
-      const response = await axios.get(`https://localhost:3001/users/${user.email}/areas`);
+      const response = await axios.get(`https://212.85.25.203:3001/users/${user.email}/areas`);
       setAreas(response.data);
     } catch (error) {
       console.error('Error fetching areas:', error);
@@ -54,7 +54,7 @@ const AddArea = ({
     setLoading(true);
     try {
       const response = await axios.put(
-        `https://localhost:3001/users/${user.email}/areas`,
+        `https://212.85.25.203:3001/users/${user.email}/areas`,
         {
           name: newArea,
           courtFeeTypeDis,
@@ -97,7 +97,7 @@ const AddArea = ({
     if (newName && newName !== area.name) {
       try {
         const response = await axios.put(
-          `https://localhost:3001/users/${user.email}/areas/${area._id}`, 
+          `https://212.85.25.203:3001/users/${user.email}/areas/${area._id}`, 
           { name: newName }
         );
         setAreas(prev => prev.map(a => (a._id === area._id ? response.data : a)));
@@ -112,7 +112,7 @@ const AddArea = ({
   const handleDeleteArea = async (areaId) => {
     setLoading(true);
     try {
-      const response = await axios.delete(`https://localhost:3001/users/${user.email}/areas/${areaId}`);
+      const response = await axios.delete(`https://212.85.25.203:3001/users/${user.email}/areas/${areaId}`);
       if (response.status === 200) {
         setAreas(prev => prev.filter(area => area._id !== areaId));
         Swal.fire('Deleted!', 'Area deleted successfully!', 'success');

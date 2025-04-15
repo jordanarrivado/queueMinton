@@ -10,7 +10,7 @@ import NotifIconBlack from './icons/notifIconDark.png'
 import SyncLoader from "react-spinners/SyncLoader";
 import { io } from "socket.io-client";
 
-const socket = io.connect("https://localhost:3001", {
+const socket = io.connect("https://212.85.25.203:3001", {
   transports: ["websocket"], 
 });
 
@@ -35,7 +35,7 @@ const AddPlayer = ({ players, setPlayers,reqToJoin,setReqToJoin,handleBellClick,
         }
 
         const response = await axios.get(
-          `https://localhost:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/players`
+          `https://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/players`
         );
 
         setPlayers(response.data);
@@ -137,7 +137,7 @@ useEffect(() => {
       const localArea = localStorage.getItem('LocalArea');
   
       const response = await axios.put(
-        `https://localhost:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/addPlayer`,
+        `https://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/addPlayer`,
         { name: name.trim(), gender, level, currentTime: formattedTime}
       );
   
@@ -167,11 +167,11 @@ useEffect(() => {
     if (updatedName) {
       try {
         await axios.put(
-          `https://localhost:3001/users/${user.email}/areas/${encodeURIComponent(localStorage.getItem('LocalArea'))}/sessions/${encodeURIComponent(localStorage.getItem('Session'))}/players/${id}`,
+          `https://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localStorage.getItem('LocalArea'))}/sessions/${encodeURIComponent(localStorage.getItem('Session'))}/players/${id}`,
           { name: updatedName.trim() }
         );
         await axios.put(
-          `https://localhost:3001/users/${user.email}/areas/${encodeURIComponent(localStorage.getItem('LocalArea'))}/sessions/${encodeURIComponent(localStorage.getItem('Session'))}/players/history/${id}`,
+          `https://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localStorage.getItem('LocalArea'))}/sessions/${encodeURIComponent(localStorage.getItem('Session'))}/players/history/${id}`,
           { name: updatedName.trim() }
         );
         setPlayers(players.map(player => player._id === id ? { ...player, name: updatedName.trim() } : player));
@@ -184,9 +184,9 @@ useEffect(() => {
 
   const handleDeletePlayer = async (id) => {
     try {
-      await axios.delete(`https://localhost:3001/users/${user.email}/areas/${encodeURIComponent(localStorage.getItem('LocalArea'))}/sessions/${encodeURIComponent(localStorage.getItem('Session'))}/players/${id}`);
+      await axios.delete(`https://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localStorage.getItem('LocalArea'))}/sessions/${encodeURIComponent(localStorage.getItem('Session'))}/players/${id}`);
 
-      await axios.delete(`https://localhost:3001/users/${user.email}/areas/${encodeURIComponent(localStorage.getItem('LocalArea'))}/sessions/${encodeURIComponent(localStorage.getItem('Session'))}/players/history/${id}`);
+      await axios.delete(`https://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localStorage.getItem('LocalArea'))}/sessions/${encodeURIComponent(localStorage.getItem('Session'))}/players/history/${id}`);
 
       setPlayers(players.filter(player => player._id !== id));
       Swal.fire({ icon: 'success', title: 'Success!', text: 'Player deleted successfully.' });
@@ -221,7 +221,7 @@ useEffect(() => {
         const localArea = localStorage.getItem('LocalArea');
   
         await axios.delete(
-          `https://localhost:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/players/`
+          `https://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/players/`
         );
   
         setPlayers([]);
@@ -423,7 +423,7 @@ useEffect(() => {
       setPlayerLoading(true);
   
       const response = await axios.put(
-        `https://localhost:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/bulkAddPlayers`,
+        `https://212.85.25.203:3001/users/${user.email}/areas/${encodeURIComponent(localArea)}/sessions/${encodeURIComponent(sessionDate)}/bulkAddPlayers`,
         { players: generatedPlayers, currentTime: formattedTime }
       );
   

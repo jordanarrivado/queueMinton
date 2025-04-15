@@ -7,7 +7,7 @@ import { useAuth } from '../AuthContext';
 import { useNavigate } from 'react-router-dom';
 import bgVid from '../videos/bgVid3.mp4';
 
-const API_URL = 'https://localhost:3001'; 
+const API_URL = 'https://212.85.25.203:3001'; 
 
 const LoginPage = () => {
   const [isSignUp, setIsSignUp] = useState(false);

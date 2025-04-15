@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import SyncLoader from "react-spinners/SyncLoader";
 import { io } from "socket.io-client";
 
-const socket = io.connect("https://localhost:3001", {
+const socket = io.connect("https://212.85.25.203:3001", {
   transports: ["websocket"], 
 });
 
@@ -58,7 +58,7 @@ const CourtCon = ({ user, courts, setCourts, inMatch, selectedBall, isChecked, c
     try {
       setCourtLoading(true);
       const response = await axios.get(
-        `https://localhost:3001/users/${user.email}/areas/${localArea}/courts`
+        `https://212.85.25.203:3001/users/${user.email}/areas/${localArea}/courts`
       );
   
       const existingCourts = response.data || [];
@@ -67,7 +67,7 @@ const CourtCon = ({ user, courts, setCourts, inMatch, selectedBall, isChecked, c
   
       // Add the new court directly under the area
       const addResponse = await axios.put(
-        `https://localhost:3001/users/${user.email}/areas/${localArea}/courts`,
+        `https://212.85.25.203:3001/users/${user.email}/areas/${localArea}/courts`,
         newCourt
       );
   
@@ -97,7 +97,7 @@ const CourtCon = ({ user, courts, setCourts, inMatch, selectedBall, isChecked, c
     try {
       setCourtLoading(true);
       await axios.delete(
-        `https://localhost:3001/users/${user.email}/areas/${localArea}/courts`
+        `https://212.85.25.203:3001/users/${user.email}/areas/${localArea}/courts`
       );
   
       setCourts([]);
@@ -150,7 +150,7 @@ const CourtCon = ({ user, courts, setCourts, inMatch, selectedBall, isChecked, c
       }
       setCourtLoading(true);
       await axios.delete(
-        `https://localhost:3001/users/${user.email}/areas/${localArea}/courts/${courtToDelete._id}`
+        `https://212.85.25.203:3001/users/${user.email}/areas/${localArea}/courts/${courtToDelete._id}`
       );
   
       setCourts(prevCourts => prevCourts.filter((_, idx) => idx !== index));

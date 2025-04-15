@@ -10,7 +10,7 @@ import {
 } from 'recharts';
 import { io } from "socket.io-client";
 
-const socket = io.connect("https://localhost:3001", {
+const socket = io.connect("https://212.85.25.203:3001", {
   transports: ["websocket"], 
 });
 
