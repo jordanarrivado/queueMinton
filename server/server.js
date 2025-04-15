@@ -25,7 +25,19 @@ const allowedOrigins = [
   "https://192.168.100.110:8081",
 ];
 
-app.use(cors({ origin: allowedOrigins, credentials: true }));
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (allowedOrigins.includes(origin) || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"), false);
+      }
+    },
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 const server = http.createServer(app);
