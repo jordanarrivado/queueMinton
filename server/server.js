@@ -2,7 +2,6 @@ const express = require("express");
 const axios = require("axios");
 const mongoose = require("mongoose");
 const cors = require("cors");
-require("dotenv").config();
 const bcrypt = require("bcrypt");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
@@ -12,36 +11,18 @@ const http = require("http");
 const { Server } = require("socket.io");
 const UserModel = require("./models/user");
 const app = express();
-const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
-const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
+const CLIENT_ID =
+  "406766184823-dln4eflvfpjn2c9h5mbekjuudoh681ra.apps.googleusercontent.com";
+const CLIENT_SECRET = "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";
 const allowedOrigins = [
-  "http://qminton.com",
-  "http://www.qminton.com",
-  "http://212.85.25.203",
   "http://localhost:3000",
-  "http://localhost:3000/App",
-  "http://212.85.25.203:3001",
-  "http://212.85.25.203:3001/App",
-  "https://localhost:8081",
-  "https://192.168.100.110:3000",
-  "https://192.168.100.110:8081",
+  "http://localhost:3001",
+  "http://localhost:8081",
+  "http://192.168.100.110:3000",
+  "http://192.168.100.110:8081",
 ];
 
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      console.log("Incoming origin:", origin);
-      if (allowedOrigins.includes(origin) || !origin) {
-        callback(null, true);
-      } else {
-        console.log("Blocked by CORS:", origin);
-        callback(new Error("Not allowed by CORS"), false);
-      }
-    },
-    credentials: true,
-  })
-);
-
+app.use(cors({ origin: allowedOrigins, credentials: true }));
 app.use(express.json());
 
 const server = http.createServer(app);
@@ -416,10 +397,10 @@ app.use(
 app.use(express.json());
 
 mongoose
-  .connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    "mongodb+srv://j0rdanarrivado:WfNDgnY6dV0mluWg@cluster0.hutg4cj.mongodb.net/",
+    { useNewUrlParser: true, useUnifiedTopology: true }
+  )
   .then(() => {
     console.log("MongoDB connected");
   })
@@ -427,18 +408,18 @@ mongoose
     console.error("MongoDB connection error:", err);
     process.exit(1);
   });
-//testing
+
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
-  res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
-  res.removeHeader("Cross-Origin-Embedder-Policy");
   res.status(500).json({ error: "Internal server error" });
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
+  next();
 });
 
 app.post("/", async function (req, res, next) {
   try {
-    const redirectUrl = "https://www.qminton.com/App";
+    const redirectUrl = "http://localhost:3000/App";
     const oAuthClient = new OAuth2Client(
       process.env.CLIENT_ID,
       process.env.CLIENT_SECRET,
@@ -447,14 +428,10 @@ app.post("/", async function (req, res, next) {
   } catch (err) {
     console.error(err.stack);
     res.status(500).json({ error: "Internal server error" });
-    res.setHeader("Access-Control-Allow-Origin", "https://www.qminton.com/App");
+    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
     res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
     next();
   }
-});
-
-app.get("/", (req, res) => {
-  res.send("Server is working!");
 });
 
 const JWT_SECRET = process.env.JWT_SECRET || "default_jwt_secret";
@@ -465,7 +442,6 @@ app.post("/google-login", async (req, res) => {
   const client = new OAuth2Client(
     CLIENT_ID,
     CLIENT_SECRET,
-    "http://qminton.com/App",
     "http://localhost:3000/App"
   );
 
@@ -547,7 +523,7 @@ app.post("/create-payment", async (req, res) => {
       {
         headers: {
           Authorization: `Basic ${Buffer.from(
-            process.env.PAYMONGO_KEY
+            "sk_test_K4fUytHrhdLBrMcLYwvr23pp"
           ).toString("base64")}`,
           "Content-Type": "application/json",
         },
@@ -2706,6 +2682,6 @@ app.post("/logout", async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3001;
-server.listen(PORT, "0.0.0.0", () => {
+server.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
