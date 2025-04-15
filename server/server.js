@@ -16,8 +16,7 @@ const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 const allowedOrigins = [
   "http://qminton.com",
-  "http://qminton.com/App",
-  "http://www.qminton.com/App",
+  "http://www.qminton.com",
   "http://212.85.25.203",
   "http://localhost:3000",
   "http://localhost:3000/App",
