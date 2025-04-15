@@ -427,9 +427,11 @@ mongoose
     console.error("MongoDB connection error:", err);
     process.exit(1);
   });
-
+//testing
 app.use((err, req, res, next) => {
   console.error(err.stack);
+  res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
+  res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
   res.removeHeader("Cross-Origin-Embedder-Policy");
   res.status(500).json({ error: "Internal server error" });
 });
