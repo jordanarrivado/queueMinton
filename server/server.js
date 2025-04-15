@@ -8,6 +8,7 @@ const jwt = require("jsonwebtoken");
 const session = require("express-session");
 const { OAuth2Client } = require("google-auth-library");
 const http = require("http");
+require("dotenv").config();
 const { Server } = require("socket.io");
 const UserModel = require("./models/user");
 const app = express();
