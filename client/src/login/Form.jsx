@@ -7,7 +7,7 @@ import { useAuth } from '../AuthContext';
 import { useNavigate } from 'react-router-dom';
 import bgVid from '../videos/bgVid3.mp4';
 
-const API_URL = '${API_URL}'; 
+const API_URL = '${process.env.REACT_APP_API_URL}'; 
 
 const LoginPage = () => {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -37,7 +37,7 @@ const LoginPage = () => {
     
       const fetch = async () =>{
             try{
-            const response = await axios.get(`${API_URL}/`);
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/`);
             console.log(response.data);
           }
           catch(e){
@@ -48,7 +48,7 @@ const LoginPage = () => {
   },[]);
 */
   const handleRegisterClick = () => {
-    //console.log('API URL:'${API_URL};
+    //console.log('API URL:'${process.env.REACT_APP_API_URL};
     console.log('Get Successfully:', process.env);
     setIsSignUp((e) => !e);
   } 
@@ -81,7 +81,7 @@ const LoginPage = () => {
         }
     
         try {
-          const { data } = await axios.post(`${API_URL}/login`, {
+          const { data } = await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
             email: loginEmail,
             password: loginPassword,
           });
@@ -115,7 +115,7 @@ const LoginPage = () => {
         }
     
         try {
-          const { data } = await axios.post(`${API_URL}`, { tokenId });
+          const { data } = await axios.post(`${process.env.REACT_APP_API_URL}`, { tokenId });
     
           login(data.accessToken, data.user);
           Swal.fire({
@@ -179,7 +179,7 @@ const LoginPage = () => {
         }
       
         try {
-          await axios.post(`${API_URL}/register`, {
+          await axios.post(`${process.env.REACT_APP_API_URL}/register`, {
             fullName: regFullName,
             email: regEmail,
             password: regPassword,
