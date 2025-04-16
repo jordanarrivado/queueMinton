@@ -7,7 +7,7 @@ import { useAuth } from '../AuthContext';
 import { useNavigate } from 'react-router-dom';
 import bgVid from '../videos/bgVid3.mp4';
 
-const API_URL = `${process.env.REACT_APP_API_URL}`; 
+const API_URL = process.env.REACT_APP_API_URL; 
 
 const LoginPage = () => {
   const [isSignUp, setIsSignUp] = useState(false);
