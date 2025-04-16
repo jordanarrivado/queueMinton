@@ -35,7 +35,7 @@ const LoginPage = () => {
     
       const fetch = async () =>{
             try{
-            const response = await axios.get(`${process.env.REACT_APP_API_URL}/`);
+            const response = await axios.get(`http://212.85.25.203:3001/`);
             console.log(response.data);
           }
           catch(e){
@@ -46,7 +46,7 @@ const LoginPage = () => {
   },[]);
 */
   const handleRegisterClick = () => {
-    //console.log('API URL:', process.env.REACT_APP_API_URL);
+    //console.log('API URL:'http://212.85.25.203:3001;
     console.log('Get Successfully:', process.env);
     setIsSignUp((e) => !e);
   } 
@@ -80,7 +80,7 @@ const LoginPage = () => {
         }
     
         try {
-          const { data } = await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
+          const { data } = await axios.post(`http://212.85.25.203:3001/login`, {
             email: loginEmail,
             password: loginPassword,
           });
@@ -116,7 +116,7 @@ const LoginPage = () => {
         }
     
         try {
-          const { data } = await axios.post(`${process.env.REACT_APP_API_URL}`, { tokenId });
+          const { data } = await axios.post(`http://212.85.25.203:3001`, { tokenId });
     
           login(data.accessToken, data.user);
           console.log(data.accessToken, data.user);
@@ -181,7 +181,7 @@ const LoginPage = () => {
         }
       
         try {
-          await axios.post(`${process.env.REACT_APP_API_URL}/register`, {
+          await axios.post(`http://212.85.25.203:3001/register`, {
             fullName: regFullName,
             email: regEmail,
             password: regPassword,
