@@ -5,7 +5,6 @@ const AuthContext = createContext();
 
 const decodeToken = (token) => {
   if (!token) return { valid: false };
-
   const parts = token.split(".");
   if (parts.length !== 3) return { valid: false };
 
@@ -16,7 +15,6 @@ const decodeToken = (token) => {
       console.error("Token has expired");
       return { valid: false };
     }
-    console.log("Decoded token payload:", payload);
     return { valid: true, data: payload };
   } catch (error) {
     console.error("Failed to decode token:", error);
@@ -85,9 +83,10 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     setUser(null);
     Cookies.remove("token");
-    Cookies.remove("userData");
+    Cookies.remove("userData"); // Ensure userData is removed as well
   };
 
+  // ✅ Auto-check token expiration every 5 minutes
   useEffect(() => {
     const refreshInterval = setInterval(() => {
       const token = Cookies.get("token");

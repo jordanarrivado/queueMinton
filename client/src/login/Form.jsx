@@ -29,36 +29,9 @@ const LoginPage = () => {
       symbol: false,
     });
     
-
-  // Toggle between Sign In and Sign Up
-  //const API = "text";
-  /*
-  useEffect(() =>{
-    
-      const fetch = async () =>{
-            try{
-            const response = await axios.get(`${REACT_APP_API_URL}/`);
-            console.log(response.data);
-          }
-          catch(e){
-            console.error("Error", e);
-          }
-        }
-    fetch();
-  },[]);
-*/
-  const handleRegisterClick = () => {
-    //console.log('API URL:'${REACT_APP_API_URL};
-    console.log('Get Successfully:', process.env.REACT_APP_API_URL);
-    setIsSignUp((e) => !e);
-  } 
-
-  /*
-  useEffect(() => {
-    console.log('API:', process.env);
-  }, []);
-*/
+  const handleRegisterClick = () => setIsSignUp(true);
   const handleLoginClick = () => setIsSignUp(false);
+
 
    useEffect(() => {
       if (user) {
@@ -81,7 +54,7 @@ const LoginPage = () => {
         }
     
         try {
-          const { data } = await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
+          const { data } = await axios.post(`${API_URL}/login`, {
             email: loginEmail,
             password: loginPassword,
           });
@@ -102,7 +75,6 @@ const LoginPage = () => {
         }
       };
     
-      // 🔹 Handle Google Login
       const onGoogleLoginSuccess = async (response) => {
         const { credential: tokenId } = response;
         if (!tokenId) {
@@ -115,7 +87,7 @@ const LoginPage = () => {
         }
     
         try {
-          const { data } = await axios.post(`${process.env.REACT_APP_API_URL}`, { tokenId });
+          const { data } = await axios.post(`${API_URL}/google-login`, { tokenId });
     
           login(data.accessToken, data.user);
           Swal.fire({
@@ -179,7 +151,7 @@ const LoginPage = () => {
         }
       
         try {
-          await axios.post(`${process.env.REACT_APP_API_URL}/register`, {
+          await axios.post(`${API_URL}/register`, {
             fullName: regFullName,
             email: regEmail,
             password: regPassword,
