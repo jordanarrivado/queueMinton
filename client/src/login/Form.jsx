@@ -7,7 +7,7 @@ import { useAuth } from '../AuthContext';
 import { useNavigate } from 'react-router-dom';
 import bgVid from '../videos/bgVid3.mp4';
 
-const API_URL = 'http://212.85.25.203:3001'; 
+const API_URL = '${API_URL}'; 
 
 const LoginPage = () => {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -37,7 +37,7 @@ const LoginPage = () => {
     
       const fetch = async () =>{
             try{
-            const response = await axios.get(`http://212.85.25.203:3001/`);
+            const response = await axios.get(`${API_URL}/`);
             console.log(response.data);
           }
           catch(e){
@@ -48,7 +48,7 @@ const LoginPage = () => {
   },[]);
 */
   const handleRegisterClick = () => {
-    //console.log('API URL:'http://212.85.25.203:3001;
+    //console.log('API URL:'${API_URL};
     console.log('Get Successfully:', process.env);
     setIsSignUp((e) => !e);
   } 
@@ -81,7 +81,7 @@ const LoginPage = () => {
         }
     
         try {
-          const { data } = await axios.post(`http://212.85.25.203:3001/login`, {
+          const { data } = await axios.post(`${API_URL}/login`, {
             email: loginEmail,
             password: loginPassword,
           });
@@ -115,7 +115,7 @@ const LoginPage = () => {
         }
     
         try {
-          const { data } = await axios.post(`http://212.85.25.203:3001`, { tokenId });
+          const { data } = await axios.post(`${API_URL}`, { tokenId });
     
           login(data.accessToken, data.user);
           Swal.fire({
@@ -179,7 +179,7 @@ const LoginPage = () => {
         }
       
         try {
-          await axios.post(`http://212.85.25.203:3001/register`, {
+          await axios.post(`${API_URL}/register`, {
             fullName: regFullName,
             email: regEmail,
             password: regPassword,
