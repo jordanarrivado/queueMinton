@@ -104,6 +104,7 @@ const LoginPage = () => {
     
       // 🔹 Handle Google Login
       const onGoogleLoginSuccess = async (response) => {
+        console.log('Google Login response:', response); 
         const { credential: tokenId } = response;
         if (!tokenId) {
           Swal.fire({

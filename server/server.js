@@ -444,6 +444,8 @@ app.post("/", async function (req, res, next) {
 const JWT_SECRET = process.env.JWT_SECRET || "default_jwt_secret";
 
 app.post("/google-login", async (req, res) => {
+  console.log("Received tokenId:", req.body.tokenId);
+
   const { tokenId } = req.body;
 
   const client = new OAuth2Client(
