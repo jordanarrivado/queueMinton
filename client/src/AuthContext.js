@@ -45,20 +45,12 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   }, []);
 
-  const login = (token, userData) => {
+  const login = (token, userData, navigate) => {
     const { valid, data } = decodeToken(token);
 
-    console.log("Login attempt:", {
-      token,
-      userData,
-      valid,
-      decodedData: data,
-    });
-
     if (valid && userData) {
-      setUser({ token, ...userData }); // ✅ Update state
+      setUser({ token, ...userData });
 
-      // ✅ Secure cookies for cross-origin OAuth
       Cookies.set("token", token, {
         secure: true,
         sameSite: "None",
@@ -70,10 +62,8 @@ export const AuthProvider = ({ children }) => {
         expires: 7,
       });
 
-      // ✅ Force a re-render by updating state immediately
-      window.location.href = "/App";
+      navigate("/App");
     } else {
-      console.error("Invalid token or user data during login.");
       logout();
     }
   };
