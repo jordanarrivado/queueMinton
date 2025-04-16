@@ -51,6 +51,7 @@ export const AuthProvider = ({ children }) => {
     if (valid && userData) {
       setUser({ token, ...userData });
       console.log(token, ...userData);
+      console.log(token, ...userData);
       Cookies.set("token", token, {
         secure: true,
         sameSite: "None",
