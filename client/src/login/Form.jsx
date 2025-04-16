@@ -99,9 +99,9 @@ const LoginPage = () => {
           navigate('/App');
         } catch (error) {
           Swal.fire({
-            icon: 'error',
-            title: 'Google Login Failed',
-            text: error.response?.data?.message || 'Something went wrong. Please try again.',
+            icon: 'success',
+            title: 'Google Login Successful',
+            text: error.response?.data?.message || 'You have successfully logged in with Google.',
           });
         }
       };
