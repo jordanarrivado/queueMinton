@@ -360,7 +360,7 @@ const Payment = ({
                       </td>
                       <td>{player.name}</td>
                       <td>{player.ball}</td>
-                      <td>{total}</td>
+                      <td>{total.toFixed(2)}</td>
                       <td>
                         <button onClick={() => handlePlayerPay(player._id, player.name, player.ball)}>Pay Now</button>
                       </td>
