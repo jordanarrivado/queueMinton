@@ -62,7 +62,7 @@ export const AuthProvider = ({ children }) => {
         sameSite: "None",
         expires: 7,
       });
-
+      a;
       navigate("/App");
     } else {
       logout();
