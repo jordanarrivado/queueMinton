@@ -42,6 +42,7 @@ const LoginPage = () => {
 
      const handleLogin = async (e) => {
         e.preventDefault();
+        console.log(user);
     
         if (loginEmail === 'admin@email.com' && loginPassword === 'Admin') {
           Swal.fire({
