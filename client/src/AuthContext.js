@@ -6,19 +6,18 @@ const AuthContext = createContext();
 const decodeToken = (token) => {
   if (!token) return { valid: false };
   const parts = token.split(".");
-  if (parts.length !== 3) return { valid: false };
+  if (parts.length !== 3)
+    return { valid: false, error: "Invalid token structure" };
 
   try {
     const payload = JSON.parse(atob(parts[1]));
     const currentTime = Math.floor(Date.now() / 1000);
     if (payload.exp && payload.exp < currentTime) {
-      console.error("Token has expired");
-      return { valid: false };
+      return { valid: false, error: "Token has expired" };
     }
     return { valid: true, data: payload };
   } catch (error) {
-    console.error("Failed to decode token:", error);
-    return { valid: false };
+    return { valid: false, error: "Failed to decode token" };
   }
 };
 

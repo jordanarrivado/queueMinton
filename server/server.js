@@ -511,6 +511,8 @@ app.post("/google-login", async (req, res) => {
 
 /*
 app.post("/google-login", async (req, res) => {
+  console.log("Received tokenId:", req.body.tokenId);
+
   const { tokenId } = req.body;
 
   const client = new OAuth2Client(
