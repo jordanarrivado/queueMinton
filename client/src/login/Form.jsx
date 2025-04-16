@@ -7,7 +7,7 @@ import { useAuth } from '../AuthContext';
 import { useNavigate } from 'react-router-dom';
 import bgVid from '../videos/bgVid3.mp4';
 
-const API_URL = 'http://212.85.25.203:3001'; 
+const API_URL = process.env.REACT_APP_API_URL; 
 
 const LoginPage = () => {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -31,7 +31,33 @@ const LoginPage = () => {
     
 
   // Toggle between Sign In and Sign Up
-  const handleRegisterClick = () => setIsSignUp(true);
+  //const API = "text";
+  /*
+  useEffect(() =>{
+    
+      const fetch = async () =>{
+            try{
+            const response = await axios.get(`${REACT_APP_API_URL}/`);
+            console.log(response.data);
+          }
+          catch(e){
+            console.error("Error", e);
+          }
+        }
+    fetch();
+  },[]);
+*/
+  const handleRegisterClick = () => {
+    //console.log('API URL:'${REACT_APP_API_URL};
+    console.log('Get Successfully:', process.env.REACT_APP_API_URL);
+    setIsSignUp((e) => !e);
+  } 
+
+  /*
+  useEffect(() => {
+    console.log('API:', process.env);
+  }, []);
+*/
   const handleLoginClick = () => setIsSignUp(false);
 
    useEffect(() => {
@@ -55,7 +81,7 @@ const LoginPage = () => {
         }
     
         try {
-          const { data } = await axios.post(`${API_URL}/login`, {
+          const { data } = await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
             email: loginEmail,
             password: loginPassword,
           });
@@ -89,7 +115,7 @@ const LoginPage = () => {
         }
     
         try {
-          const { data } = await axios.post(`${API_URL}/google-login`, { tokenId });
+          const { data } = await axios.post(`${process.env.REACT_APP_API_URL}`, { tokenId });
     
           login(data.accessToken, data.user);
           Swal.fire({
@@ -153,7 +179,7 @@ const LoginPage = () => {
         }
       
         try {
-          await axios.post(`${API_URL}/register`, {
+          await axios.post(`${process.env.REACT_APP_API_URL}/register`, {
             fullName: regFullName,
             email: regEmail,
             password: regPassword,

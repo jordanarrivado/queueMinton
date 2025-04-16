@@ -414,10 +414,9 @@ mongoose
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).json({ error: "Internal server error" });
   res.setHeader("Access-Control-Allow-Origin", "http://qminton.com");
   res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
-  next();
+  res.status(500).json({ error: "Internal server error" });
 });
 
 app.post("/", async function (req, res, next) {
@@ -428,12 +427,17 @@ app.post("/", async function (req, res, next) {
       process.env.CLIENT_SECRET,
       redirectUrl
     );
-  } catch (err) {
-    console.error(err.stack);
-    res.status(500).json({ error: "Internal server error" });
+
+    // ... Do something with oAuthClient
+
     res.setHeader("Access-Control-Allow-Origin", "http://qminton.com");
     res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
-    next();
+    res.status(200).json({ message: "Success" });
+  } catch (err) {
+    console.error(err.stack);
+    res.setHeader("Access-Control-Allow-Origin", "http://qminton.com");
+    res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 

@@ -5,6 +5,7 @@ const AuthContext = createContext();
 
 const decodeToken = (token) => {
   if (!token) return { valid: false };
+
   const parts = token.split(".");
   if (parts.length !== 3) return { valid: false };
 
@@ -15,6 +16,7 @@ const decodeToken = (token) => {
       console.error("Token has expired");
       return { valid: false };
     }
+    console.log("Decoded token payload:", payload);
     return { valid: true, data: payload };
   } catch (error) {
     console.error("Failed to decode token:", error);
