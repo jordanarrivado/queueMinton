@@ -7,6 +7,8 @@ import { useAuth } from '../AuthContext';
 import { useNavigate } from 'react-router-dom';
 import bgVid from '../videos/bgVid3.mp4';
 
+const API_URL = 'http://212.85.25.203:3001'; 
+
 const LoginPage = () => {
   const [isSignUp, setIsSignUp] = useState(false);
     const { login, user } = useAuth();
@@ -58,7 +60,6 @@ const LoginPage = () => {
 */
   const handleLoginClick = () => setIsSignUp(false);
 
-  
    useEffect(() => {
       if (user) {
         navigate('/App');
@@ -103,8 +104,6 @@ const LoginPage = () => {
     
       // 🔹 Handle Google Login
       const onGoogleLoginSuccess = async (response) => {
-        console.log(response);
-        //console.log(credential);
         const { credential: tokenId } = response;
         if (!tokenId) {
           Swal.fire({
@@ -119,7 +118,6 @@ const LoginPage = () => {
           const { data } = await axios.post(`http://212.85.25.203:3001`, { tokenId });
     
           login(data.accessToken, data.user);
-          console.log(data.accessToken, data.user);
           Swal.fire({
             icon: 'success',
             title: 'Google Login Successful',
