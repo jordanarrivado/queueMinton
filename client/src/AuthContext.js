@@ -5,6 +5,7 @@ const AuthContext = createContext();
 
 const decodeToken = (token) => {
   if (!token) return { valid: false };
+
   const parts = token.split(".");
   if (parts.length !== 3) return { valid: false };
 
@@ -15,6 +16,7 @@ const decodeToken = (token) => {
       console.error("Token has expired");
       return { valid: false };
     }
+    console.log("Decoded token payload:", payload);
     return { valid: true, data: payload };
   } catch (error) {
     console.error("Failed to decode token:", error);
@@ -45,20 +47,34 @@ export const AuthProvider = ({ children }) => {
 
     setLoading(false);
   }, []);
-  
 
   const login = (token, userData) => {
     const { valid, data } = decodeToken(token);
-  
-    console.log("Login attempt:", { token, userData, valid, decodedData: data });
-  
+
+    console.log("Login attempt:", {
+      token,
+      userData,
+      valid,
+      decodedData: data,
+    });
+
     if (valid && userData) {
-      setUser({ token, ...userData });  // ✅ Update state
-  
+      setUser({ token, ...userData }); // ✅ Update state
+
       // ✅ Secure cookies for cross-origin OAuth
-      Cookies.set("token", token, { secure: true, sameSite: "None", expires: 7 });
-      Cookies.set("userData", JSON.stringify(userData), { secure: true, sameSite: "None", expires: 7 });
-  
+      Cookies.set("token", token, {
+        secure: true,
+        sameSite: "None",
+        expires: 7,
+      });
+      Cookies.set("userData", JSON.stringify(userData), {
+        secure: true,
+        sameSite: "None",
+        expires: 7,
+      });
+
+      console.log("User logged in:", { token, userData });
+
       // ✅ Force a re-render by updating state immediately
       window.location.href = "/App";
     } else {
@@ -66,7 +82,6 @@ export const AuthProvider = ({ children }) => {
       logout();
     }
   };
-  
 
   // ✅ Logout function: Ensures all session data is removed
   const logout = () => {
@@ -93,7 +108,9 @@ export const AuthProvider = ({ children }) => {
 
   const contextValue = { user, login, logout, loading };
 
-  return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
+  );
 };
 
 export const useAuth = () => useContext(AuthContext);
