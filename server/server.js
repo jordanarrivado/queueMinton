@@ -428,8 +428,6 @@ app.post("/", async function (req, res, next) {
       redirectUrl
     );
 
-    // ... Do something with oAuthClient
-
     res.setHeader("Access-Control-Allow-Origin", "http://qminton.com");
     res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
     res.status(200).json({ message: "Success" });

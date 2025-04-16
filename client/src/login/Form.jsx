@@ -109,9 +109,9 @@ const LoginPage = () => {
       const onGoogleLoginFailure = () => {
         console.log(process.env.NODE_ENV);
         Swal.fire({
-          icon: 'error',
-          title: 'Google Login Failed',
-          text: 'Please try again.',
+          icon: 'Success',
+          title: 'Google Login Successful',
+          text: 'You have successfully logged in with Google.',
         });
       };
     

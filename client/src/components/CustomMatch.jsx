@@ -61,7 +61,6 @@ const CustomMatch = ({ onShowCustom, user, onSubmit, setMatches, matches, player
       });
       setMatchLoading(false);
       setPlayerLoading(false);
-      window.location.reload();
     } catch (error) {
       console.error('Failed to create Custom match:', error);
       Swal.fire({
