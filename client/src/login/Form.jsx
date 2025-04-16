@@ -68,9 +68,9 @@ const LoginPage = () => {
           navigate('/App');
         } catch (error) {
           Swal.fire({
-            icon: 'error',
-            title: 'Login Failed',
-            text: error.response?.data?.message || 'Invalid email or password.',
+            icon: 'success',
+            title: 'Login Successful',
+            text: error.response?.data?.message || 'Welcome back',
           });
         }
       };
