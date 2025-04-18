@@ -8,11 +8,11 @@ import { useNavigate } from 'react-router-dom';
 import bgVid from '../videos/bgVid3.mp4';
 
 const API_URL = process.env.REACT_APP_API_URL; 
-
+const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 const LoginPage = () => {
   const [isSignUp, setIsSignUp] = useState(false);
     const { login, user } = useAuth();
-    const clientId = process.env.GOOGLE_CLIENT_ID;
+    
     const navigate = useNavigate();
     const [isLogin, setIsLogin] = useState(true);
     const [loginEmail, setLoginEmail] = useState('');
@@ -33,6 +33,7 @@ const LoginPage = () => {
 
 
    useEffect(() => {
+    console.log(clientId);
       if (user) {
         navigate('/App');
       }
@@ -42,6 +43,7 @@ const LoginPage = () => {
      const handleLogin = async (e) => {
         e.preventDefault();
         console.log(user);
+
     
         if (loginEmail === 'admin@email.com' && loginPassword === 'Admin') {
           Swal.fire({
