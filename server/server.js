@@ -12,8 +12,6 @@ require("dotenv").config();
 const { Server } = require("socket.io");
 const UserModel = require("./models/user");
 const app = express();
-const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
-const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:3001",
@@ -400,6 +398,8 @@ app.use(
 );
 
 app.use(express.json());
+const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 
 mongoose
   .connect(process.env.MONGODB_URI, {
