@@ -258,7 +258,7 @@ const Schedule = ({isChecked,areas,setAreas,user, schedules, setSchedules, newSc
                   onChange={handleChange}
                 >
                   <option value="">Select Location</option>
-                  {areas.map((area) => (
+                  {Array.isArray(areas) && areas.map((area) => (
                     <option key={area.name} value={area.name}>
                       {capitalizeFirstLetter(area.name)}
                     </option>

@@ -46,10 +46,10 @@ const AddArea = ({
       Swal.fire("Error", "Please select a court fee type.", "error");
       return;
     }
-    if (areas.some((area) => area.name.toLowerCase() === newArea.toLowerCase())) {
+    if (Array.isArray(areas) && areas.some((area) => area.name.toLowerCase() === newArea.toLowerCase())) {
       Swal.fire("Error", "Area name already exists.", "error");
       return;
-    }
+    }    
 
     setLoading(true);
     try {
