@@ -12,6 +12,8 @@ require("dotenv").config();
 const { Server } = require("socket.io");
 const UserModel = require("./models/user");
 const app = express();
+
+app.use(express.json());
 const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:8081",
@@ -22,15 +24,6 @@ const allowedOrigins = [
   "http://192.168.100.110:3000",
   "http://192.168.100.110:8081",
 ];
-
-app.use(
-  cors({
-    origin: allowedOrigins,
-    credentials: true,
-  })
-);
-
-app.use(express.json());
 
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -418,26 +411,22 @@ mongoose
     process.exit(1);
   });
 
-app.use((req, res, next) => {
-  const origin = req.headers.origin;
+// Set up CORS middleware properly
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+};
 
-  if (allowedOrigins.includes(origin) || !origin) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-  } else {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-  }
+app.use(cors(corsOptions));
 
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PUT, DELETE, OPTIONS"
-  );
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-
-  res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
-  res.setHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
-  next();
-});
+// Optional: Handle preflight OPTIONS requests
+app.options("*", cors(corsOptions));
 
 app.post("/", async function (req, res, next) {
   try {
