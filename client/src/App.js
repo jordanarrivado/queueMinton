@@ -70,7 +70,7 @@ import ArrowBtn from "./components/arrowBtn";
 import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 
-const socket = io.connect(`${process.env.REACT_APP_API_URL}`, {
+const socket = io.connect(`${process.env.REACT_APP_API_URL3}`, {
   transports: ["websocket"],
 });
 

@@ -10,7 +10,7 @@ import NotifIconBlack from './icons/notifIconDark.png'
 import SyncLoader from "react-spinners/SyncLoader";
 import { io } from "socket.io-client";
 
-const socket = io.connect(`${process.env.REACT_APP_API_URL}`, {
+const socket = io.connect(`${process.env.REACT_APP_API_URL3}`, {
   transports: ["websocket"],
 });
 
