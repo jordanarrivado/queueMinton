@@ -402,10 +402,10 @@ app.use(
 app.use(express.json());
 
 mongoose
-  .connect(
-    "mongodb+srv://j0rdanarrivado:WfNDgnY6dV0mluWg@cluster0.hutg4cj.mongodb.net/",
-    { useNewUrlParser: true, useUnifiedTopology: true }
-  )
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("MongoDB connected");
   })
@@ -414,23 +414,28 @@ mongoose
     process.exit(1);
   });
 
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.setHeader("Access-Control-Allow-Origin", "http://qminton.com");
+// Set headers for ALL routes and responses
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "https://qminton.com");
   res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
-  res.status(500).json({ error: "Internal server error" });
+  res.setHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
+  next();
 });
 
 app.post("/", async function (req, res, next) {
   try {
-    const redirectUrl = "http://qminton.com/App";
+    const redirectUrl = "https://qminton.com/App";
     const oAuthClient = new OAuth2Client(
       process.env.CLIENT_ID,
       process.env.CLIENT_SECRET,
       redirectUrl
     );
 
-    res.setHeader("Access-Control-Allow-Origin", "http://qminton.com");
+    res.setHeader(
+      "Access-Control-Allow-Origin",
+      "https://qminton.com",
+      "https://www.qminton.com"
+    );
     res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
     res.status(200).json({ message: "Success" });
   } catch (err) {
