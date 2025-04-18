@@ -12,7 +12,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 const LoginPage = () => {
   const [isSignUp, setIsSignUp] = useState(false);
     const { login, user } = useAuth();
-    const clientId = '406766184823-dln4eflvfpjn2c9h5mbekjuudoh681ra.apps.googleusercontent.com';
+    const clientId = process.env.GOOGLE_CLIENT_ID;
     const navigate = useNavigate();
     const [isLogin, setIsLogin] = useState(true);
     const [loginEmail, setLoginEmail] = useState('');
