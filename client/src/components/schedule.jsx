@@ -274,51 +274,49 @@ const Schedule = ({isChecked,areas,setAreas,user, schedules, setSchedules, newSc
 
             {/* Schedule Display */}
             <div className="Schedule">
-      {schedules.length > 0 && (
-        schedules.map((sched, index) => {
-          const clock =  isChecked ? ClockBlack : ClockLight;
-          const del = isChecked ? DelLight : DelDark;
-          const edit = isChecked ? EditLight : EditDark;
-          const locIcon = isChecked ? LocLight : LocBlack;
-          return (
-            
-            <div key={index} className="schedCon">
-              <div className="head">
-                <h4 className="title">{sched.title}</h4>
-                <div className="actions">
-                  <img src={EditLight} onClick={() => handleEdit(sched)} className="edit" alt="Edit" />
-                  <img src={DelLight} onClick={() => handleDelete(sched._id)} className="del" alt="Delete" />
-                </div>
-              </div>
+            {Array.isArray(schedules) && schedules.length > 0 && (
+              schedules.map((sched, index) => {
+                const clock = isChecked ? ClockBlack : ClockLight;
+                const del = isChecked ? DelLight : DelDark;
+                const edit = isChecked ? EditLight : EditDark;
+                const locIcon = isChecked ? LocLight : LocBlack;
 
-              <div className="body"> 
-                <div className="info">
-                  <div className="icon-text">
-                    <img src={ClockBlack} className="icon" alt="Clock" />
-                    <p className="time">{sched.startTime}</p>
-                  </div>
-                  
-                  <div className="icon-text">
-                    <img src={CalendarLight} className="icon" alt="Calendar" />
-                    <p className="date">{sched.date}</p>
-                  </div>
-                  
-                  <div className="icon-text">
-                    <img src={LocLight} className="icon" alt="Location" />
-                    <p className="location">{sched.location || "No Location provided"}</p>
-                  </div>
-                </div>
+                return (
+                  <div key={index} className="schedCon">
+                    <div className="head">
+                      <h4 className="title">{sched.title}</h4>
+                      <div className="actions">
+                        <img src={edit} onClick={() => handleEdit(sched)} className="edit" alt="Edit" />
+                        <img src={del} onClick={() => handleDelete(sched._id)} className="del" alt="Delete" />
+                      </div>
+                    </div>
 
-                <div className="notes-section">
-                  <p className="notes-title">Notes</p>
-                  <p className="desc">{sched.description || "No description"}</p>
-                </div>
-              </div>
-            </div>
+                    <div className="body"> 
+                      <div className="info">
+                        <div className="icon-text">
+                          <img src={clock} className="icon" alt="Clock" />
+                          <p className="time">{sched.startTime}</p>
+                        </div>
+                        <div className="icon-text">
+                          <img src={CalendarLight} className="icon" alt="Calendar" />
+                          <p className="date">{sched.date}</p>
+                        </div>
+                        <div className="icon-text">
+                          <img src={locIcon} className="icon" alt="Location" />
+                          <p className="location">{sched.location || "No Location provided"}</p>
+                        </div>
+                      </div>
 
-          );
-        })
-      )}
+                      <div className="notes-section">
+                        <p className="notes-title">Notes</p>
+                        <p className="desc">{sched.description || "No description"}</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })
+            )}
+
     </div>
  
 </div>

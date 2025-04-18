@@ -168,7 +168,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log(user.email);
+    // console.log(user.email);
     const sessionDate = localStorage.getItem("Session");
     const localArea = localStorage.getItem("LocalArea");
 

@@ -29,18 +29,33 @@ const Dashboard = ({ isChecked, areas,historyArea,setHistoryArea,user }) => {
     const fetchArea = async () => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/${user.email}/areas`);
-        const areasWithRevenue = response.data.map((area) => {
-          const totalRevenue = area.sessions.reduce((acc, session) => acc + (session.sessionRevenue || 0), 0);
-          return { ...area, name: capitalizeFirstLetter(area.name), totalRevenue };
+        
+        console.log("API response data:", response.data); 
+        const areas = Array.isArray(response.data) ? response.data : response.data?.data || [];
+  
+        const areasWithRevenue = areas.map((area) => {
+          const totalRevenue = area.sessions.reduce(
+            (acc, session) => acc + (session.sessionRevenue || 0),
+            0
+          );
+          return {
+            ...area,
+            name: capitalizeFirstLetter(area.name),
+            totalRevenue,
+          };
         });
+  
         setHistoryArea(areasWithRevenue);
-        setLoading(false);
       } catch (error) {
         console.error('Error fetching areas:', error);
-      } 
+      } finally {
+        setLoading(false);
+      }
     };
+  
     fetchArea();
   }, []);
+  
   
 
 
