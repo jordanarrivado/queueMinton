@@ -16,7 +16,7 @@ const decodeToken = (token) => {
       return { valid: false, error: "Token has expired" };
     }
     return { valid: true, data: payload };
-  } catch (error) {
+  } catch {
     return { valid: false, error: "Failed to decode token" };
   }
 };
@@ -25,33 +25,32 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  const validateSession = () => {
     const token = Cookies.get("token");
     const userData = Cookies.get("userData")
       ? JSON.parse(Cookies.get("userData"))
       : null;
 
-    const { valid, data } = decodeToken(token);
+    const { valid } = decodeToken(token);
 
     if (valid && userData) {
-      console.log("Token and user data retrieved:", token, data, userData);
       setUser({ token, ...userData });
     } else {
-      Cookies.remove("token");
-      Cookies.remove("userData");
-      setUser(null);
+      logout();
     }
+  };
 
+  useEffect(() => {
+    validateSession();
     setLoading(false);
   }, []);
 
-  const login = (token, userData, navigate) => {
-    const { valid, data } = decodeToken(token);
+  const login = (token, userData) => {
+    const { valid } = decodeToken(token);
 
     if (valid && userData) {
       setUser({ token, ...userData });
-      console.log(token, ...userData);
-      console.log(token, ...userData);
+
       Cookies.set("token", token, {
         secure: true,
         sameSite: "None",
@@ -62,39 +61,37 @@ export const AuthProvider = ({ children }) => {
         sameSite: "None",
         expires: 7,
       });
-      navigate("/App");
     } else {
       logout();
     }
   };
 
-  // ✅ Logout function: Ensures all session data is removed
   const logout = () => {
+    console.log("Logging out: clearing user session.");
     setUser(null);
     Cookies.remove("token");
-    Cookies.remove("userData"); // Ensure userData is removed as well
+    Cookies.remove("userData");
   };
 
-  // ✅ Auto-check token expiration every 5 minutes
   useEffect(() => {
-    const refreshInterval = setInterval(() => {
+    const interval = setInterval(() => {
       const token = Cookies.get("token");
       if (token) {
         const { valid } = decodeToken(token);
         if (!valid) {
-          console.log("Token expired, logging out...");
+          console.log("Token expired. Logging out.");
           logout();
         }
       }
-    }, 5 * 60 * 1000); // Check every 5 minutes
+    }, 5 * 60 * 1000); // Every 5 minutes
 
-    return () => clearInterval(refreshInterval);
+    return () => clearInterval(interval);
   }, []);
 
-  const contextValue = { user, login, logout, loading };
-
   return (
-    <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ user, login, logout, loading }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
 

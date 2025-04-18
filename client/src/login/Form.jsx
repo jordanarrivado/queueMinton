@@ -12,9 +12,8 @@ const API_URL = process.env.REACT_APP_API_URL;
 const LoginPage = () => {
   const [isSignUp, setIsSignUp] = useState(false);
     const { login, user } = useAuth();
-    const navigate = useNavigate();
     const clientId = '406766184823-dln4eflvfpjn2c9h5mbekjuudoh681ra.apps.googleusercontent.com';
-  
+    const navigate = useNavigate();
     const [isLogin, setIsLogin] = useState(true);
     const [loginEmail, setLoginEmail] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
@@ -68,12 +67,12 @@ const LoginPage = () => {
           });
           navigate('/App');
         } catch (error) {
-          Swal.fire({
-            icon: 'success',
-            title: 'Login Successful',
-            text: error.response?.data?.message || 'Welcome back',
-          });
-        }
+            Swal.fire({
+              icon: 'error',
+              title: 'Login Failed', 
+              text: error.response?.data?.message || 'Something went wrong. Please try again.',
+            });
+           }
       };
     
       const onGoogleLoginSuccess = async (response) => {
@@ -90,7 +89,8 @@ const LoginPage = () => {
     
         try {
           const { data } = await axios.post(`${API_URL}/google-login`, { tokenId });
-    
+          
+          console.log(data.accessToken, data.user);
           login(data.accessToken, data.user);
           Swal.fire({
             icon: 'success',
@@ -100,22 +100,21 @@ const LoginPage = () => {
           navigate('/App');
         } catch (error) {
           Swal.fire({
-            icon: 'success',
-            title: 'Google Login Successful',
-            text: error.response?.data?.message || 'You have successfully logged in with Google.',
+            icon: 'error',
+            title: 'Login Failed',
+            text: error.response?.data?.message || 'Something went wrong. Please try again.',
           });
         }
       };
     
       const onGoogleLoginFailure = () => {
-        console.log(process.env.NODE_ENV);
         Swal.fire({
-          icon: 'Success',
-          title: 'Google Login Successful',
-          text: 'You have successfully logged in with Google.',
+          icon: 'error',
+          title: 'Google Login Failed',
+          text: 'Google sign-in was unsuccessful. Please try again.',
         });
       };
-    
+
       const isStrongPassword = (password) => {
         const minLength = 8;
         const hasUppercase = /[A-Z]/.test(password);

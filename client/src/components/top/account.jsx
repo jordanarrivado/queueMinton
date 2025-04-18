@@ -13,7 +13,7 @@ const Account = ({ logout, user, setSessionStart, sessionStart, textCode, setTex
   const [selectedFile, setSelectedFile] = useState(null);
   const [showQRCode, setShowQRCode] = useState(false);
 
-  useEffect(() => {
+  
     const fetchQRCode = async () => {
       if (showQRCode) {
         setShowQRCode(false);
@@ -36,11 +36,11 @@ const Account = ({ logout, user, setSessionStart, sessionStart, textCode, setTex
       setLoading(false);
     };
 
-    fetchQRCode();
-  },[]);
 
-  const handleShowQr = () => {
-    setShowQRCode(e => !e);
+
+  const handleShowQr = async () => {
+    await fetchQRCode();
+    setShowQRCode(prev => !prev);
   }
   
 
@@ -56,6 +56,7 @@ const Account = ({ logout, user, setSessionStart, sessionStart, textCode, setTex
   }, [user]);
 
   const handleImageClick = () => {
+    console.log(user.email);
     setShowDetails((prevShowDetails) => !prevShowDetails);
   };
 

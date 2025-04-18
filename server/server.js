@@ -440,72 +440,6 @@ app.post("/", async function (req, res, next) {
 });
 
 const JWT_SECRET = process.env.JWT_SECRET || "default_jwt_secret";
-app.post("/google-login", async (req, res) => {
-  const { tokenId } = req.body;
-
-  if (!tokenId) {
-    return res.status(400).json({ message: "Token ID is required." });
-  }
-
-  const client = new OAuth2Client(
-    CLIENT_ID,
-    CLIENT_SECRET,
-    "http://qminton.com/App"
-  );
-
-  try {
-    console.log("Received tokenId:", tokenId);
-
-    const ticket = await client.verifyIdToken({
-      idToken: tokenId,
-      audience: CLIENT_ID,
-    });
-
-    const payload = ticket.getPayload();
-    console.log("Decoded ticket payload:", payload);
-
-    const { email, name, picture } = payload;
-
-    let user = await UserModel.findOne({ email });
-    if (!user) {
-      user = new UserModel({
-        email,
-        fullName: name,
-        profileImage: picture,
-      });
-      await user.save();
-      console.log("Saved user:", user);
-    }
-
-    const accessToken = generateAccessToken(user);
-    const refreshToken = generateRefreshToken(user);
-
-    console.log("Generated access token:", accessToken);
-    console.log("Generated refresh token:", refreshToken);
-
-    res.status(200).json({
-      accessToken,
-      refreshToken,
-      user: {
-        email: user.email,
-        fullName: user.fullName,
-        profileImage: user.profileImage,
-      },
-    });
-  } catch (error) {
-    console.error("Google login error:", error);
-
-    if (error.code === "ETIMEDOUT") {
-      res.status(503).json({
-        message: "Service temporarily unavailable. Please try again later.",
-      });
-    } else {
-      res.status(500).json({
-        message: "Google login failed. Please try again.",
-      });
-    }
-  }
-});
 
 /*
 app.post("/google-login", async (req, res) => {
@@ -694,6 +628,73 @@ app.post("/refresh-token", async (req, res) => {
   } catch (error) {
     console.error("Error during token refresh:", error);
     res.status(500).json({ message: "Server error. Please try again later." });
+  }
+});
+
+app.post("/google-login", async (req, res) => {
+  const { tokenId } = req.body;
+
+  if (!tokenId) {
+    return res.status(400).json({ message: "Token ID is required." });
+  }
+
+  const client = new OAuth2Client(
+    CLIENT_ID,
+    CLIENT_SECRET,
+    "http://qminton.com/App"
+  );
+
+  try {
+    console.log("Received tokenId:", tokenId);
+
+    const ticket = await client.verifyIdToken({
+      idToken: tokenId,
+      audience: CLIENT_ID,
+    });
+
+    const payload = ticket.getPayload();
+    console.log("Decoded ticket payload:", payload);
+
+    const { email, name, picture } = payload;
+
+    let user = await UserModel.findOne({ email });
+    if (!user) {
+      user = new UserModel({
+        email,
+        fullName: name,
+        profileImage: picture,
+      });
+      await user.save();
+      console.log("Saved user:", user);
+    }
+
+    const accessToken = generateAccessToken(user);
+    const refreshToken = generateRefreshToken(user);
+
+    console.log("Generated access token:", accessToken);
+    console.log("Generated refresh token:", refreshToken);
+
+    res.status(200).json({
+      accessToken,
+      refreshToken,
+      user: {
+        email: user.email,
+        fullName: user.fullName,
+        profileImage: user.profileImage,
+      },
+    });
+  } catch (error) {
+    console.error("Google login error:", error);
+
+    if (error.code === "ETIMEDOUT") {
+      res.status(503).json({
+        message: "Service temporarily unavailable. Please try again later.",
+      });
+    } else {
+      res.status(500).json({
+        message: "Google login failed. Please try again.",
+      });
+    }
   }
 });
 

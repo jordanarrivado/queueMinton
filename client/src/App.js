@@ -67,6 +67,7 @@ import PacmanLoader from "react-spinners/PacmanLoader";
 //import ParticlesBackground from './components/particleBackground.js';
 import ArrowBtn from "./components/arrowBtn";
 
+import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 
 const socket = io.connect(`${process.env.REACT_APP_API_URL}`, {
@@ -76,6 +77,7 @@ const socket = io.connect(`${process.env.REACT_APP_API_URL}`, {
 //const http = rateLimit(axios.create(), { maxRequests: 2, perMilliseconds: 1000 });
 
 function App() {
+  const navigate = useNavigate();
   const [players, setPlayers] = useState([]);
   const [courtFeeTypeDis, setCourtFeeTypeDis] = useState("");
   const [playerHistory, setPlayerHistory] = useState([]);
@@ -166,6 +168,7 @@ function App() {
   }, []);
 
   useEffect(() => {
+    console.log(user.email);
     const sessionDate = localStorage.getItem("Session");
     const localArea = localStorage.getItem("LocalArea");
 
@@ -1040,6 +1043,12 @@ function App() {
       setCourtLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (user) {
+      navigate("/App");
+    }
+  }, [user]);
 
   /*
 selectedPlayers
