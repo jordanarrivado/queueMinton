@@ -160,36 +160,41 @@ const AddArea = ({
           {areas.length === 0 ? (
             <p>No courts added yet.</p>
           ) : (
-            areas.map((area) => (
-              <div 
-                key={area._id} 
-                className={`area-item ${activeComponent === 'displayGameMode' ? 'active' : ''}`}
-                onClick={(e) => handleClick('displayGameMode', area, e)}
-              > 
-                <h4>{capitalizeFirstLetter(area.name)}</h4>
-                {area.areaImage && <img src={area.areaImage} alt={area.name} className="area-image" />}  
-                <div className="btn-group">
-                  <button 
-                    onClick={(event) => { 
-                      event.stopPropagation(); 
-                      handleDeleteArea(area._id);
-                    }} 
-                    className="btn-delete"
-                  >
-                    Delete
-                  </button>
-                  <button 
-                    onClick={(event) => { 
-                      event.stopPropagation(); 
-                      handleEditArea(area);
-                    }} 
-                    className="btn-edit"
-                  >
-                    Edit
-                  </button>
+            Array.isArray(areas) ? (
+              areas.map((area) => (
+                <div 
+                  key={area._id} 
+                  className={`area-item ${activeComponent === 'displayGameMode' ? 'active' : ''}`}
+                  onClick={(e) => handleClick('displayGameMode', area, e)}
+                > 
+                  <h4>{capitalizeFirstLetter(area.name)}</h4>
+                  {area.areaImage && <img src={area.areaImage} alt={area.name} className="area-image" />}  
+                  <div className="btn-group">
+                    <button 
+                      onClick={(event) => { 
+                        event.stopPropagation(); 
+                        handleDeleteArea(area._id);
+                      }} 
+                      className="btn-delete"
+                    >
+                      Delete
+                    </button>
+                    <button 
+                      onClick={(event) => { 
+                        event.stopPropagation(); 
+                        handleEditArea(area);
+                      }} 
+                      className="btn-edit"
+                    >
+                      Edit
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))
+              ))
+            ) : (
+              <p>No areas found.</p>
+            )
+            
           )}
         </div>
       </div>
