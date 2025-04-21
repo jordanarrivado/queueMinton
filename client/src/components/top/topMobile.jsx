@@ -3,8 +3,9 @@ import logo from "../icons/newLogo.png";
 import { IoMenu, IoClose } from "react-icons/io5"; 
 import Swal from "sweetalert2";
 import End from "./end";
+import Toggle from "./toggle";
 
-const TopMobile = ({onNavigationMobile, selectedComponentMobile, user, logout,setClick,setSessionStart,sessionStart}) => {
+const TopMobile = ({onNavigationMobile, selectedComponentMobile, user, logout,setClick,setSessionStart,sessionStart, isChecked, handleToggle }) => {
   const [showNav, setShowNav] = useState(false);
   const [ifStarted, setIfStarted] = useState('');
 
@@ -76,6 +77,7 @@ const TopMobile = ({onNavigationMobile, selectedComponentMobile, user, logout,se
       <nav className={`mobile-menu ${showNav ? "show" : ""}`}>
         <ul>
           <li>Account: {user.email}</li>
+          <li><Toggle isChecked={isChecked} onToggle={handleToggle} /></li>
           <li onClick={() => handleClick('dashboardMobile')}
             className={selectedComponentMobile === 'dashboardMobile' ? 'active' : ''}
           >Dashboard</li>

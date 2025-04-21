@@ -210,9 +210,75 @@
   color: #fff;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1024px) {
   .crud-container {
     width: 91%;
-    margin-top: 2rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .crud-container {
+    width: 95%;
+    height: 75vh;
+    padding: 1rem;
+    grid-template-rows: auto auto;
+  }
+
+  .crud-container .form-container2 {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .crud-container .form-container2 input,
+  .crud-container .form-container2 select,
+  .crud-container .form-container2 .btn-add {
+    width: 95%;
+  }
+
+  .area-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .btn-group {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .btn-edit,
+  .btn-delete,
+  .btn-update,
+  .btn-cancel {
+    flex: 1 1 48%;
+    padding: 0.75rem;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .crud-container {
+    padding: 1rem 0.5rem;
+  }
+
+  .crud-container .form-container2 input,
+  .crud-container .form-container2 select,
+  .crud-container .form-container2 .btn-add {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .btn-edit,
+  .btn-delete,
+  .btn-update,
+  .btn-cancel {
+    font-size: 0.85rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .area-item h4 {
+    font-size: 1rem;
   }
 }

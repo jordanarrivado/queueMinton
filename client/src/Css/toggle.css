@@ -1,9 +1,8 @@
 .toggle-container {
   position: relative;
-  width: auto;
+  width: 100%;
   max-width: 62%;
   height: 3rem;
-  max-height: 100vh;
 }
 
 .toggle-input {
@@ -44,67 +43,44 @@
   background-color: var(--toggleCheckBeforeBg);
   box-shadow: var(--toggleCheckBeforeShadow);
 }
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  .toggle-container {
-    position: relative;
-    width: auto;
-    max-width: 62%;
-    height: 3rem;
-    max-height: 100vh;
-  }
 
-  .toggle-input {
-    display: none;
+/* Responsive tweaks */
+@media screen and (max-width: 1024px) {
+  .toggle-container {
+    max-width: 80%;
   }
 
   .toggle-label {
-    position: absolute;
     width: 120%;
-    height: 100%;
-    background: var(--bgCompo2);
-    border-radius: 34px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: var(--toggleShadowLabel);
-    border: 1px solid lime;
-  }
-
-  .toggle-label::before {
-    content: "";
-    position: absolute;
-    width: 49%;
-    height: 81%;
-    left: 4px;
-    bottom: 4px;
-    background-color: var(--toggleLabelBeforeBg);
-    border-radius: 50%;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    box-shadow: var(--toggleLabelBeforeShadow);
-  }
-
-  .toggle-input:checked + .toggle-label {
-    background-color: var(--toggleBg);
-    box-shadow: var(--toggleCheckShadow);
-  }
-
-  .toggle-input:checked + .toggle-label::before {
-    transform: translateX(83%);
-    background-color: var(--toggleCheckBeforeBg);
-    box-shadow: var(--toggleCheckBeforeShadow);
   }
 }
-@media screen and (max-width: 1024px) {
+
+@media screen and (max-width: 767px) {
+  .toggle-container {
+    max-width: 30%;
+  }
+
   .toggle-label {
     width: 150%;
   }
 }
-@media screen and (max-width: 768px) {
-  .logo {
-    padding-left: 1rem;
-    transform: translateY(-15px);
+
+@media screen and (max-width: 480px) {
+  .toggle-container {
+    max-width: 25%;
+    height: 2.5rem;
   }
 
   .toggle-label {
-    width: 200%;
+    width: 180%;
+  }
+
+  .toggle-label::before {
+    width: 48%;
+    height: 75%;
+  }
+
+  .toggle-input:checked + .toggle-label::before {
+    transform: translateX(87%);
   }
 }
