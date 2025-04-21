@@ -261,6 +261,8 @@
 @media screen and (max-width: 480px) {
   .crud-container {
     padding: 1rem 0.5rem;
+    width: 82vw;
+    align-item: center;
   }
 
   .crud-container .form-container2 input,
@@ -268,6 +270,12 @@
   .crud-container .form-container2 .btn-add {
     font-size: 0.9rem;
     padding: 0.6rem;
+  }
+  .crud-container .form-container2 input {
+    width: 73vw;
+  }
+  .area-item {
+    width: 68vw;
   }
 
   .btn-edit,
