@@ -428,7 +428,7 @@ app.use(cors(corsOptions));
 // Optional: Handle preflight OPTIONS requests
 app.options("*", cors(corsOptions));
 
-app.post("/", async function (req, res, next) {
+app.post("/", async function (req, res) {
   try {
     const redirectUrl = "https://qminton.com/App";
     const oAuthClient = new OAuth2Client(
@@ -437,16 +437,25 @@ app.post("/", async function (req, res, next) {
       redirectUrl
     );
 
-    res.setHeader(
-      "Access-Control-Allow-Origin",
-      "https://qminton.com",
-      "https://www.qminton.com"
-    );
+    const allowedOrigins = ["https://qminton.com", "https://www.qminton.com"];
+    const origin = req.headers.origin;
+
+    if (allowedOrigins.includes(origin)) {
+      res.setHeader("Access-Control-Allow-Origin", origin);
+    }
+
     res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
     res.status(200).json({ message: "Success" });
   } catch (err) {
     console.error(err.stack);
-    res.setHeader("Access-Control-Allow-Origin", "http://qminton.com");
+
+    const allowedOrigins = ["https://qminton.com", "https://www.qminton.com"];
+    const origin = req.headers.origin;
+
+    if (allowedOrigins.includes(origin)) {
+      res.setHeader("Access-Control-Allow-Origin", origin);
+    }
+
     res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
     res.status(500).json({ error: "Internal server error" });
   }
